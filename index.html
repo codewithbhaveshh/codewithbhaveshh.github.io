@@ -15,22 +15,21 @@
 
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-
 body{
   font-family:system-ui,-apple-system,"Segoe UI";
-  color:white;
   background:#020617;
+  color:white;
   overflow-x:hidden;
 }
 
-/* 🌌 PARTICLE CANVAS */
+/* PARTICLES */
 #particles{
   position:fixed;
   inset:0;
   z-index:-2;
 }
 
-/* 🖱️ CURSOR GLOW */
+/* CURSOR GLOW */
 .cursor-glow{
   position:fixed;
   width:120px;
@@ -38,37 +37,37 @@ body{
   border-radius:50%;
   pointer-events:none;
   background:radial-gradient(circle, rgba(96,165,250,.35), transparent 60%);
-  filter:blur(30px);
+  filter:blur(35px);
   z-index:-1;
   transform:translate(-50%,-50%);
 }
 
-/* 🪟 GLASS CONTAINER */
+/* GLASS */
 .glass{
   max-width:1000px;
   margin:40px auto;
   padding:40px 24px;
-  border-radius:28px;
-  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
+  border-radius:30px;
+  background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.02));
   backdrop-filter:blur(22px);
   border:1px solid var(--border);
-  box-shadow:
-    0 0 80px rgba(59,130,246,.25),
-    inset 0 0 30px rgba(255,255,255,.05);
-  animation:fadeUp 1s ease forwards;
+  box-shadow:0 0 90px rgba(59,130,246,.25);
 }
 
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
+/* SECTIONS */
 section{
   padding:80px 10px;
   text-align:center;
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s ease;
+}
+section.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
-/* 👤 HERO */
+/* HERO */
 .hero img{
   width:150px;
   height:150px;
@@ -76,7 +75,6 @@ section{
   border:3px solid var(--accent);
   box-shadow:0 0 40px var(--glow);
 }
-
 h1{
   margin-top:20px;
   font-size:2.6rem;
@@ -85,47 +83,40 @@ h1{
   -webkit-text-fill-color:transparent;
   text-shadow:0 0 30px rgba(96,165,250,.4);
 }
-
 .typing{
   margin-top:10px;
-  font-size:1.1rem;
   color:#93c5fd;
-  min-height:26px;
   text-shadow:0 0 14px rgba(59,130,246,.8);
 }
-
 .cursor{
   display:inline-block;
   width:2px;
-  height:20px;
+  height:18px;
   background:#93c5fd;
   margin-left:4px;
   animation:blink 1s infinite;
 }
-
 @keyframes blink{50%{opacity:0}}
 
-/* 🔘 BUTTONS */
+/* BUTTONS */
 .btn{
   display:inline-block;
   padding:14px 26px;
   margin:12px;
   border-radius:18px;
-  color:white;
-  text-decoration:none;
   border:1px solid var(--border);
   background:rgba(255,255,255,.05);
-  backdrop-filter:blur(10px);
+  color:white;
+  text-decoration:none;
   transition:.3s;
 }
 .btn:hover{
   transform:translateY(-6px);
   background:rgba(59,130,246,.18);
-  border-color:var(--accent);
-  box-shadow:0 12px 40px rgba(59,130,246,.5);
+  box-shadow:0 15px 45px rgba(59,130,246,.6);
 }
 
-/* 🧊 CARDS */
+/* GRID */
 .grid{
   display:grid;
   gap:18px;
@@ -133,7 +124,6 @@ h1{
 @media(min-width:700px){
   .grid{grid-template-columns:repeat(2,1fr)}
 }
-
 .card{
   padding:22px;
   border-radius:20px;
@@ -143,8 +133,21 @@ h1{
 }
 .card:hover{
   transform:translateY(-8px);
-  border-color:var(--accent);
   box-shadow:0 20px 50px rgba(59,130,246,.35);
+}
+
+/* SOUND TOGGLE */
+.sound-toggle{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  padding:12px 18px;
+  border-radius:20px;
+  background:rgba(255,255,255,.08);
+  border:1px solid var(--border);
+  cursor:pointer;
+  backdrop-filter:blur(10px);
+  z-index:10;
 }
 
 footer{
@@ -159,6 +162,7 @@ footer{
 
 <canvas id="particles"></canvas>
 <div class="cursor-glow" id="glow"></div>
+<div class="sound-toggle sfx" id="soundBtn">🔊 Sound ON</div>
 
 <div class="glass">
 
@@ -168,21 +172,16 @@ footer{
   <div class="typing">
     <span id="typed"></span><span class="cursor"></span>
   </div>
-
   <div>
     <a class="btn sfx" href="https://github.com/codewithbhaveshh" target="_blank">GitHub</a>
     <a class="btn sfx" href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">Codeforces</a>
     <a class="btn sfx" href="https://www.codechef.com/users/bhaveshhpandey" target="_blank">CodeChef</a>
-    <a class="btn sfx" href="resume.pdf" target="_blank">Resume</a>
   </div>
 </section>
 
 <section>
 <h2>About Me</h2>
-<p>
-First year CSE student passionate about Competitive Programming,
-DSA, and AI/ML. Building skills & real projects.
-</p>
+<p>First year CSE student into Competitive Programming, DSA & AI/ML.</p>
 </section>
 
 <section>
@@ -191,7 +190,7 @@ DSA, and AI/ML. Building skills & real projects.
   <div class="card sfx">C++ · STL · DSA</div>
   <div class="card sfx">Competitive Programming</div>
   <div class="card sfx">Python Basics</div>
-  <div class="card sfx">HTML · CSS · JavaScript</div>
+  <div class="card sfx">Web Development</div>
 </div>
 </section>
 
@@ -207,93 +206,76 @@ DSA, and AI/ML. Building skills & real projects.
 
 </div>
 
-<footer>
-© 2025 Bhavesh Pandey · Built with ❤️
-</footer>
+<footer>© 2025 Bhavesh Pandey</footer>
 
 <script>
-/* 🔊 SOUND EFFECTS */
-const hoverSound = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3");
-hoverSound.volume = 0.25;
-
-document.querySelectorAll(".sfx").forEach(el=>{
-  el.addEventListener("mouseenter",()=>hoverSound.play());
+/* 🔊 SOUNDS */
+const hoverSound=new Audio("https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3");
+hoverSound.volume=.25;
+document.querySelectorAll(".sfx").forEach(e=>{
+  e.addEventListener("mouseenter",()=>hoverSound.play());
 });
 
+/* 🎵 AMBIENT MUSIC */
+const music=new Audio("https://assets.mixkit.co/music/preview/mixkit-ambient-future-177.mp3");
+music.loop=true; music.volume=.15;
+document.getElementById("soundBtn").onclick=()=>{
+  if(music.paused){music.play();soundBtn.textContent="🔇 Sound OFF";}
+  else{music.pause();soundBtn.textContent="🔊 Sound ON";}
+};
+
 /* ⌨️ TYPING */
-const roles=[
-"Competitive Programmer",
-"Codeforces Enthusiast",
-"AI/ML Learner",
-"C++ & DSA Developer",
-"Future Software Engineer"
-];
-let i=0,j=0,del=false;
-const t=document.getElementById("typed");
+const roles=["Competitive Programmer","AI/ML Learner","C++ Developer","Future SWE"];
+let i=0,j=0,d=false;const t=document.getElementById("typed");
 (function type(){
-  if(!del && j<=roles[i].length) t.textContent=roles[i].slice(0,j++);
-  else if(del && j>=0) t.textContent=roles[i].slice(0,j--);
-  if(j===roles[i].length+1) del=true;
-  if(j===0 && del){del=false;i=(i+1)%roles.length}
-  setTimeout(type,del?50:90);
+  if(!d&&j<=roles[i].length)t.textContent=roles[i].slice(0,j++);
+  else if(d&&j>=0)t.textContent=roles[i].slice(0,j--);
+  if(j===roles[i].length+1)d=true;
+  if(j===0&&d){d=false;i=(i+1)%roles.length}
+  setTimeout(type,d?50:90);
 })();
 
 /* 🌌 PARTICLES */
-const canvas=document.getElementById("particles");
-const ctx=canvas.getContext("2d");
-let w,h,particles=[];
-function resize(){
-  w=canvas.width=window.innerWidth;
-  h=canvas.height=window.innerHeight;
-}
-window.addEventListener("resize",resize);
-resize();
-
-for(let i=0;i<80;i++){
-  particles.push({
-    x:Math.random()*w,
-    y:Math.random()*h,
-    r:Math.random()*2+1,
-    dx:(Math.random()-.5)*.5,
-    dy:(Math.random()-.5)*.5
+const c=document.getElementById("particles"),x=c.getContext("2d");
+let w,h,p=[];
+function resize(){w=c.width=innerWidth;h=c.height=innerHeight}
+addEventListener("resize",resize);resize();
+for(let i=0;i<80;i++)p.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+1,dx:(Math.random()-.5)*.5,dy:(Math.random()-.5)*.5});
+(function anim(){
+  x.clearRect(0,0,w,h);
+  x.fillStyle="rgba(96,165,250,.6)";
+  p.forEach(a=>{
+    a.x+=a.dx;a.y+=a.dy;
+    if(a.x<0||a.x>w)a.dx*=-1;
+    if(a.y<0||a.y>h)a.dy*=-1;
+    x.beginPath();x.arc(a.x,a.y,a.r,0,Math.PI*2);x.fill();
   });
-}
-function animate(){
-  ctx.clearRect(0,0,w,h);
-  ctx.fillStyle="rgba(96,165,250,.6)";
-  particles.forEach(p=>{
-    p.x+=p.dx;p.y+=p.dy;
-    if(p.x<0||p.x>w)p.dx*=-1;
-    if(p.y<0||p.y>h)p.dy*=-1;
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fill();
-  });
-  requestAnimationFrame(animate);
-}
-animate();
+  requestAnimationFrame(anim);
+})();
 
-/* 🖱️ CURSOR GLOW */
-const glow=document.getElementById("glow");
-window.addEventListener("mousemove",e=>{
-  glow.style.left=e.clientX+"px";
-  glow.style.top=e.clientY+"px";
+/* 🖱️ CURSOR */
+const g=document.getElementById("glow");
+addEventListener("mousemove",e=>{
+  g.style.left=e.clientX+"px";
+  g.style.top=e.clientY+"px";
 });
 
-/* 📦 GITHUB PROJECTS */
+/* 🎞 SCROLL REVEAL */
+const obs=new IntersectionObserver(e=>{
+  e.forEach(v=>v.isIntersecting&&v.target.classList.add("show"));
+},{threshold:.2});
+document.querySelectorAll("section").forEach(s=>obs.observe(s));
+
+/* 📦 GITHUB */
 fetch("https://api.github.com/users/codewithbhaveshh/repos")
-.then(r=>r.json())
-.then(repos=>{
+.then(r=>r.json()).then(d=>{
   const box=document.getElementById("projects");
-  repos.filter(r=>!r.fork).slice(0,6).forEach(r=>{
-    box.innerHTML+=`
-      <div class="card sfx">
-        <a href="${r.html_url}" target="_blank">${r.name}</a>
-        <p>${r.description||"No description"}</p>
-      </div>`;
+  d.filter(r=>!r.fork).slice(0,6).forEach(r=>{
+    box.innerHTML+=`<div class="card sfx"><a href="${r.html_url}" target="_blank">${r.name}</a><p>${r.description||"No description"}</p></div>`;
   });
 });
 </script>
 
 </body>
 </html>
+
