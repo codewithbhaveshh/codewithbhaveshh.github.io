@@ -1,142 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Bhavesh Pandey | Competitive Programmer | AI/ML | Portfolio">
-<title>Bhavesh Pandey</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bhavesh Pandey | Portfolio</title>
+
+<meta name="description" content="Bhavesh Pandey | Competitive Programmer | AI/ML Learner">
 
 <style>
-  
+/* ---------- ROOT ---------- */
 :root{
-  --bg:#020617;
-  --card:#020617;
-  --border:#1e293b;
+  --bg1:#020617;
+  --bg2:#0b1c3d;
   --accent:#3b82f6;
+  --glow:#60a5fa;
   --muted:#94a3b8;
+  --border:rgba(255,255,255,.12);
 }
 
-*{box-sizing:border-box}
+/* ---------- RESET ---------- */
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-
 body{
-  margin:0;
   font-family:system-ui,-apple-system,"Segoe UI";
   color:white;
   min-height:100vh;
-  background:linear-gradient(
-    120deg,
-    #020617,
-    #020617,
-    #020617,
-    #0b1c3d,
-    #020617
-  );
-  background-size:400% 400%;
+  background:
+    radial-gradient(circle at 20% 20%, #1e3a8a55, transparent 40%),
+    radial-gradient(circle at 80% 80%, #2563eb55, transparent 40%),
+    linear-gradient(120deg,var(--bg1),var(--bg2),var(--bg1));
+  background-size:200% 200%;
   animation:bgMove 15s ease infinite;
 }
 
+/* ---------- BACKGROUND ANIMATION ---------- */
 @keyframes bgMove{
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
 }
 
-
-section{
-  max-width:900px;
-  margin:auto;
-  padding:80px 20px;
+/* ---------- GLASS CONTAINER ---------- */
+.glass{
+  max-width:1000px;
+  margin:40px auto;
+  padding:40px 24px;
+  border-radius:28px;
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.08),
+    rgba(255,255,255,.02)
+  );
+  backdrop-filter:blur(22px);
+  border:1px solid var(--border);
+  box-shadow:
+    0 0 80px rgba(59,130,246,.25),
+    inset 0 0 30px rgba(255,255,255,.05);
+  animation:fadeUp 1.2s ease forwards;
 }
 
-.hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+/* ---------- FADE ---------- */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ---------- SECTIONS ---------- */
+section{
+  padding:80px 10px;
   text-align:center;
 }
 
-img{
-  width:140px;
-  height:140px;
+/* ---------- HERO ---------- */
+.hero img{
+  width:150px;
+  height:150px;
   border-radius:50%;
   border:3px solid var(--accent);
-  object-fit:cover;
+  box-shadow:0 0 40px var(--glow);
 }
 
-h1{font-size:2.2rem;margin:20px 0 6px}
-h2{font-size:1.6rem;margin-bottom:16px}
-p{color:var(--muted)}
+h1{
+  margin-top:20px;
+  font-size:2.6rem;
+  background:linear-gradient(90deg,#93c5fd,#60a5fa,#3b82f6);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 30px rgba(96,165,250,.4);
+}
 
-.typing{height:24px;font-size:1rem}
-.cursor{display:inline-block;width:2px;height:20px;background:white;margin-left:4px;animation:blink 1s infinite}
+.typing{
+  margin-top:10px;
+  font-size:1.1rem;
+  color:#93c5fd;
+  min-height:26px;
+  text-shadow:0 0 14px rgba(59,130,246,.8);
+}
+
+.cursor{
+  display:inline-block;
+  width:2px;
+  height:20px;
+  background:#93c5fd;
+  margin-left:4px;
+  animation:blink 1s infinite;
+}
+
 @keyframes blink{50%{opacity:0}}
 
+/* ---------- BUTTONS ---------- */
 .btn{
   display:inline-block;
-  padding:12px 22px;
-  margin:10px;
-  border:1px solid var(--border);
-  border-radius:14px;
-  text-decoration:none;
+  padding:14px 26px;
+  margin:12px;
+  border-radius:18px;
   color:white;
-  transition:.25s;
+  text-decoration:none;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(10px);
+  transition:.35s;
+  box-shadow:0 0 0 transparent;
 }
-.btn:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-2px)}
+.btn:hover{
+  transform:translateY(-6px);
+  background:rgba(59,130,246,.18);
+  border-color:var(--accent);
+  box-shadow:0 12px 40px rgba(59,130,246,.5);
+}
 
+/* ---------- HEADINGS ---------- */
+h2{
+  font-size:1.8rem;
+  margin-bottom:24px;
+  text-shadow:0 0 20px rgba(59,130,246,.6);
+}
+
+/* ---------- TEXT ---------- */
+p{color:var(--muted);max-width:720px;margin:auto}
+
+/* ---------- GRID ---------- */
+.grid{
+  display:grid;
+  gap:18px;
+}
+@media(min-width:700px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ---------- CARD ---------- */
 .card{
+  padding:22px;
+  border-radius:20px;
+  background:rgba(255,255,255,.04);
   border:1px solid var(--border);
-  border-radius:18px;
-  padding:20px;
-  margin-bottom:20px;
-  transition:.25s;
+  transition:.35s;
+  box-shadow:inset 0 0 20px rgba(255,255,255,.03);
 }
-.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card:hover{
+  transform:translateY(-8px);
+  border-color:var(--accent);
+  box-shadow:0 20px 50px rgba(59,130,246,.35);
+}
 
-.grid{display:grid;gap:16px}
-@media(min-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
-
-footer{text-align:center;color:var(--muted);padding:30px}
-  .cp-card{
-  width:180px;
-  padding:20px;
-  border-radius:18px;
+/* ---------- CP CARD ---------- */
+.cp-card{
+  width:200px;
+  padding:24px;
+  border-radius:22px;
   border:1px solid var(--border);
-  text-align:center;
+  background:rgba(255,255,255,.04);
   text-decoration:none;
   color:white;
-  transition:.25s;
-}
-.cp-card span{
-  font-size:1.1rem;
-  font-weight:600;
-}
-.cp-card small{
-  display:block;
-  margin-top:8px;
-  color:var(--muted);
+  transition:.35s;
 }
 .cp-card:hover{
-  transform:translateY(-6px);
+  transform:translateY(-10px);
   border-color:var(--accent);
-  background:rgba(59,130,246,.08);
+  box-shadow:0 20px 60px rgba(59,130,246,.5);
 }
 
+/* ---------- FOOTER ---------- */
+footer{
+  text-align:center;
+  padding:30px;
+  color:var(--muted);
+}
 </style>
 </head>
 
 <body>
-<div class="glass">
-  
 
+<div class="glass">
 
 <!-- HERO -->
 <section class="hero">
   <img src="profile.jpg" alt="Bhavesh Pandey">
   <h1>Bhavesh Pandey</h1>
-  <div class="typing"><span id="typed"></span><span class="cursor"></span></div>
+  <div class="typing">
+    <span id="typed"></span><span class="cursor"></span>
+  </div>
 
   <div>
     <a class="btn" href="https://github.com/codewithbhaveshh" target="_blank">GitHub</a>
@@ -150,8 +213,8 @@ footer{text-align:center;color:var(--muted);padding:30px}
 <section>
 <h2>About Me</h2>
 <p>
-First year CSE student passionate about Competitive Programming, problem solving,
-and exploring AI/ML. Focused on building strong DSA foundations and shipping real projects.
+First year CSE student passionate about Competitive Programming, problem solving
+and exploring AI/ML. Focused on mastering DSA and building impactful projects.
 </p>
 </section>
 
@@ -159,32 +222,27 @@ and exploring AI/ML. Focused on building strong DSA foundations and shipping rea
 <section>
 <h2>Skills</h2>
 <div class="grid">
-  <div class="card">C++ / STL / DSA</div>
+  <div class="card">C++ · STL · DSA</div>
   <div class="card">Competitive Programming</div>
   <div class="card">Python Basics</div>
   <div class="card">HTML · CSS · JavaScript</div>
 </div>
 </section>
 
-<!-- COMPETITIVE -->
+<!-- CP -->
 <section>
-<h2>🏅 Competitive Programming</h2>
-
-<div style="display:flex;gap:24px;flex-wrap:wrap">
-
-  <a class="cp-card" href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">
-    <span>Codeforces</span>
-    <small id="cf">loading...</small>
+<h2>Competitive Programming</h2>
+<div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap">
+  <a class="cp-card" href="https://codeforces.com/profile/bhaveshcodes69">
+    <strong>Codeforces</strong>
+    <small id="cf" style="display:block;margin-top:10px;color:var(--muted)">Loading...</small>
   </a>
-
-  <a class="cp-card" href="https://www.codechef.com/users/bhaveshhpandey" target="_blank">
-    <span>CodeChef</span>
-    <small>Visit profile</small>
+  <a class="cp-card" href="https://www.codechef.com/users/bhaveshhpandey">
+    <strong>CodeChef</strong>
+    <small style="display:block;margin-top:10px;color:var(--muted)">Visit profile</small>
   </a>
-
 </div>
 </section>
-
 
 <!-- PROJECTS -->
 <section>
@@ -192,11 +250,11 @@ and exploring AI/ML. Focused on building strong DSA foundations and shipping rea
 <div id="projects" class="grid"></div>
 </section>
 
-<!-- TIMELINE -->
+<!-- JOURNEY -->
 <section>
 <h2>Journey</h2>
-<div class="card">2024 — Started Competitive Programming</div>
-<div class="card">2025 — First Year CSE + GitHub Portfolio</div>
+<div class="card">2024 — Started Competitive Programming</div><br>
+<div class="card">2025 — First Year CSE & Portfolio</div><br>
 <div class="card">Future — Internships & Open Source</div>
 </section>
 
@@ -206,14 +264,14 @@ and exploring AI/ML. Focused on building strong DSA foundations and shipping rea
 <p>Email: <strong>bhaveshhpandeyy@gmail.com</strong></p>
 </section>
 
-  </div>
+</div>
 
 <footer>
 © 2025 Bhavesh Pandey · Built with ❤️
 </footer>
 
 <script>
-/* Typing animation */
+/* Typing */
 const roles=[
 "Competitive Programmer",
 "Codeforces Enthusiast",
@@ -224,92 +282,38 @@ const roles=[
 let i=0,j=0,del=false;
 const t=document.getElementById("typed");
 function type(){
-  if(!del && j<=roles[i].length)t.textContent=roles[i].slice(0,j++);
-  else if(del && j>=0)t.textContent=roles[i].slice(0,j--);
-  if(j===roles[i].length+1)del=true;
-  if(j===0&&del){del=false;i=(i+1)%roles.length}
-  setTimeout(type,del?50:90);
+  if(!del && j<=roles[i].length) t.textContent=roles[i].slice(0,j++);
+  else if(del && j>=0) t.textContent=roles[i].slice(0,j--);
+  if(j===roles[i].length+1) del=true;
+  if(j===0 && del){ del=false; i=(i+1)%roles.length }
+  setTimeout(type, del?50:90);
 }
 type();
 
-/* Codeforces live fetch */
+/* Codeforces */
 fetch("https://codeforces.com/api/user.info?handles=bhaveshcodes69")
 .then(r=>r.json())
 .then(d=>{
   const u=d.result[0];
-  document.getElementById("cf").innerText=
-    `Codeforces: ${u.rating} (${u.rank})`;
+  document.getElementById("cf").innerText=`Rating ${u.rating} (${u.rank})`;
 })
-.catch(()=>document.getElementById("cf").innerText="Codeforces: unavailable");
+.catch(()=>document.getElementById("cf").innerText="Unavailable");
 
-  .glass{
-  max-width:420px;
-  margin:40px auto;
-  padding:40px 24px;
-  border-radius:26px;
-  background:rgba(2,6,23,.65);
-  backdrop-filter:blur(18px);
-  border:1px solid rgba(255,255,255,.08);
-  box-shadow:0 0 60px rgba(59,130,246,.15);
-  animation:fadeUp 1s ease forwards;
-}
-
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(30px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-  .typing-glow{
-  margin-top:6px;
-  font-size:1rem;
-  color:#93c5fd;
-  text-shadow:0 0 12px rgba(59,130,246,.6);
-  min-height:24px;
-}
-.cursor{
-  display:inline-block;
-  width:2px;
-  height:18px;
-  background:#93c5fd;
-  margin-left:4px;
-  animation:blink 1s infinite;
-}
-@keyframes blink{50%{opacity:0}}
-.btn{
-  display:block;
-  width:100%;
-  padding:14px;
-  margin:12px 0;
-  border-radius:16px;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.1);
-  color:white;
-  text-decoration:none;
-  transition:.3s;
-}
-
-.btn:hover{
-  transform:translateY(-4px) scale(1.02);
-  background:rgba(59,130,246,.15);
-  box-shadow:0 10px 30px rgba(59,130,246,.3);
-}
-
-
-
-/* GitHub repos list */
+/* GitHub */
 fetch("https://api.github.com/users/codewithbhaveshh/repos")
 .then(r=>r.json())
 .then(repos=>{
   const box=document.getElementById("projects");
   repos.filter(r=>!r.fork).slice(0,6).forEach(r=>{
     box.innerHTML+=`
-    <div class="card">
-      <a href="${r.html_url}" target="_blank">${r.name}</a>
-      <p>${r.description||"No description"}</p>
-    </div>`;
+      <div class="card">
+        <a href="${r.html_url}" target="_blank">${r.name}</a>
+        <p>${r.description || "No description"}</p>
+      </div>`;
   });
 });
 </script>
 
 </body>
 </html>
+
