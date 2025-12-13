@@ -98,6 +98,7 @@ h1::after{
 .typing::before{content:"> ";}
 
 /* BUTTONS */
+/* --- UPDATED BUTTON STYLES --- */
 .btn-group {
   max-width: 400px;
   margin: 20px auto 0;
@@ -120,6 +121,8 @@ h1::after{
   background:rgba(59,130,246,.15);
   box-shadow:0 10px 30px rgba(59,130,246,.3);
 }
+/* ------------------------------- */
+
 
 /* GRID */
 .grid{
@@ -137,6 +140,25 @@ h1::after{
   border:1px solid rgba(56,189,248,.25);
 }
 
+/* SOUND BUTTON - REMOVED AS PER SCRIPT UPDATE */
+/*
+.sound-toggle{
+  position:fixed;
+  bottom:24px;
+  right:24px;
+  padding:14px 22px;
+  border-radius:999px;
+  background:#020617;
+  border:1px solid rgba(147,197,253,.4);
+  color:#93c5fd;
+  cursor:pointer;
+  z-index:999;
+  box-shadow:0 0 30px rgba(59,130,246,.4);
+}
+.sound-toggle:hover{
+  transform:scale(1.08);
+}
+*/
 footer{
   text-align:center;
   padding:30px;
@@ -180,22 +202,10 @@ Exploring AI / ML.
 <section>
 <h2>// skills</h2>
 <div class="grid">
-  <div class="card">
-    💻 **C++ for CP/DSA**
-    <br><span style="color:var(--muted);font-size:0.9em;">`std::vector` · STL · Problem Solving</span>
-  </div>
-  <div class="card">
-    🐍 **Python for AI/ML**
-    <br><span style="color:var(--muted);font-size:0.9em;">`import pandas as pd` · NumPy · Scikit-learn</span>
-  </div>
-  <div class="card">
-    🌐 **Web Basics**
-    <br><span style="color:var(--muted);font-size:0.9em;">HTML5 · CSS3 · Vanilla JS</span>
-  </div>
-  <div class="card">
-    ✨ **Competitive Spirit**
-    <br><span style="color:var(--muted);font-size:0.9em;">`while(contest) solve();` · Debugging · Optimizing</span>
-  </div>
+  <div class="card">vector&lt;int&gt; · STL · DSA</div>
+  <div class="card">while(contest) solve();</div>
+  <div class="card">Python_basics.py</div>
+  <div class="card">HTML + CSS + JS</div>
 </div>
 </section>
 
@@ -247,7 +257,7 @@ run();
 
 /* PARTICLES */
 const c=document.getElementById("particles"),x=c.getContext("2d");
-let wSize,hSize,p=[]; 
+let wSize,hSize,p=[]; // Renamed w,h to wSize,hSize to avoid conflict with typing script's w
 function resize(){wSize=c.width=innerWidth;hSize=c.height=innerHeight}
 addEventListener("resize",resize);resize();
 for(let i=0;i<90;i++)
