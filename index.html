@@ -10,17 +10,15 @@
       --bg: #020617;
       --card: #020617;
       --border: #1e293b;
-      --accent: #2563eb;
-      --text-muted: #94a3b8;
+      --accent: #3b82f6;
+      --muted: #94a3b8;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI";
       background: radial-gradient(circle at top, #020617, #020617);
       color: white;
       min-height: 100vh;
@@ -29,87 +27,74 @@
       align-items: center;
     }
 
-    .container {
-      width: 360px;
+    .wrap {
+      width: 380px;
       animation: fadeUp 1s ease forwards;
     }
 
     @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 26px;
+      border-radius: 20px;
+      padding: 28px;
       text-align: center;
-      box-shadow: 0 30px 60px rgba(0,0,0,.6);
+      box-shadow: 0 30px 70px rgba(0,0,0,.7);
     }
 
     img {
-      width: 110px;
-      height: 110px;
+      width: 115px;
+      height: 115px;
       border-radius: 50%;
-      border: 2px solid var(--accent);
+      border: 3px solid var(--accent);
       object-fit: cover;
     }
 
     h1 {
-      margin: 16px 0 4px;
-      font-size: 1.5rem;
+      margin: 14px 0 6px;
+      font-size: 1.55rem;
     }
 
-    .subtitle {
+    .tagline {
       font-size: .9rem;
-      color: var(--text-muted);
-      margin-bottom: 18px;
+      color: var(--muted);
+      margin-bottom: 20px;
     }
 
-    .links a {
+    a.btn {
       display: block;
       text-decoration: none;
-      background: transparent;
-      border: 1px solid var(--border);
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 12px;
       color: white;
+      border: 1px solid var(--border);
+      padding: 13px;
+      margin: 10px 0;
+      border-radius: 14px;
       transition: all .25s ease;
     }
 
-    .links a:hover {
+    a.btn:hover {
       background: var(--accent);
       border-color: var(--accent);
       transform: translateY(-2px);
     }
 
     .section {
-      margin-top: 22px;
       text-align: left;
+      margin-top: 22px;
     }
 
     .section h2 {
-      font-size: 1rem;
+      font-size: .95rem;
       margin-bottom: 10px;
       color: #e5e7eb;
     }
 
-    .badge {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      font-size: .8rem;
+    .badges img {
       margin: 4px 6px 0 0;
-      color: #e5e7eb;
     }
 
     .project {
@@ -117,7 +102,7 @@
       border-radius: 12px;
       padding: 12px;
       margin-bottom: 10px;
-      transition: .25s ease;
+      transition: .25s;
     }
 
     .project:hover {
@@ -127,52 +112,49 @@
 
     .project-title {
       font-size: .95rem;
-      margin-bottom: 4px;
     }
 
     .project-desc {
       font-size: .8rem;
-      color: var(--text-muted);
+      color: var(--muted);
     }
 
     footer {
       text-align: center;
       font-size: .75rem;
-      color: var(--text-muted);
+      color: var(--muted);
       margin-top: 14px;
     }
   </style>
 </head>
 
 <body>
-
-  <div class="container">
+  <div class="wrap">
     <div class="card">
 
-      <!-- PROFILE IMAGE -->
-      <!-- Replace src with your own photo later -->
-      <img src="https://avatars.githubusercontent.com/u/1?v=4" alt="profile"/>
+      <!-- PROFILE PHOTO -->
+      <!-- Upload your photo as profile.jpg in the same repo -->
+      <img src="profile.jpg" alt="Bhavesh Pandey" />
 
       <h1>Bhavesh Pandey</h1>
-      <div class="subtitle">
-        First Year CSE · Competitive Programming · AI/ML
+      <div class="tagline">
+        First Year CSE · Competitive Programmer · AI/ML
       </div>
 
-      <!-- MAIN LINKS -->
-      <div class="links">
-        <a href="https://github.com/codewithbhaveshh" target="_blank">GitHub</a>
-        <a href="https://codeforces.com/profile/" target="_blank">Codeforces</a>
-        <a href="https://www.codechef.com/users/" target="_blank">CodeChef</a>
-        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-      </div>
+      <!-- LINKS -->
+      <a class="btn" href="https://github.com/codewithbhaveshh" target="_blank">GitHub</a>
+      <a class="btn" href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">Codeforces</a>
+      <a class="btn" href="https://www.codechef.com/users/bhaveshcodes69" target="_blank">CodeChef</a>
+      <a class="btn" href="resume.pdf" target="_blank">Resume</a>
 
       <!-- BADGES -->
       <div class="section">
         <h2>🏅 Competitive Programming</h2>
-        <span class="badge">Codeforces · 600+</span>
-        <span class="badge">CodeChef · 1200+</span>
-        <span class="badge">C++</span>
-        <span class="badge">DSA</span>
+        <div class="badges">
+          <img src="https://img.shields.io/badge/Codeforces-600+-blue?style=flat" />
+          <img src="https://img.shields.io/badge/CodeChef-1200+-brown?style=flat" />
+          <img src="https://img.shields.io/badge/C++-DSA-green?style=flat" />
+        </div>
       </div>
 
       <!-- PROJECTS -->
@@ -180,27 +162,23 @@
         <h2>🚀 Projects</h2>
 
         <div class="project">
-          <div class="project-title">Portfolio Website</div>
+          <div class="project-title">Personal Portfolio</div>
           <div class="project-desc">
-            Personal portfolio hosted on GitHub Pages
+            Modern animated portfolio hosted on GitHub Pages
           </div>
         </div>
 
         <div class="project">
           <div class="project-title">Competitive Programming Tracker</div>
           <div class="project-desc">
-            Track CF & CC performance (in progress)
+            Track Codeforces & CodeChef progress (in progress)
           </div>
         </div>
       </div>
 
-      <footer>
-        © 2025 Bhavesh Pandey
-      </footer>
+      <footer>© 2025 Bhavesh Pandey</footer>
 
     </div>
   </div>
-
 </body>
 </html>
-
