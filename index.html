@@ -12,6 +12,9 @@
   --blue:#38bdf8;
   --green:#4ade80;
   --muted:#94a3b8;
+  --pink:#f472b6;
+  --yellow:#facc15;
+  --purple:#a78bfa;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
@@ -41,6 +44,7 @@ body{
   pointer-events:none;
   transform:translate(-50%,-50%);
   z-index:-1;
+  transition:width .3s, height .3s, filter .3s;
 }
 
 /* GLASS */
@@ -49,9 +53,9 @@ body{
   margin:40px auto;
   padding:40px 24px;
   border-radius:28px;
-  background:linear-gradient(180deg,rgba(255,255,255,.15),rgba(255,255,255,.05));
-  backdrop-filter:blur(22px);
-  border:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(180deg,rgba(255,255,255,.2),rgba(255,255,255,.05));
+  backdrop-filter:blur(25px);
+  border:1px solid rgba(255,255,255,.1);
   box-shadow:0 0 90px rgba(56,189,248,.25);
 }
 
@@ -59,9 +63,13 @@ body{
 section{
   padding:80px 10px;
   text-align:center;
-  opacity:1; /* make all sections visible immediately */
-  transform:translateY(0);
+  opacity:0;
+  transform:translateY(40px);
   transition:1s ease;
+}
+section.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
 /* HERO */
@@ -72,6 +80,10 @@ section{
   object-fit:cover;
   border:2px solid var(--blue);
   box-shadow:0 0 60px var(--blue);
+  transition: transform .4s;
+}
+.hero img:hover{
+  transform: scale(1.05);
 }
 
 h1{
@@ -103,10 +115,10 @@ h1::after{
   background:#020617;
   color:#e5e7eb;
   text-decoration:none;
-  transition:.3s;
+  transition:.3s, transform .2s;
 }
 .btn:hover{
-  transform:translateY(-6px);
+  transform:translateY(-6px) scale(1.05);
   color:var(--blue);
   box-shadow:0 0 25px rgba(56,189,248,.7);
 }
@@ -125,7 +137,20 @@ h1::after{
   border-radius:16px;
   background:linear-gradient(180deg,#0f172a,#020617);
   border:1px solid rgba(56,189,248,.25);
+  transition: transform .3s, box-shadow .3s;
+  font-weight:600;
+  color:#e5e7eb;
 }
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 30px rgba(56,189,248,.5);
+}
+
+/* Skill card gradient colors */
+.card.python{background:linear-gradient(135deg,#4ade80,#22c55e);}
+.card.ai{background:linear-gradient(135deg,#f472b6,#ec4899);}
+.card.ml{background:linear-gradient(135deg,#facc15,#f59e0b);}
+.card.web{background:linear-gradient(135deg,#a78bfa,#7c3aed);}
 
 /* SOUND BUTTON */
 .sound-toggle{
@@ -140,6 +165,7 @@ h1::after{
   cursor:pointer;
   z-index:999;
   box-shadow:0 0 30px rgba(59,130,246,.4);
+  transition: transform .2s;
 }
 .sound-toggle:hover{
   transform:scale(1.08);
@@ -166,7 +192,7 @@ footer{
 
 <div class="glass">
 
-<section class="hero">
+<section class="hero show">
   <img src="profile.jpg" alt="Bhavesh Pandey">
   <h1>Bhavesh Pandey</h1>
   <div class="typing"><span id="typed"></span></div>
@@ -190,10 +216,10 @@ Exploring AI / ML.
 <section>
 <h2>// skills</h2>
 <div class="grid">
-  <div class="card">vector&lt;int&gt; · STL · DSA</div>
-  <div class="card">while(contest) solve();</div>
-  <div class="card">Python_basics.py</div>
-  <div class="card">HTML + CSS + JS</div>
+  <div class="card python">Python Basics</div>
+  <div class="card ai">AI: NumPy, Pandas, OpenCV</div>
+  <div class="card ml">ML: Scikit-Learn, TensorFlow, PyTorch</div>
+  <div class="card web">Web Dev: HTML, CSS, JS</div>
 </div>
 </section>
 
@@ -206,22 +232,21 @@ Exploring AI / ML.
 const bgm=document.getElementById("bgm");
 const btn=document.getElementById("soundBtn");
 bgm.volume=0.18;
+
 let unlocked=false;
-
+// Play music automatically on first click anywhere
 document.body.addEventListener("click",()=>{
-  if(unlocked) return;
-  unlocked=true;
-  bgm.play().then(()=>bgm.pause());
-},{once:true});
-
-btn.onclick=()=>{
-  if(bgm.paused){
+  if(!unlocked){
+    unlocked=true;
     bgm.play();
     btn.textContent="⏸ PAUSE BGM";
-  }else{
-    bgm.pause();
-    btn.textContent="▶ ENABLE BGM";
   }
+});
+
+/* Button to pause/play */
+btn.onclick=()=>{
+  if(bgm.paused){ bgm.play(); btn.textContent="⏸ PAUSE BGM"; }
+  else{ bgm.pause(); btn.textContent="▶ ENABLE BGM"; }
 };
 
 /* TYPING */
@@ -261,6 +286,14 @@ addEventListener("mousemove",e=>{
   g.style.left=e.clientX+"px";
   g.style.top=e.clientY+"px";
 });
+
+/* SCROLL ANIMATIONS */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add("show");
+  });
+},{threshold:0.2});
+document.querySelectorAll("section").forEach(s=>obs.observe(s));
 </script>
 
 </body>
