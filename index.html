@@ -184,6 +184,8 @@ footer{
 <div class="glass">
 
 <section class="hero">
+  <img src="profile.jpg" alt="Bhavesh Pandey">
+
   <img src="profile.jpg">
   <h1>Bhavesh Pandey</h1>
   <div class="typing">
@@ -318,6 +320,26 @@ const obs=new IntersectionObserver(e=>{
   e.forEach(v=>v.isIntersecting&&v.target.classList.add("show"));
 },{threshold:.2});
 document.querySelectorAll("section").forEach(s=>obs.observe(s));
+
+  img{
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid #38bdf8;
+  box-shadow:
+    0 0 20px rgba(56,189,248,.6),
+    0 0 60px rgba(56,189,248,.25);
+  transition:.3s;
+}
+
+img:hover{
+  transform:scale(1.05) rotate(1deg);
+  box-shadow:
+    0 0 35px rgba(56,189,248,.9),
+    0 0 90px rgba(56,189,248,.5);
+}
+
 
 /* GITHUB */
 fetch("https://api.github.com/users/codewithbhaveshh/repos")
