@@ -3,43 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bhavesh Pandey | Portfolio</title>
+<title>Bhavesh Pandey | Developer</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap');
+
 :root{
-  --accent:#3b82f6;
-  --glow:#60a5fa;
+  --blue:#38bdf8;
+  --green:#4ade80;
+  --cyan:#22d3ee;
   --muted:#94a3b8;
-  --border:rgba(255,255,255,.12);
+  --border:rgba(56,189,248,.35);
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{
-  font-family:system-ui,-apple-system,"Segoe UI";
+  font-family:"JetBrains Mono", monospace;
   background:#020617;
-  color:white;
+  color:#e5e7eb;
   overflow-x:hidden;
 }
 
-/* PARTICLES */
+/* BACKGROUND */
 #particles{
   position:fixed;
   inset:0;
   z-index:-2;
 }
-
-/* CURSOR GLOW */
 .cursor-glow{
   position:fixed;
-  width:120px;
-  height:120px;
+  width:140px;
+  height:140px;
   border-radius:50%;
+  background:radial-gradient(circle, rgba(56,189,248,.35), transparent 60%);
+  filter:blur(40px);
   pointer-events:none;
-  background:radial-gradient(circle, rgba(96,165,250,.35), transparent 60%);
-  filter:blur(35px);
-  z-index:-1;
   transform:translate(-50%,-50%);
+  z-index:-1;
 }
 
 /* GLASS */
@@ -47,11 +49,11 @@ body{
   max-width:1000px;
   margin:40px auto;
   padding:40px 24px;
-  border-radius:30px;
-  background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.02));
+  border-radius:28px;
+  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
   backdrop-filter:blur(22px);
-  border:1px solid var(--border);
-  box-shadow:0 0 90px rgba(59,130,246,.25);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 0 90px rgba(56,189,248,.25);
 }
 
 /* SECTIONS */
@@ -72,51 +74,59 @@ section.show{
   width:150px;
   height:150px;
   border-radius:50%;
-  border:3px solid var(--accent);
-  box-shadow:0 0 40px var(--glow);
+  border:3px solid var(--blue);
+  box-shadow:0 0 40px var(--blue);
 }
+
 h1{
   margin-top:20px;
-  font-size:2.6rem;
-  background:linear-gradient(90deg,#93c5fd,#60a5fa,#3b82f6);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  text-shadow:0 0 30px rgba(96,165,250,.4);
+  font-size:2.8rem;
+  color:var(--blue);
+  text-shadow:0 0 18px rgba(56,189,248,.9);
 }
-.typing{
-  margin-top:10px;
-  color:#93c5fd;
-  text-shadow:0 0 14px rgba(59,130,246,.8);
-}
-.cursor{
-  display:inline-block;
-  width:2px;
-  height:18px;
-  background:#93c5fd;
-  margin-left:4px;
+h1::after{
+  content:"_";
   animation:blink 1s infinite;
 }
 @keyframes blink{50%{opacity:0}}
+
+.typing{
+  margin-top:12px;
+  font-size:1.05rem;
+  color:var(--green);
+  text-shadow:0 0 14px rgba(74,222,128,.7);
+}
+.typing::before{
+  content:"> ";
+  color:#22c55e;
+}
+
+/* TEXT */
+.comment{
+  color:#64748b;
+  font-style:italic;
+  line-height:1.8;
+}
 
 /* BUTTONS */
 .btn{
   display:inline-block;
   padding:14px 26px;
   margin:12px;
-  border-radius:18px;
+  border-radius:16px;
   border:1px solid var(--border);
-  background:rgba(255,255,255,.05);
-  color:white;
+  background:rgba(15,23,42,.9);
+  color:#e5e7eb;
   text-decoration:none;
   transition:.3s;
 }
 .btn:hover{
   transform:translateY(-6px);
-  background:rgba(59,130,246,.18);
-  box-shadow:0 15px 45px rgba(59,130,246,.6);
+  color:var(--blue);
+  box-shadow:0 0 25px rgba(56,189,248,.7);
 }
 
-/* GRID */
+/* GRID & CARDS */
 .grid{
   display:grid;
   gap:18px;
@@ -125,28 +135,35 @@ h1{
   .grid{grid-template-columns:repeat(2,1fr)}
 }
 .card{
-  padding:22px;
-  border-radius:20px;
-  background:rgba(255,255,255,.04);
-  border:1px solid var(--border);
-  transition:.3s;
+  padding:20px;
+  border-radius:16px;
+  background:linear-gradient(180deg,#0f172a,#020617);
+  border:1px solid rgba(56,189,248,.25);
+  position:relative;
+}
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:16px;
+  box-shadow:inset 0 0 40px rgba(56,189,248,.15);
+  pointer-events:none;
 }
 .card:hover{
   transform:translateY(-8px);
-  box-shadow:0 20px 50px rgba(59,130,246,.35);
+  box-shadow:0 20px 50px rgba(56,189,248,.35);
 }
 
-/* SOUND TOGGLE */
+/* SOUND BUTTON */
 .sound-toggle{
   position:fixed;
   bottom:20px;
   right:20px;
   padding:12px 18px;
-  border-radius:20px;
-  background:rgba(255,255,255,.08);
+  border-radius:18px;
+  background:rgba(15,23,42,.9);
   border:1px solid var(--border);
   cursor:pointer;
-  backdrop-filter:blur(10px);
   z-index:10;
 }
 
@@ -162,7 +179,7 @@ footer{
 
 <canvas id="particles"></canvas>
 <div class="cursor-glow" id="glow"></div>
-<div class="sound-toggle sfx" id="soundBtn">🔊 Sound ON</div>
+<div class="sound-toggle sfx" id="soundBtn">🔊 Click to Enable Sound</div>
 
 <div class="glass">
 
@@ -170,95 +187,98 @@ footer{
   <img src="profile.jpg">
   <h1>Bhavesh Pandey</h1>
   <div class="typing">
-    <span id="typed"></span><span class="cursor"></span>
+    <span id="typed"></span>
   </div>
+
   <div>
-    <a class="btn sfx" href="https://github.com/codewithbhaveshh" target="_blank">GitHub</a>
-    <a class="btn sfx" href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">Codeforces</a>
-    <a class="btn sfx" href="https://www.codechef.com/users/bhaveshhpandey" target="_blank">CodeChef</a>
+    <a class="btn sfx" href="https://github.com/codewithbhaveshh" target="_blank">./github</a>
+    <a class="btn sfx" href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">./codeforces</a>
+    <a class="btn sfx" href="https://www.codechef.com/users/bhaveshhpandey" target="_blank">./codechef</a>
   </div>
 </section>
 
 <section>
-<h2>About Me</h2>
-<p>First year CSE student into Competitive Programming, DSA & AI/ML.</p>
+<h2>// about_me</h2>
+<p class="comment">
+First year CSE student.<br>
+Competitive Programming & DSA focused.<br>
+Exploring AI / ML and real-world systems.
+</p>
 </section>
 
 <section>
-<h2>Skills</h2>
+<h2>// skills</h2>
 <div class="grid">
-  <div class="card sfx">C++ · STL · DSA</div>
-  <div class="card sfx">Competitive Programming</div>
-  <div class="card sfx">Python Basics</div>
-  <div class="card sfx">Web Development</div>
+  <div class="card sfx">vector&lt;int&gt; · STL · DSA</div>
+  <div class="card sfx">while(contest) solve();</div>
+  <div class="card sfx">Python_basics.py</div>
+  <div class="card sfx">HTML + CSS + JS</div>
 </div>
 </section>
 
 <section>
-<h2>Projects</h2>
+<h2>// projects</h2>
 <div id="projects" class="grid"></div>
 </section>
 
 <section>
-<h2>Contact</h2>
+<h2>// contact</h2>
 <p>Email: <strong>bhaveshhpandeyy@gmail.com</strong></p>
 </section>
 
 </div>
 
-<footer>© 2025 Bhavesh Pandey</footer>
+<footer>
+© 2025 Bhavesh Pandey
+</footer>
 
 <script>
-/* 🎵 AUDIO FILES */
-const hoverSound = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3");
-const music = new Audio("https://assets.mixkit.co/music/preview/mixkit-ambient-future-177.mp3");
+/* 🔊 AUDIO */
+const hoverSound=new Audio("https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3");
+const music=new Audio("https://assets.mixkit.co/music/preview/mixkit-ambient-future-177.mp3");
+hoverSound.volume=.25;
+music.volume=.15;
+music.loop=true;
 
-hoverSound.volume = 0.25;
-music.volume = 0.15;
-music.loop = true;
-
-let audioUnlocked = false;
-
-/* 🔓 UNLOCK AUDIO ON FIRST CLICK */
-function unlockAudio(){
+let audioUnlocked=false;
+function unlock(){
   if(audioUnlocked) return;
-  audioUnlocked = true;
-
-  // play + pause silently to unlock
+  audioUnlocked=true;
   hoverSound.play().then(()=>hoverSound.pause());
   music.play().then(()=>music.pause());
-
-  document.body.removeEventListener("click", unlockAudio);
 }
+document.body.addEventListener("click",unlock);
 
-document.body.addEventListener("click", unlockAudio);
-
-/* 🔊 HOVER SOUND */
 document.querySelectorAll(".sfx").forEach(el=>{
   el.addEventListener("mouseenter",()=>{
     if(audioUnlocked){
-      hoverSound.currentTime = 0;
+      hoverSound.currentTime=0;
       hoverSound.play();
     }
   });
 });
 
-/* 🎶 MUSIC TOGGLE */
-const btn = document.getElementById("soundBtn");
-btn.addEventListener("click",()=>{
+const btn=document.getElementById("soundBtn");
+btn.onclick=()=>{
   if(!audioUnlocked) return;
-
   if(music.paused){
     music.play();
-    btn.textContent = "🔇 Sound OFF";
+    btn.textContent="🔇 Sound OFF";
   }else{
     music.pause();
-    btn.textContent = "🔊 Sound ON";
+    btn.textContent="🔊 Sound ON";
   }
-});
-/* ⌨️ TYPING */
-const roles=["Competitive Programmer","AI/ML Learner","C++ Developer","Future SWE"];
-let i=0,j=0,d=false;const t=document.getElementById("typed");
+};
+
+/* TYPING */
+const roles=[
+"Competitive Programmer",
+"Codeforces Enthusiast",
+"AI / ML Learner",
+"C++ & DSA Developer"
+];
+let i=0,j=0,d=false;
+const t=document.getElementById("typed");
 (function type(){
   if(!d&&j<=roles[i].length)t.textContent=roles[i].slice(0,j++);
   else if(d&&j>=0)t.textContent=roles[i].slice(0,j--);
@@ -267,15 +287,16 @@ let i=0,j=0,d=false;const t=document.getElementById("typed");
   setTimeout(type,d?50:90);
 })();
 
-/* 🌌 PARTICLES */
+/* PARTICLES */
 const c=document.getElementById("particles"),x=c.getContext("2d");
 let w,h,p=[];
 function resize(){w=c.width=innerWidth;h=c.height=innerHeight}
 addEventListener("resize",resize);resize();
-for(let i=0;i<80;i++)p.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+1,dx:(Math.random()-.5)*.5,dy:(Math.random()-.5)*.5});
+for(let i=0;i<90;i++)
+p.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+1,dx:(Math.random()-.5)*.5,dy:(Math.random()-.5)*.5});
 (function anim(){
   x.clearRect(0,0,w,h);
-  x.fillStyle="rgba(96,165,250,.6)";
+  x.fillStyle="rgba(56,189,248,.6)";
   p.forEach(a=>{
     a.x+=a.dx;a.y+=a.dy;
     if(a.x<0||a.x>w)a.dx*=-1;
@@ -285,29 +306,32 @@ for(let i=0;i<80;i++)p.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()
   requestAnimationFrame(anim);
 })();
 
-/* 🖱️ CURSOR */
+/* CURSOR */
 const g=document.getElementById("glow");
 addEventListener("mousemove",e=>{
   g.style.left=e.clientX+"px";
   g.style.top=e.clientY+"px";
 });
 
-/* 🎞 SCROLL REVEAL */
+/* SCROLL */
 const obs=new IntersectionObserver(e=>{
   e.forEach(v=>v.isIntersecting&&v.target.classList.add("show"));
 },{threshold:.2});
 document.querySelectorAll("section").forEach(s=>obs.observe(s));
 
-/* 📦 GITHUB */
+/* GITHUB */
 fetch("https://api.github.com/users/codewithbhaveshh/repos")
 .then(r=>r.json()).then(d=>{
   const box=document.getElementById("projects");
   d.filter(r=>!r.fork).slice(0,6).forEach(r=>{
-    box.innerHTML+=`<div class="card sfx"><a href="${r.html_url}" target="_blank">${r.name}</a><p>${r.description||"No description"}</p></div>`;
+    box.innerHTML+=`
+    <div class="card sfx">
+      <a href="${r.html_url}" target="_blank">${r.name}</a>
+      <p class="comment">${r.description||"No description"}</p>
+    </div>`;
   });
 });
 </script>
 
 </body>
 </html>
-
