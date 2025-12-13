@@ -1,77 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bhavesh Pandey | Portfolio</title>
 
-<meta name="description" content="Bhavesh Pandey | Competitive Programmer | AI/ML Learner">
-
 <style>
-/* ---------- ROOT ---------- */
 :root{
-  --bg1:#020617;
-  --bg2:#0b1c3d;
   --accent:#3b82f6;
   --glow:#60a5fa;
   --muted:#94a3b8;
   --border:rgba(255,255,255,.12);
 }
 
-/* ---------- RESET ---------- */
-*{box-sizing:border-box;margin:0;padding:0}
+*{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{
   font-family:system-ui,-apple-system,"Segoe UI";
   color:white;
-  min-height:100vh;
-  background:
-    radial-gradient(circle at 20% 20%, #1e3a8a55, transparent 40%),
-    radial-gradient(circle at 80% 80%, #2563eb55, transparent 40%),
-    linear-gradient(120deg,var(--bg1),var(--bg2),var(--bg1));
-  background-size:200% 200%;
-  animation:bgMove 15s ease infinite;
+  background:#020617;
+  overflow-x:hidden;
 }
 
-/* ---------- BACKGROUND ANIMATION ---------- */
-@keyframes bgMove{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+/* 🌌 PARTICLE CANVAS */
+#particles{
+  position:fixed;
+  inset:0;
+  z-index:-2;
 }
 
-/* ---------- GLASS CONTAINER ---------- */
+/* 🖱️ CURSOR GLOW */
+.cursor-glow{
+  position:fixed;
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  pointer-events:none;
+  background:radial-gradient(circle, rgba(96,165,250,.35), transparent 60%);
+  filter:blur(30px);
+  z-index:-1;
+  transform:translate(-50%,-50%);
+}
+
+/* 🪟 GLASS CONTAINER */
 .glass{
   max-width:1000px;
   margin:40px auto;
   padding:40px 24px;
   border-radius:28px;
-  background:linear-gradient(
-    180deg,
-    rgba(255,255,255,.08),
-    rgba(255,255,255,.02)
-  );
+  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
   backdrop-filter:blur(22px);
   border:1px solid var(--border);
   box-shadow:
     0 0 80px rgba(59,130,246,.25),
     inset 0 0 30px rgba(255,255,255,.05);
-  animation:fadeUp 1.2s ease forwards;
+  animation:fadeUp 1s ease forwards;
 }
 
-/* ---------- FADE ---------- */
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(40px)}
   to{opacity:1;transform:translateY(0)}
 }
 
-/* ---------- SECTIONS ---------- */
 section{
   padding:80px 10px;
   text-align:center;
 }
 
-/* ---------- HERO ---------- */
+/* 👤 HERO */
 .hero img{
   width:150px;
   height:150px;
@@ -108,7 +105,7 @@ h1{
 
 @keyframes blink{50%{opacity:0}}
 
-/* ---------- BUTTONS ---------- */
+/* 🔘 BUTTONS */
 .btn{
   display:inline-block;
   padding:14px 26px;
@@ -119,8 +116,7 @@ h1{
   border:1px solid var(--border);
   background:rgba(255,255,255,.05);
   backdrop-filter:blur(10px);
-  transition:.35s;
-  box-shadow:0 0 0 transparent;
+  transition:.3s;
 }
 .btn:hover{
   transform:translateY(-6px);
@@ -129,17 +125,7 @@ h1{
   box-shadow:0 12px 40px rgba(59,130,246,.5);
 }
 
-/* ---------- HEADINGS ---------- */
-h2{
-  font-size:1.8rem;
-  margin-bottom:24px;
-  text-shadow:0 0 20px rgba(59,130,246,.6);
-}
-
-/* ---------- TEXT ---------- */
-p{color:var(--muted);max-width:720px;margin:auto}
-
-/* ---------- GRID ---------- */
+/* 🧊 CARDS */
 .grid{
   display:grid;
   gap:18px;
@@ -148,14 +134,12 @@ p{color:var(--muted);max-width:720px;margin:auto}
   .grid{grid-template-columns:repeat(2,1fr)}
 }
 
-/* ---------- CARD ---------- */
 .card{
   padding:22px;
   border-radius:20px;
   background:rgba(255,255,255,.04);
   border:1px solid var(--border);
-  transition:.35s;
-  box-shadow:inset 0 0 20px rgba(255,255,255,.03);
+  transition:.3s;
 }
 .card:hover{
   transform:translateY(-8px);
@@ -163,24 +147,6 @@ p{color:var(--muted);max-width:720px;margin:auto}
   box-shadow:0 20px 50px rgba(59,130,246,.35);
 }
 
-/* ---------- CP CARD ---------- */
-.cp-card{
-  width:200px;
-  padding:24px;
-  border-radius:22px;
-  border:1px solid var(--border);
-  background:rgba(255,255,255,.04);
-  text-decoration:none;
-  color:white;
-  transition:.35s;
-}
-.cp-card:hover{
-  transform:translateY(-10px);
-  border-color:var(--accent);
-  box-shadow:0 20px 60px rgba(59,130,246,.5);
-}
-
-/* ---------- FOOTER ---------- */
 footer{
   text-align:center;
   padding:30px;
@@ -191,74 +157,49 @@ footer{
 
 <body>
 
+<canvas id="particles"></canvas>
+<div class="cursor-glow" id="glow"></div>
+
 <div class="glass">
 
-<!-- HERO -->
 <section class="hero">
-  <img src="profile.jpg" alt="Bhavesh Pandey">
+  <img src="profile.jpg">
   <h1>Bhavesh Pandey</h1>
   <div class="typing">
     <span id="typed"></span><span class="cursor"></span>
   </div>
 
   <div>
-    <a class="btn" href="https://github.com/codewithbhaveshh" target="_blank">GitHub</a>
-    <a class="btn" href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">Codeforces</a>
-    <a class="btn" href="https://www.codechef.com/users/bhaveshhpandey" target="_blank">CodeChef</a>
-    <a class="btn" href="resume.pdf" target="_blank">Resume</a>
+    <a class="btn sfx" href="https://github.com/codewithbhaveshh" target="_blank">GitHub</a>
+    <a class="btn sfx" href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">Codeforces</a>
+    <a class="btn sfx" href="https://www.codechef.com/users/bhaveshhpandey" target="_blank">CodeChef</a>
+    <a class="btn sfx" href="resume.pdf" target="_blank">Resume</a>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section>
 <h2>About Me</h2>
 <p>
-First year CSE student passionate about Competitive Programming, problem solving
-and exploring AI/ML. Focused on mastering DSA and building impactful projects.
+First year CSE student passionate about Competitive Programming,
+DSA, and AI/ML. Building skills & real projects.
 </p>
 </section>
 
-<!-- SKILLS -->
 <section>
 <h2>Skills</h2>
 <div class="grid">
-  <div class="card">C++ · STL · DSA</div>
-  <div class="card">Competitive Programming</div>
-  <div class="card">Python Basics</div>
-  <div class="card">HTML · CSS · JavaScript</div>
+  <div class="card sfx">C++ · STL · DSA</div>
+  <div class="card sfx">Competitive Programming</div>
+  <div class="card sfx">Python Basics</div>
+  <div class="card sfx">HTML · CSS · JavaScript</div>
 </div>
 </section>
 
-<!-- CP -->
-<section>
-<h2>Competitive Programming</h2>
-<div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap">
-  <a class="cp-card" href="https://codeforces.com/profile/bhaveshcodes69">
-    <strong>Codeforces</strong>
-    <small id="cf" style="display:block;margin-top:10px;color:var(--muted)">Loading...</small>
-  </a>
-  <a class="cp-card" href="https://www.codechef.com/users/bhaveshhpandey">
-    <strong>CodeChef</strong>
-    <small style="display:block;margin-top:10px;color:var(--muted)">Visit profile</small>
-  </a>
-</div>
-</section>
-
-<!-- PROJECTS -->
 <section>
 <h2>Projects</h2>
 <div id="projects" class="grid"></div>
 </section>
 
-<!-- JOURNEY -->
-<section>
-<h2>Journey</h2>
-<div class="card">2024 — Started Competitive Programming</div><br>
-<div class="card">2025 — First Year CSE & Portfolio</div><br>
-<div class="card">Future — Internships & Open Source</div>
-</section>
-
-<!-- CONTACT -->
 <section>
 <h2>Contact</h2>
 <p>Email: <strong>bhaveshhpandeyy@gmail.com</strong></p>
@@ -271,7 +212,15 @@ and exploring AI/ML. Focused on mastering DSA and building impactful projects.
 </footer>
 
 <script>
-/* Typing */
+/* 🔊 SOUND EFFECTS */
+const hoverSound = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3");
+hoverSound.volume = 0.25;
+
+document.querySelectorAll(".sfx").forEach(el=>{
+  el.addEventListener("mouseenter",()=>hoverSound.play());
+});
+
+/* ⌨️ TYPING */
 const roles=[
 "Competitive Programmer",
 "Codeforces Enthusiast",
@@ -281,34 +230,66 @@ const roles=[
 ];
 let i=0,j=0,del=false;
 const t=document.getElementById("typed");
-function type(){
+(function type(){
   if(!del && j<=roles[i].length) t.textContent=roles[i].slice(0,j++);
   else if(del && j>=0) t.textContent=roles[i].slice(0,j--);
   if(j===roles[i].length+1) del=true;
-  if(j===0 && del){ del=false; i=(i+1)%roles.length }
-  setTimeout(type, del?50:90);
+  if(j===0 && del){del=false;i=(i+1)%roles.length}
+  setTimeout(type,del?50:90);
+})();
+
+/* 🌌 PARTICLES */
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+let w,h,particles=[];
+function resize(){
+  w=canvas.width=window.innerWidth;
+  h=canvas.height=window.innerHeight;
 }
-type();
+window.addEventListener("resize",resize);
+resize();
 
-/* Codeforces */
-fetch("https://codeforces.com/api/user.info?handles=bhaveshcodes69")
-.then(r=>r.json())
-.then(d=>{
-  const u=d.result[0];
-  document.getElementById("cf").innerText=`Rating ${u.rating} (${u.rank})`;
-})
-.catch(()=>document.getElementById("cf").innerText="Unavailable");
+for(let i=0;i<80;i++){
+  particles.push({
+    x:Math.random()*w,
+    y:Math.random()*h,
+    r:Math.random()*2+1,
+    dx:(Math.random()-.5)*.5,
+    dy:(Math.random()-.5)*.5
+  });
+}
+function animate(){
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle="rgba(96,165,250,.6)";
+  particles.forEach(p=>{
+    p.x+=p.dx;p.y+=p.dy;
+    if(p.x<0||p.x>w)p.dx*=-1;
+    if(p.y<0||p.y>h)p.dy*=-1;
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fill();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
 
-/* GitHub */
+/* 🖱️ CURSOR GLOW */
+const glow=document.getElementById("glow");
+window.addEventListener("mousemove",e=>{
+  glow.style.left=e.clientX+"px";
+  glow.style.top=e.clientY+"px";
+});
+
+/* 📦 GITHUB PROJECTS */
 fetch("https://api.github.com/users/codewithbhaveshh/repos")
 .then(r=>r.json())
 .then(repos=>{
   const box=document.getElementById("projects");
   repos.filter(r=>!r.fork).slice(0,6).forEach(r=>{
     box.innerHTML+=`
-      <div class="card">
+      <div class="card sfx">
         <a href="${r.html_url}" target="_blank">${r.name}</a>
-        <p>${r.description || "No description"}</p>
+        <p>${r.description||"No description"}</p>
       </div>`;
   });
 });
@@ -316,4 +297,3 @@ fetch("https://api.github.com/users/codewithbhaveshh/repos")
 
 </body>
 </html>
-
