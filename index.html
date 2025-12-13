@@ -1,184 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bhavesh Pandey</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bhavesh Pandey</title>
 
-  <style>
-    :root {
-      --bg: #020617;
-      --card: #020617;
-      --border: #1e293b;
-      --accent: #3b82f6;
-      --muted: #94a3b8;
-    }
+<style>
+:root{
+  --bg:#020617;
+  --card:#020617;
+  --border:#1e293b;
+  --accent:#3b82f6;
+  --muted:#94a3b8;
+}
 
-    * { box-sizing: border-box; }
+*{box-sizing:border-box}
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI";
-      background: radial-gradient(circle at top, #020617, #020617);
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,"Segoe UI";
+  background:radial-gradient(circle at top,#020617,#020617);
+  color:white;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
 
-    .wrap {
-      width: 380px;
-      animation: fadeUp 1s ease forwards;
-    }
+.wrap{
+  width:420px;
+  animation:fadeUp 1s ease forwards;
+}
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(25px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 28px;
-      text-align: center;
-      box-shadow: 0 30px 70px rgba(0,0,0,.7);
-    }
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:30px;
+  text-align:center;
+  box-shadow:0 35px 90px rgba(0,0,0,.75);
+}
 
-    img {
-      width: 115px;
-      height: 115px;
-      border-radius: 50%;
-      border: 3px solid var(--accent);
-      object-fit: cover;
-    }
+img{
+  width:125px;
+  height:125px;
+  border-radius:50%;
+  border:3px solid var(--accent);
+  object-fit:cover;
+}
 
-    h1 {
-      margin: 14px 0 6px;
-      font-size: 1.55rem;
-    }
+h1{
+  margin:16px 0 6px;
+  font-size:1.7rem;
+}
 
-    .tagline {
-      font-size: .9rem;
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
+.typing{
+  height:22px;
+  font-size:.95rem;
+  color:var(--muted);
+  margin-bottom:22px;
+}
 
-    a.btn {
-      display: block;
-      text-decoration: none;
-      color: white;
-      border: 1px solid var(--border);
-      padding: 13px;
-      margin: 10px 0;
-      border-radius: 14px;
-      transition: all .25s ease;
-    }
+.cursor{
+  display:inline-block;
+  width:2px;
+  background:white;
+  margin-left:4px;
+  animation:blink 1s infinite;
+}
 
-    a.btn:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
+@keyframes blink{
+  0%,50%,100%{opacity:1}
+  25%,75%{opacity:0}
+}
 
-    .section {
-      text-align: left;
-      margin-top: 22px;
-    }
+.btn{
+  display:block;
+  text-decoration:none;
+  color:white;
+  border:1px solid var(--border);
+  padding:14px;
+  margin:10px 0;
+  border-radius:16px;
+  transition:.25s;
+}
 
-    .section h2 {
-      font-size: .95rem;
-      margin-bottom: 10px;
-      color: #e5e7eb;
-    }
+.btn:hover{
+  background:var(--accent);
+  border-color:var(--accent);
+  transform:translateY(-3px);
+}
 
-    .badges img {
-      margin: 4px 6px 0 0;
-    }
+.section{
+  text-align:left;
+  margin-top:26px;
+}
 
-    .project {
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px;
-      margin-bottom: 10px;
-      transition: .25s;
-    }
+.section h2{
+  font-size:1rem;
+  margin-bottom:10px;
+}
 
-    .project:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
+.stat{
+  font-size:.85rem;
+  color:var(--muted);
+  margin-bottom:6px;
+}
 
-    .project-title {
-      font-size: .95rem;
-    }
+.project{
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:12px;
+  margin-bottom:10px;
+  transition:.25s;
+}
 
-    .project-desc {
-      font-size: .8rem;
-      color: var(--muted);
-    }
+.project:hover{
+  border-color:var(--accent);
+  transform:translateY(-2px);
+}
 
-    footer {
-      text-align: center;
-      font-size: .75rem;
-      color: var(--muted);
-      margin-top: 14px;
-    }
-  </style>
+.project a{
+  color:white;
+  text-decoration:none;
+  font-size:.95rem;
+}
+
+.project p{
+  margin:4px 0 0;
+  font-size:.8rem;
+  color:var(--muted);
+}
+
+footer{
+  margin-top:16px;
+  font-size:.75rem;
+  color:var(--muted);
+  text-align:center;
+}
+</style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="card">
+<div class="wrap">
+<div class="card">
 
-      <!-- PROFILE PHOTO -->
-      <!-- Upload your photo as profile.jpg in the same repo -->
-      <img src="profile.jpg" alt="Bhavesh Pandey" />
+<img src="profile.jpg" alt="Bhavesh Pandey">
 
-      <h1>Bhavesh Pandey</h1>
-      <div class="tagline">
-        First Year CSE · Competitive Programmer · AI/ML
-      </div>
+<h1>Bhavesh Pandey</h1>
 
-      <!-- LINKS -->
-      <a class="btn" href="https://github.com/codewithbhaveshh" target="_blank">GitHub</a>
-      <a class="btn" href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">Codeforces</a>
-      <a class="btn" href="https://www.codechef.com/users/bhaveshcodes69" target="_blank">CodeChef</a>
-      <a class="btn" href="resume.pdf" target="_blank">Resume</a>
+<div class="typing">
+  <span id="typed"></span><span class="cursor"></span>
+</div>
 
-      <!-- BADGES -->
-      <div class="section">
-        <h2>🏅 Competitive Programming</h2>
-        <div class="badges">
-          <img src="https://img.shields.io/badge/Codeforces-600+-blue?style=flat" />
-          <img src="https://img.shields.io/badge/CodeChef-1200+-brown?style=flat" />
-          <img src="https://img.shields.io/badge/C++-DSA-green?style=flat" />
-        </div>
-      </div>
+<a class="btn" href="https://github.com/codewithbhaveshh" target="_blank">GitHub</a>
+<a class="btn" href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">Codeforces</a>
+<a class="btn" href="https://www.codechef.com/users/bhaveshcodes69" target="_blank">CodeChef</a>
+<a class="btn" href="resume.pdf" target="_blank">Resume</a>
 
-      <!-- PROJECTS -->
-      <div class="section">
-        <h2>🚀 Projects</h2>
+<div class="section">
+<h2>📊 Live Stats</h2>
+<div id="cf" class="stat">Codeforces: loading...</div>
+<div class="stat">CodeChef: ~1200+</div>
+</div>
 
-        <div class="project">
-          <div class="project-title">Personal Portfolio</div>
-          <div class="project-desc">
-            Modern animated portfolio hosted on GitHub Pages
-          </div>
-        </div>
+<div class="section">
+<h2>🚀 Projects</h2>
+<div id="projects"></div>
+</div>
 
-        <div class="project">
-          <div class="project-title">Competitive Programming Tracker</div>
-          <div class="project-desc">
-            Track Codeforces & CodeChef progress (in progress)
-          </div>
-        </div>
-      </div>
+<footer>© 2025 Bhavesh Pandey</footer>
 
-      <footer>© 2025 Bhavesh Pandey</footer>
+</div>
+</div>
 
-    </div>
-  </div>
+<script>
+/* Typing animation */
+const roles=[
+  "First Year CSE Student",
+  "Competitive Programmer",
+  "Codeforces Enthusiast",
+  "AI/ML Learner",
+  "C++ & DSA Developer"
+];
+
+let i=0,j=0,del=false;
+const speed=90;
+const el=document.getElementById("typed");
+
+function type(){
+  if(!del && j<=roles[i].length){
+    el.textContent=roles[i].slice(0,j++);
+  }else if(del && j>=0){
+    el.textContent=roles[i].slice(0,j--);
+  }
+
+  if(j===roles[i].length+1) del=true;
+  if(j===0 && del){
+    del=false;
+    i=(i+1)%roles.length;
+  }
+  setTimeout(type,del?50:speed);
+}
+type();
+
+/* Codeforces live fetch */
+fetch("https://codeforces.com/api/user.info?handles=bhaveshcodes69")
+.then(r=>r.json())
+.then(d=>{
+  const u=d.result[0];
+  document.getElementById("cf").innerText=
+    `Codeforces: ${u.rating} (${u.rank})`;
+})
+.catch(()=>document.getElementById("cf").innerText="Codeforces: unavailable");
+
+/* GitHub repos */
+fetch("https://api.github.com/users/codewithbhaveshh/repos")
+.then(r=>r.json())
+.then(repos=>{
+  const box=document.getElementById("projects");
+  repos.filter(r=>!r.fork).slice(0,5).forEach(r=>{
+    box.innerHTML+=`
+    <div class="project">
+      <a href="${r.html_url}" target="_blank">${r.name}</a>
+      <p>${r.description||"No description"}</p>
+    </div>`;
+  });
+});
+</script>
+
 </body>
 </html>
+
