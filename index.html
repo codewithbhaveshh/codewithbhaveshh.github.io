@@ -27,10 +27,11 @@ body{
 }
 
 /* PARTICLES */
-#particles{
-  position:fixed;
+#particles, .card-canvas{
+  position:absolute;
   inset:0;
-  z-index:-2;
+  pointer-events:none;
+  z-index:-1;
 }
 
 /* GLOW CURSOR */
@@ -44,7 +45,6 @@ body{
   pointer-events:none;
   transform:translate(-50%,-50%);
   z-index:-1;
-  transition:width .3s, height .3s, filter .3s;
 }
 
 /* GLASS */
@@ -66,6 +66,7 @@ section{
   opacity:0;
   transform:translateY(40px);
   transition:1s ease;
+  position:relative;
 }
 section.show{
   opacity:1;
@@ -132,25 +133,36 @@ h1::after{
   .grid{grid-template-columns:repeat(2,1fr)}
 }
 
+/* SKILL CARDS */
 .card{
   padding:20px;
   border-radius:16px;
-  background:linear-gradient(180deg,#0f172a,#020617);
-  border:1px solid rgba(56,189,248,.25);
+  background:#111827;
+  border:1px solid rgba(56,189,248,.3);
   transition: transform .3s, box-shadow .3s;
   font-weight:600;
   color:#e5e7eb;
+  position:relative;
+  overflow:hidden;
+  animation: float 4s ease-in-out infinite;
 }
+/* Card colors via border-left */
+.card.python{border-left:4px solid var(--green);}
+.card.ai{border-left:4px solid var(--pink);}
+.card.ml{border-left:4px solid var(--purple);}
+.card.web{border-left:4px solid var(--yellow);}
+
+/* Hover animation */
 .card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 0 30px rgba(56,189,248,.5);
+  transform:translateY(-10px) rotate(-1deg);
+  box-shadow:0 0 25px rgba(56,189,248,.7);
 }
 
-/* Skill card gradient colors */
-.card.python{background:linear-gradient(135deg,#4ade80,#22c55e);}
-.card.ai{background:linear-gradient(135deg,#f472b6,#ec4899);}
-.card.ml{background:linear-gradient(135deg,#facc15,#f59e0b);}
-.card.web{background:linear-gradient(135deg,#a78bfa,#7c3aed);}
+/* Floating animation */
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-6px);}
+}
 
 /* SOUND BUTTON */
 .sound-toggle{
@@ -216,10 +228,22 @@ Exploring AI / ML.
 <section>
 <h2>// skills</h2>
 <div class="grid">
-  <div class="card python">Python Basics</div>
-  <div class="card ai">AI: NumPy, Pandas, OpenCV</div>
-  <div class="card ml">ML: Scikit-Learn, TensorFlow, PyTorch</div>
-  <div class="card web">Web Dev: HTML, CSS, JS</div>
+  <div class="card python">
+    <canvas class="card-canvas"></canvas>
+    Python Basics
+  </div>
+  <div class="card ai">
+    <canvas class="card-canvas"></canvas>
+    AI: NumPy, Pandas, OpenCV
+  </div>
+  <div class="card ml">
+    <canvas class="card-canvas"></canvas>
+    ML: Scikit-Learn, TensorFlow, PyTorch
+  </div>
+  <div class="card web">
+    <canvas class="card-canvas"></canvas>
+    Web Dev: HTML, CSS, JS
+  </div>
 </div>
 </section>
 
@@ -234,7 +258,6 @@ const btn=document.getElementById("soundBtn");
 bgm.volume=0.18;
 
 let unlocked=false;
-// Play music automatically on first click anywhere
 document.body.addEventListener("click",()=>{
   if(!unlocked){
     unlocked=true;
@@ -242,8 +265,6 @@ document.body.addEventListener("click",()=>{
     btn.textContent="⏸ PAUSE BGM";
   }
 });
-
-/* Button to pause/play */
 btn.onclick=()=>{
   if(bgm.paused){ bgm.play(); btn.textContent="⏸ PAUSE BGM"; }
   else{ bgm.pause(); btn.textContent="▶ ENABLE BGM"; }
@@ -261,7 +282,7 @@ const t=document.getElementById("typed");
   setTimeout(type,d?50:90);
 })();
 
-/* PARTICLES */
+/* PARTICLES BACKGROUND */
 const c=document.getElementById("particles"),x=c.getContext("2d");
 let w,h,p=[];
 function resize(){w=c.width=innerWidth;h=c.height=innerHeight}
@@ -294,6 +315,35 @@ const obs=new IntersectionObserver(entries=>{
   });
 },{threshold:0.2});
 document.querySelectorAll("section").forEach(s=>obs.observe(s));
+
+/* SKILL CARD PARTICLES */
+document.querySelectorAll(".card").forEach(card=>{
+  const canvas=card.querySelector(".card-canvas");
+  canvas.width=card.offsetWidth;
+  canvas.height=card.offsetHeight;
+  const ctx=canvas.getContext("2d");
+  const particles=[];
+  for(let i=0;i<25;i++){
+    particles.push({
+      x:Math.random()*canvas.width,
+      y:Math.random()*canvas.height,
+      r:Math.random()*2+0.5,
+      dx:(Math.random()-.5)*0.3,
+      dy:(Math.random()-.5)*0.3
+    });
+  }
+  (function animParticles(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle="rgba(56,189,248,.5)";
+    particles.forEach(p=>{
+      p.x+=p.dx;p.y+=p.dy;
+      if(p.x<0||p.x>canvas.width)p.dx*=-1;
+      if(p.y<0||p.y>canvas.height)p.dy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
+    });
+    requestAnimationFrame(animParticles);
+  })();
+});
 </script>
 
 </body>
