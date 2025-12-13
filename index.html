@@ -9,149 +9,138 @@
 
 <style>
 :root{
-  --blue:#38bdf8;
-  --green:#4ade80;
-  --muted:#94a3b8;
+  --blue:#38bdf8;
+  --green:#4ade80;
+  --muted:#94a3b8;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  font-family:"JetBrains Mono", monospace;
-  background:#020617;
-  color:#e5e7eb;
-  overflow-x:hidden;
+  font-family:"JetBrains Mono", monospace;
+  background:#020617;
+  color:#e5e7eb;
+  overflow-x:hidden;
 }
 
 /* PARTICLES */
 #particles{
-  position:fixed;
-  inset:0;
-  z-index:-2;
+  position:fixed;
+  inset:0;
+  z-index:-2;
 }
 
 /* GLOW CURSOR */
 .cursor-glow{
-  position:fixed;
-  width:140px;
-  height:140px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(56,189,248,.35), transparent 60%);
-  filter:blur(40px);
-  pointer-events:none;
-  transform:translate(-50%,-50%);
-  z-index:-1;
+  position:fixed;
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(56,189,248,.35), transparent 60%);
+  filter:blur(40px);
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  z-index:-1;
 }
 
 /* GLASS */
 .glass{
-  max-width:1000px;
-  margin:40px auto;
-  padding:40px 24px;
-  border-radius:28px;
-  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
-  backdrop-filter:blur(22px);
-  border:1px solid rgba(255,255,255,.08);
-  box-shadow:0 0 90px rgba(56,189,248,.25);
+  max-width:1000px;
+  margin:40px auto;
+  padding:40px 24px;
+  border-radius:28px;
+  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
+  backdrop-filter:blur(22px);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 0 90px rgba(56,189,248,.25);
 }
 
 /* SECTIONS */
 section{
-  padding:80px 10px;
-  text-align:center;
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s ease;
+  padding:80px 10px;
+  text-align:center;
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s ease;
 }
 section.show{
-  opacity:1;
-  transform:translateY(0);
+  opacity:1;
+  transform:translateY(0);
 }
 
 /* HERO */
 .hero img{
-  width:150px;
-  height:150px;
-  border-radius:50%;
-  object-fit:cover;
-  border:2px solid var(--blue);
-  box-shadow:0 0 40px var(--blue);
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid var(--blue);
+  box-shadow:0 0 40px var(--blue);
 }
 
 h1{
-  margin-top:20px;
-  font-size:2.8rem;
-  color:var(--blue);
-  text-shadow:0 0 18px rgba(56,189,248,.9);
+  margin-top:20px;
+  font-size:2.8rem;
+  color:var(--blue);
+  text-shadow:0 0 18px rgba(56,189,248,.9);
 }
 h1::after{
-  content:"_";
-  animation:blink 1s infinite;
+  content:"_";
+  animation:blink 1s infinite;
 }
 @keyframes blink{50%{opacity:0}}
 
 .typing{
-  margin-top:12px;
-  font-size:1.05rem;
-  color:var(--green);
+  margin-top:12px;
+  font-size:1.05rem;
+  color:var(--green);
 }
 .typing::before{content:"> ";}
 
 /* BUTTONS */
-.btn{
-  display:inline-block;
-  padding:14px 26px;
-  margin:12px;
-  border-radius:16px;
-  border:1px solid rgba(56,189,248,.35);
-  background:#020617;
-  color:#e5e7eb;
-  text-decoration:none;
-  transition:.3s;
+.btn-group {
+  max-width: 400px;
+  margin: 20px auto 0;
 }
+.btn{
+  display:block;
+  width:100%;
+  padding:14px;
+  margin:12px 0;
+  border-radius:16px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  color:white;
+  text-decoration:none;
+  transition:.3s;
+}
+
 .btn:hover{
-  transform:translateY(-6px);
-  color:var(--blue);
-  box-shadow:0 0 25px rgba(56,189,248,.7);
+  transform:translateY(-4px) scale(1.02);
+  background:rgba(59,130,246,.15);
+  box-shadow:0 10px 30px rgba(59,130,246,.3);
 }
 
 /* GRID */
 .grid{
-  display:grid;
-  gap:18px;
+  display:grid;
+  gap:18px;
 }
 @media(min-width:700px){
-  .grid{grid-template-columns:repeat(2,1fr)}
+  .grid{grid-template-columns:repeat(2,1fr)}
 }
 
 .card{
-  padding:20px;
-  border-radius:16px;
-  background:linear-gradient(180deg,#0f172a,#020617);
-  border:1px solid rgba(56,189,248,.25);
+  padding:20px;
+  border-radius:16px;
+  background:linear-gradient(180deg,#0f172a,#020617);
+  border:1px solid rgba(56,189,248,.25);
 }
 
-/* SOUND BUTTON */
-.sound-toggle{
-  position:fixed;
-  bottom:24px;
-  right:24px;
-  padding:14px 22px;
-  border-radius:999px;
-  background:#020617;
-  border:1px solid rgba(147,197,253,.4);
-  color:#93c5fd;
-  cursor:pointer;
-  z-index:999;
-  box-shadow:0 0 30px rgba(59,130,246,.4);
-}
-.sound-toggle:hover{
-  transform:scale(1.08);
-}
 footer{
-  text-align:center;
-  padding:30px;
-  color:var(--muted);
+  text-align:center;
+  padding:30px;
+  color:var(--muted);
 }
 </style>
 </head>
@@ -161,25 +150,22 @@ footer{
 <canvas id="particles"></canvas>
 <div class="cursor-glow" id="glow"></div>
 
-<!-- 🎵 BGM -->
 <audio id="bgm" loop>
-  <source src="stars.mp3" type="audio/mpeg">
+  <source src="stars.mp3" type="audio/mpeg">
 </audio>
-
-<div class="sound-toggle" id="soundBtn">▶ ENABLE BGM</div>
 
 <div class="glass">
 
 <section class="hero">
-  <img src="profile.jpg" alt="Bhavesh Pandey">
-  <h1>Bhavesh Pandey</h1>
-  <div class="typing"><span id="typed"></span></div>
+  <img src="profile.jpg" alt="Bhavesh Pandey">
+  <h1>Bhavesh Pandey</h1>
+  <div class="typing"><span id="typed"></span></div>
 
-  <div>
-    <a class="btn" href="https://github.com/codewithbhaveshh" target="_blank">./github</a>
-    <a class="btn" href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">./codeforces</a>
-    <a class="btn" href="https://www.codechef.com/users/bhaveshhpandey" target="_blank">./codechef</a>
-  </div>
+  <div class="btn-group">
+    <a class="btn" href="https://github.com/codewithbhaveshh" target="_blank">./github</a>
+    <a class="btn" href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">./codeforces</a>
+    <a class="btn" href="https://www.codechef.com/users/bhaveshhpandey" target="_blank">./codechef</a>
+  </div>
 </section>
 
 <section>
@@ -194,11 +180,23 @@ Exploring AI / ML.
 <section>
 <h2>// skills</h2>
 <div class="grid">
-  <div class="card">vector&lt;int&gt; · STL · DSA</div>
-  <div class="card">while(contest) solve();</div>
-  <div class="card">Python_basics.py</div>
-  <div class="card">HTML + CSS + JS</div>
-</div>
+    <div class="card">
+    💻 **C++ for CP/DSA**
+    <br><span style="color:var(--muted);font-size:0.9em;">`std::vector` · STL · Problem Solving</span>
+  </div>
+  <div class="card">
+    🐍 **Python for AI/ML**
+    <br><span style="color:var(--muted);font-size:0.9em;">`import pandas as pd` · NumPy · Scikit-learn</span>
+  </div>
+  <div class="card">
+    🌐 **Web Basics**
+    <br><span style="color:var(--muted);font-size:0.9em;">HTML5 · CSS3 · Vanilla JS</span>
+  </div>
+  <div class="card">
+    ✨ **Competitive Spirit**
+    <br><span style="color:var(--muted);font-size:0.9em;">`while(contest) solve();` · Debugging · Optimizing</span>
+  </div>
+  </div>
 </section>
 
 </div>
@@ -206,69 +204,76 @@ Exploring AI / ML.
 <footer>© 2025 Bhavesh Pandey</footer>
 
 <script>
-/* 🔊 BGM UNLOCK */
-const bgm=document.getElementById("bgm");
-const btn=document.getElementById("soundBtn");
-bgm.volume=0.18;
-let unlocked=false;
+/* 🔊 BGM AUTOPLAY ON INTERACTION */
+const bgm = document.getElementById("bgm");
+bgm.volume = 0.18;
+let started = false;
 
-document.body.addEventListener("click",()=>{
-  if(unlocked) return;
-  unlocked=true;
-  bgm.play().then(()=>bgm.pause());
-},{once:true});
+// auto start on ANY user interaction
+function autoPlay(){
+  if(started) return;
+  started = true;
+  // Play promise is handled silently. Browsers usually require user interaction to allow play.
+  bgm.play().catch(e => console.log("BGM play failed, browser policy blocked it."));
+  document.body.removeEventListener("click", autoPlay);
+  document.body.removeEventListener("keydown", autoPlay);
+  document.body.removeEventListener("touchstart", autoPlay);
+}
 
-btn.onclick=()=>{
-  if(bgm.paused){
-    bgm.play();
-    btn.textContent="⏸ PAUSE BGM";
-  }else{
-    bgm.pause();
-    btn.textContent="▶ ENABLE BGM";
-  }
-};
+// listen to any interaction
+document.body.addEventListener("click", autoPlay);
+document.body.addEventListener("keydown", autoPlay);
+document.body.addEventListener("touchstart", autoPlay);
 
 /* TYPING */
-const roles=["Competitive Programmer","Codeforces Enthusiast","AI / ML Learner","C++ & DSA Developer"];
-let i=0,j=0,d=false;
-const t=document.getElementById("typed");
-(function type(){
-  if(!d&&j<=roles[i].length)t.textContent=roles[i].slice(0,j++);
-  else if(d&&j>=0)t.textContent=roles[i].slice(0,j--);
-  if(j===roles[i].length+1)d=true;
-  if(j===0&&d){d=false;i=(i+1)%roles.length}
-  setTimeout(type,d?50:90);
-})();
+const words=[
+  "Competitive Programmer",
+  "Codeforces Enthusiast",
+  "AI / ML Learner",
+  "C++ & DSA Developer"
+];
+let w=0,c=0,del=false;
+const el=document.getElementById("typed");
+
+function run(){
+  el.textContent=words[w].slice(0,c);
+  if(!del)c++; else c--;
+  if(c===words[w].length+1)del=true;
+  if(c===0&&del){del=false;w=(w+1)%words.length}
+  setTimeout(run,del?60:90);
+}
+run();
+
 
 /* PARTICLES */
 const c=document.getElementById("particles"),x=c.getContext("2d");
-let w,h,p=[];
-function resize(){w=c.width=innerWidth;h=c.height=innerHeight}
+let wSize,hSize,p=[]; 
+function resize(){wSize=c.width=innerWidth;hSize=c.height=innerHeight}
 addEventListener("resize",resize);resize();
 for(let i=0;i<90;i++)
-p.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+1,dx:(Math.random()-.5)*.5,dy:(Math.random()-.5)*.5});
+p.push({x:Math.random()*wSize,y:Math.random()*hSize,r:Math.random()*2+1,dx:(Math.random()-.5)*.5,dy:(Math.random()-.5)*.5});
 (function anim(){
-  x.clearRect(0,0,w,h);
-  x.fillStyle="rgba(56,189,248,.6)";
-  p.forEach(a=>{
-    a.x+=a.dx;a.y+=a.dy;
-    if(a.x<0||a.x>w)a.dx*=-1;
-    if(a.y<0||a.y>h)a.dy*=-1;
-    x.beginPath();x.arc(a.x,a.y,a.r,0,Math.PI*2);x.fill();
-  });
-  requestAnimationFrame(anim);
+  x.clearRect(0,0,wSize,hSize);
+  x.fillStyle="rgba(56,189,248,.6)";
+  p.forEach(a=>{
+    a.x+=a.dx;a.y+=a.dy;
+    if(a.x<0||a.x>wSize)a.dx*=-1;
+    if(a.y<0||a.y>hSize)a.dy*=-1;
+    x.beginPath();x.arc(a.x,a.y,a.r,0,Math.PI*2);x.fill();
+  });
+  requestAnimationFrame(anim);
 })();
 
 /* CURSOR */
 const g=document.getElementById("glow");
 addEventListener("mousemove",e=>{
-  g.style.left=e.clientX+"px";
-  g.style.top=e.clientY+"px";
+  g.style.left=e.clientX+"px";
+  g.style.top=e.clientY+"px";
 });
 
 /* SCROLL ANIM */
 const obs=new IntersectionObserver(e=>{
-  e.forEach(v=>v.isIntersecting&&v.target.classList.add("show"));
+  e.forEach(v=>v.isIntersecting&&v.target.classList.add("show"));
 },{threshold:.2});
 document.querySelectorAll("section").forEach(s=>obs.observe(s));
 </script>
