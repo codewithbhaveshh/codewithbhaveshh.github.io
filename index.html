@@ -7,6 +7,7 @@
 <title>Bhavesh Pandey</title>
 
 <style>
+  
 :root{
   --bg:#020617;
   --card:#020617;
@@ -21,9 +22,26 @@ html{scroll-behavior:smooth}
 body{
   margin:0;
   font-family:system-ui,-apple-system,"Segoe UI";
-  background:radial-gradient(circle at top,#020617,#020617);
   color:white;
+  min-height:100vh;
+  background:linear-gradient(
+    120deg,
+    #020617,
+    #020617,
+    #020617,
+    #0b1c3d,
+    #020617
+  );
+  background-size:400% 400%;
+  animation:bgMove 15s ease infinite;
 }
+
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
 
 section{
   max-width:900px;
@@ -81,6 +99,31 @@ p{color:var(--muted)}
 @media(min-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
 
 footer{text-align:center;color:var(--muted);padding:30px}
+  .cp-card{
+  width:180px;
+  padding:20px;
+  border-radius:18px;
+  border:1px solid var(--border);
+  text-align:center;
+  text-decoration:none;
+  color:white;
+  transition:.25s;
+}
+.cp-card span{
+  font-size:1.1rem;
+  font-weight:600;
+}
+.cp-card small{
+  display:block;
+  margin-top:8px;
+  color:var(--muted);
+}
+.cp-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--accent);
+  background:rgba(59,130,246,.08);
+}
+
 </style>
 </head>
 
@@ -122,10 +165,23 @@ and exploring AI/ML. Focused on building strong DSA foundations and shipping rea
 
 <!-- COMPETITIVE -->
 <section>
-<h2>Competitive Programming</h2>
-<div id="cf">Codeforces: loading...</div>
-<p>CodeChef: visit profile above</p>
+<h2>🏅 Competitive Programming</h2>
+
+<div style="display:flex;gap:24px;flex-wrap:wrap">
+
+  <a class="cp-card" href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">
+    <span>Codeforces</span>
+    <small id="cf">loading...</small>
+  </a>
+
+  <a class="cp-card" href="https://www.codechef.com/users/bhaveshhpandey" target="_blank">
+    <span>CodeChef</span>
+    <small>Visit profile</small>
+  </a>
+
+</div>
 </section>
+
 
 <!-- PROJECTS -->
 <section>
