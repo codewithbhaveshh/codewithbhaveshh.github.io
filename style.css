@@ -168,3 +168,18 @@ section.show{
   color:#93c5fd;
   cursor:pointer;
 }
+.stats{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:14px;
+}
+
+.card.clickable{
+  cursor:pointer;
+}
+
+a{
+  text-decoration:none;
+}
+
