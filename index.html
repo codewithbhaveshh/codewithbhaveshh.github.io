@@ -25,31 +25,26 @@ body{
   overflow-x:hidden;
 }
 
-/* PARTICLES */
-#particles, .card-canvas{
+#particles,.card-canvas{
   position:absolute;
   inset:0;
   pointer-events:none;
   z-index:-1;
 }
 
-/* GLOW CURSOR */
 .cursor-glow{
   position:fixed;
-  width:140px;
-  height:140px;
+  width:140px;height:140px;
   border-radius:50%;
   background:radial-gradient(circle, rgba(56,189,248,.35), transparent 60%);
   filter:blur(40px);
-  pointer-events:none;
   transform:translate(-50%,-50%);
+  pointer-events:none;
   z-index:-1;
-  transition:width .3s, height .3s, filter .3s;
 }
 
-/* GLASS */
 .glass{
-  max-width:1000px;
+  max-width:1100px;
   margin:40px auto;
   padding:40px 24px;
   border-radius:28px;
@@ -59,32 +54,20 @@ body{
   box-shadow:0 0 90px rgba(56,189,248,.25);
 }
 
-/* SECTIONS */
 section{
   padding:80px 10px;
   text-align:center;
   opacity:0;
   transform:translateY(40px);
   transition:1s ease;
-  position:relative;
 }
-section.show{
-  opacity:1;
-  transform:translateY(0);
-}
+section.show{opacity:1;transform:translateY(0)}
 
-/* HERO */
 .hero img{
-  width:180px;
-  height:180px;
+  width:180px;height:180px;
   border-radius:50%;
-  object-fit:cover;
   border:2px solid var(--blue);
   box-shadow:0 0 60px var(--blue);
-  transition: transform .4s;
-}
-.hero img:hover{
-  transform: scale(1.05);
 }
 
 h1{
@@ -93,20 +76,12 @@ h1{
   color:var(--blue);
   text-shadow:0 0 18px rgba(56,189,248,.9);
 }
-h1::after{
-  content:"_";
-  animation:blink 1s infinite;
-}
+h1::after{content:"_";animation:blink 1s infinite}
 @keyframes blink{50%{opacity:0}}
 
-.typing{
-  margin-top:12px;
-  font-size:1.05rem;
-  color:var(--green);
-}
-.typing::before{content:"> ";}
+.typing{margin-top:12px;color:var(--green)}
+.typing::before{content:"> "}
 
-/* BUTTONS */
 .btn{
   display:inline-block;
   padding:14px 26px;
@@ -116,7 +91,7 @@ h1::after{
   background:#020617;
   color:#e5e7eb;
   text-decoration:none;
-  transition:.3s, transform .2s;
+  transition:.3s;
 }
 .btn:hover{
   transform:translateY(-6px) scale(1.05);
@@ -124,62 +99,42 @@ h1::after{
   box-shadow:0 0 25px rgba(56,189,248,.7);
 }
 
-/* GRID */
 .grid{
   display:grid;
-  gap:18px;
+  gap:20px;
 }
 @media(min-width:700px){
   .grid{grid-template-columns:repeat(2,1fr)}
 }
 
-/* CARDS */
 .card{
-  padding:20px;
+  padding:22px;
   border-radius:16px;
   background:#111827;
   border:1px solid rgba(56,189,248,.3);
-  transition: transform .3s, box-shadow .3s;
-  font-weight:600;
-  color:#e5e7eb;
   position:relative;
   overflow:hidden;
-  animation: float 4s ease-in-out infinite;
+  animation:float 4s ease-in-out infinite;
 }
-/* Skill card colors */
-.card.python{border-left:4px solid var(--green);}
-.card.ai{border-left:4px solid var(--pink);}
-.card.ml{border-left:4px solid var(--purple);}
-.card.web{border-left:4px solid var(--yellow);}
-.card.about-me{border-left:4px solid var(--blue);animation: float 5s ease-in-out infinite;}
-
-/* Hover animations */
 .card:hover{
-  transform:translateY(-10px) rotate(-1deg);
+  transform:translateY(-10px);
   box-shadow:0 0 25px rgba(56,189,248,.7);
 }
 
-/* Floating animation */
 @keyframes float{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-6px);}
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
 }
 
-/* HIGHLIGHTS */
-.highlight{
-  color:var(--green);
-  font-weight:700;
-  transition: color .5s;
-}
-.highlight:hover{
-  color:var(--blue);
-}
+.card.python{border-left:4px solid var(--green)}
+.card.ai{border-left:4px solid var(--pink)}
+.card.ml{border-left:4px solid var(--purple)}
+.card.cp{border-left:4px solid var(--yellow)}
+.card.stats{border-left:4px solid var(--blue)}
 
-/* SOUND BUTTON */
 .sound-toggle{
   position:fixed;
-  bottom:24px;
-  right:24px;
+  bottom:24px;right:24px;
   padding:14px 22px;
   border-radius:999px;
   background:#020617;
@@ -187,12 +142,8 @@ h1::after{
   color:#93c5fd;
   cursor:pointer;
   z-index:999;
-  box-shadow:0 0 30px rgba(59,130,246,.4);
-  transition: transform .2s;
 }
-.sound-toggle:hover{
-  transform:scale(1.08);
-}
+
 footer{
   text-align:center;
   padding:30px;
@@ -206,39 +157,31 @@ footer{
 <canvas id="particles"></canvas>
 <div class="cursor-glow" id="glow"></div>
 
-<!-- 🎵 BGM -->
 <audio id="bgm" loop>
   <source src="stars.mp3" type="audio/mpeg">
 </audio>
-
 <div class="sound-toggle" id="soundBtn">▶ ENABLE BGM</div>
 
 <div class="glass">
 
 <!-- HERO -->
 <section class="hero show">
-  <img src="profile.jpg" alt="Bhavesh Pandey">
+  <img src="profile.jpg">
   <h1>Bhavesh Pandey</h1>
   <div class="typing"><span id="typed"></span></div>
 
-  <div>
-    <a class="btn" href="https://github.com/codewithbhaveshh" target="_blank">./github👾</a>
-    <a class="btn" href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">./codeforces📊</a>
-    <a class="btn" href="https://www.codechef.com/users/bhaveshhpandey" target="_blank">./codechef</a>
-  </div>
+  <a class="btn" href="https://github.com/codewithbhaveshh" target="_blank">GitHub</a>
+  <a class="btn" href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">Codeforces</a>
+  <a class="btn" href="https://www.codechef.com/users/bhaveshhpandey" target="_blank">CodeChef</a>
 </section>
 
-<!-- ABOUT ME -->
+<!-- ABOUT -->
 <section>
-<h2>// about_me ⎚-⎚</h2>
-<div class="card about-me">
-  <canvas class="card-canvas"></canvas>
-  <p style="color:#64748b;font-style:italic;">
-     I’m a first-year CSE student at IIIT Jabalpur, 
-    Music is my companion🥂 — I’m a happy, chill soul who love's creativity ✌︎︎ . <span class="highlight"></span>.<br>
-    Focused on <span class="highlight">Competitive Programming </span> & <span class="highlight">I love solving challenges</span>.<br>
-    passionate about exploring <span class="highlight">AI / ML</span>.
-  </p>
+<h2>// about_me</h2>
+<div class="card">
+I’m a first-year CSE student at IIIT Jabalpur.<br><br>
+Focused on <b>Competitive Programming</b> and exploring <b>AI / ML</b>.<br>
+Music 🎧 = Peace.
 </div>
 </section>
 
@@ -246,49 +189,64 @@ footer{
 <section>
 <h2>// skills</h2>
 <div class="grid">
-  <div class="card python">
-    <canvas class="card-canvas"></canvas>
-   🐍 Python explorer
+  <div class="card python">🐍 Python, NumPy, Pandas</div>
+  <div class="card ai">🤖 AI & OpenCV</div>
+  <div class="card ml">🧠 ML: Scikit-Learn, TensorFlow</div>
+  <div class="card cp">⚔️ C++ & Java (Competitive Programming)</div>
+</div>
+</section>
+
+<!-- CP STATS -->
+<section>
+<h2>// competitive_stats</h2>
+<div class="grid">
+
+  <div class="card stats">
+    <h3>Codeforces Solved Graph</h3>
+    <img src="https://codeforces-readme-stats.vercel.app/api/profile?username=bhaveshcodes69" 
+         style="width:100%;border-radius:12px;">
   </div>
-  <div class="card ai">
-    <canvas class="card-canvas"></canvas>
-    AI: NumPy, Pandas, OpenCV
+
+  <div class="card stats">
+    <h3>CodeChef Rating</h3>
+    <img src="https://cp-stats.vercel.app/api/codechef/bhaveshhpandey" 
+         style="width:100%;border-radius:12px;">
   </div>
-  <div class="card ml">
-    <canvas class="card-canvas"></canvas>
-    ML: Scikit-Learn, TensorFlow, PyTorch
-  </div>
-  <div class="card web">
-    <canvas class="card-canvas"></canvas>
-    C++ & Java competitive programmer
-  </div>
+
+</div>
+</section>
+
+<!-- EDUCATION -->
+<section>
+<h2>// education</h2>
+<div class="card">
+🎓 B.Tech CSE<br>
+IIIT Jabalpur<br>
+2025 – 2029
 </div>
 </section>
 
 </div>
 
-<footer>© 🎧 Bhavesh Pandey</footer>
+<footer>© Bhavesh Pandey</footer>
 
 <script>
-// 🔊 BGM
+// BGM
 const bgm=document.getElementById("bgm");
 const btn=document.getElementById("soundBtn");
-bgm.volume=0.18;
 let unlocked=false;
 document.body.addEventListener("click",()=>{
   if(!unlocked){
     unlocked=true;
+    bgm.volume=0.2;
     bgm.play();
     btn.textContent="⏸ PAUSE BGM";
   }
 });
-btn.onclick=()=>{
-  if(bgm.paused){ bgm.play(); btn.textContent="⏸ PAUSE BGM"; }
-  else{ bgm.pause(); btn.textContent="▶ ENABLE BGM"; }
-};
+btn.onclick=()=>{bgm.paused?bgm.play():bgm.pause()};
 
-// TYPING
-const roles=["Competitive Programmer","Codeforces Enthusiast","AI / ML Learner","C++ & DSA Developer"];
+// Typing
+const roles=["Competitive Programmer","Codeforces Enthusiast","AI / ML Learner","C++ Developer"];
 let i=0,j=0,d=false;
 const t=document.getElementById("typed");
 (function type(){
@@ -299,13 +257,13 @@ const t=document.getElementById("typed");
   setTimeout(type,d?50:90);
 })();
 
-// BACKGROUND PARTICLES
+// Background particles
 const c=document.getElementById("particles"),x=c.getContext("2d");
 let w,h,p=[];
 function resize(){w=c.width=innerWidth;h=c.height=innerHeight}
-addEventListener("resize",resize);resize();
+resize();addEventListener("resize",resize);
 for(let i=0;i<90;i++)
-p.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+1,dx:(Math.random()-.5)*.5,dy:(Math.random()-.5)*.5});
+p.push({x:Math.random()*w,y:Math.random()*h,r:2,dx:(Math.random()-.5),dy:(Math.random()-.5)});
 (function anim(){
   x.clearRect(0,0,w,h);
   x.fillStyle="rgba(56,189,248,.6)";
@@ -318,50 +276,18 @@ p.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+1,dx:(Math.random(
   requestAnimationFrame(anim);
 })();
 
-// CURSOR
+// Cursor glow
 const g=document.getElementById("glow");
 addEventListener("mousemove",e=>{
   g.style.left=e.clientX+"px";
   g.style.top=e.clientY+"px";
 });
 
-// SCROLL ANIMATIONS
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting) e.target.classList.add("show");
-  });
-},{threshold:0.2});
+// Scroll animation
+const obs=new IntersectionObserver(e=>{
+  e.forEach(x=>x.isIntersecting&&x.target.classList.add("show"))
+},{threshold:.2});
 document.querySelectorAll("section").forEach(s=>obs.observe(s));
-
-// PARTICLES FOR CARDS
-document.querySelectorAll(".card").forEach(card=>{
-  const canvas=card.querySelector(".card-canvas");
-  canvas.width=card.offsetWidth;
-  canvas.height=card.offsetHeight;
-  const ctx=canvas.getContext("2d");
-  const particles=[];
-  const count = card.classList.contains('about-me') ? 35 : 25;
-  for(let i=0;i<count;i++){
-    particles.push({
-      x:Math.random()*canvas.width,
-      y:Math.random()*canvas.height,
-      r:Math.random()*2+0.5,
-      dx:(Math.random()-.5)*0.4,
-      dy:(Math.random()-.5)*0.4
-    });
-  }
-  (function animParticles(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle="rgba(56,189,248,.4)";
-    particles.forEach(p=>{
-      p.x+=p.dx; p.y+=p.dy;
-      if(p.x<0||p.x>canvas.width)p.dx*=-1;
-      if(p.y<0||p.y>canvas.height)p.dy*=-1;
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
-    });
-    requestAnimationFrame(animParticles);
-  })();
-});
 </script>
 
 </body>
