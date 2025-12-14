@@ -186,6 +186,19 @@ footer{
   z-index:-1;
   animation:slowPulse 6s ease-in-out infinite;
 }
+a {
+  text-decoration: none;
+}
+
+.card.clickable {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card.clickable:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+}
 
 /* animations */
 @keyframes fadeUp{
