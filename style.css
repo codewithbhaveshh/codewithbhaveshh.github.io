@@ -114,3 +114,19 @@ footer{
   padding:30px;
   color:#94a3b8;
 }
+
+/* PAGE TRANSITION */
+#page-transition{
+  position:fixed;
+  inset:0;
+  background:#020617;
+  z-index:9999;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .6s ease;
+}
+#page-transition.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
