@@ -20,7 +20,7 @@
   <!-- NAVBAR -->
   <nav class="nav">
     <a href="index.html">Home</a>
-    <a href="cp.html">CP</a>
+    <a href="cp.html" class="active">CP</a>
     <a href="skills.html">Skills</a>
     <a href="about.html">About</a>
   </nav>
@@ -31,81 +31,96 @@
   </audio>
   <button id="musicBtn" class="music-btn">▶ music</button>
 
-  <!-- CP SECTION -->
+  <!-- HERO -->
   <section class="show">
-    <h1>Competitive Programming</h1>
-    <p style="opacity:.7; margin-top:10px;">
-      First-year student grinding contests, improving daily, and chasing clean logic.
+    <h1 class="dyn-title" data-text="Competitive Programming"></h1>
+
+    <p class="dyn-sub">
+      <span class="word">First-year</span>
+      <span class="word">student</span>
+      <span class="word">grinding</span>
+      <span class="word">contests,</span>
+      <span class="word">improving</span>
+      <span class="word">daily,</span>
+      <span class="word">chasing</span>
+      <span class="word">clean</span>
+      <span class="word">logic.</span>
     </p>
   </section>
 
-  <!-- PLATFORM PROFILES -->
+  <!-- PROFILES -->
   <section>
-    <h2>Platform Profiles</h2>
+    <h2 class="glow">Platform Profiles</h2>
 
-    <div style="display:flex; gap:28px; flex-wrap:wrap; justify-content:center; margin-top:40px;">
+    <div class="cards">
 
-      <!-- Codeforces -->
-      <div class="card glass clickable">
-        <span class="rating-text">~600</span>
+      <!-- CODEFORCES -->
+      <a href="https://codeforces.com/profile/bhaveshcodes69" target="_blank" class="card glass clickable">
+        <span class="rating-text counter" data-target="600">0</span>
         <h3>Codeforces</h3>
         <p>Handle: <strong>bhaveshcodes69</strong></p>
         <img src="codeforces.webp" class="stats" alt="Codeforces">
-        <p style="opacity:.7; margin-top:8px;">Grinding Div-3 & Div-2</p>
-      </div>
+        <p class="muted">Grinding Div-3 & Div-2</p>
+      </a>
 
-      <!-- CodeChef -->
-      <div class="card glass clickable">
-        <span class="rating-text">~1200</span>
+      <!-- CODECHEF -->
+      <a href="https://www.codechef.com/users/bhaveshhpandey" target="_blank" class="card glass clickable">
+        <span class="rating-text counter" data-target="1200">0</span>
         <h3>CodeChef</h3>
         <p>Handle: <strong>bhaveshhpandey</strong></p>
         <img src="codechef.jpg" class="stats" alt="CodeChef">
-        <p style="opacity:.7; margin-top:8px;">Regular Starters & Longs</p>
-      </div>
+        <p class="muted">Regular Starters & Longs</p>
+      </a>
 
-      <!-- LeetCode -->
-      <div class="card glass clickable">
+      <!-- LEETCODE -->
+      <a href="https://leetcode.com/" target="_blank" class="card glass clickable">
+        <span class="rating-text glow">DSA</span>
         <h3>LeetCode</h3>
-        <p>Focused on DSA & Interviews</p>
+        <p>Interview-focused practice</p>
         <img src="leetcode.png" class="stats" alt="LeetCode">
-        <p style="opacity:.7; margin-top:8px;">Consistency &gt; Count</p>
-      </div>
+        <p class="muted">Consistency &gt; Count</p>
+      </a>
 
     </div>
   </section>
 
-  <!-- RECENT CONTESTS -->
+  <!-- CONTESTS -->
   <section>
-    <h2>Recent Contests</h2>
+    <h2 class="glow">Recent Contests</h2>
 
-    <div class="card glass" style="width:600px; max-width:95%; margin-top:30px;">
-      <table style="width:100%; border-collapse:collapse;">
-        <tr style="opacity:.7;">
-          <th align="left">Contest</th>
-          <th>Platform</th>
-          <th>Rank</th>
-          <th>Date</th>
-        </tr>
-        <tr>
-          <td>CF Round 1070 (Div-2)</td>
-          <td align="center">Codeforces</td>
-          <td align="center">14k+</td>
-          <td align="center">Dec 2025</td>
-        </tr>
-        <tr>
-          <td>Starters</td>
-          <td align="center">CodeChef</td>
-          <td align="center">—</td>
-          <td align="center">Ongoing</td>
-        </tr>
+    <div class="card glass wide">
+      <table>
+        <thead>
+          <tr>
+            <th>Contest</th>
+            <th>Platform</th>
+            <th>Rank</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CF Round 1070 (Div-2)</td>
+            <td>Codeforces</td>
+            <td>14k+</td>
+            <td>Dec 2025</td>
+          </tr>
+          <tr>
+            <td>Starters</td>
+            <td>CodeChef</td>
+            <td>—</td>
+            <td>Ongoing</td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </section>
 
-  <!-- FAVORITE TOPICS -->
+  <!-- TOPICS -->
   <section>
-    <h2>Favorite Topics</h2>
-    <ul style="margin-top:20px; opacity:.8;">
+    <h2 class="glow">Favorite Topics</h2>
+
+    <ul class="topics">
       <li>Data Structures</li>
       <li>Graphs & Trees</li>
       <li>Dynamic Programming</li>
@@ -113,16 +128,10 @@
       <li>Number Theory</li>
     </ul>
 
-    <p style="margin-top:24px; opacity:.6;">
-      Brute force is the last option.
-    </p>
+    <p class="quote">Brute force is always the last option.</p>
 
-    <div style="margin-top:40px; font-size:1.2rem;">
-      साम दानं भेदः दण्डः
-    </div>
-    <p style="opacity:.6; margin-top:6px;">
-      Persuasion → Compromise → Division → Force
-    </p>
+    <div class="sanskrit">साम दानं भेदः दण्डः</div>
+    <p class="muted">Persuasion → Compromise → Division → Force</p>
   </section>
 
   <!-- SCRIPT -->
