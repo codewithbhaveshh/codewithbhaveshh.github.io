@@ -3,34 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Bhavesh Pandey</title>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
-<style>
-body{
-  margin:0;
-  font-family:JetBrains Mono, monospace;
-  background:#020617;
-  color:#e5e7eb;
-  text-align:center;
-}
-.nav{
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  padding:20px;
-}
-.nav a{color:#94a3b8;text-decoration:none}
-.nav a:hover{color:#38bdf8}
-.hero{margin-top:80px}
-.hero img{
-  width:180px;
-  border-radius:50%;
-  box-shadow:0 0 40px #38bdf8;
-}
-h1{color:#38bdf8}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+<div class="cursor-glow"></div>
 
 <nav class="nav">
   <a href="index.html">home</a>
@@ -39,11 +16,12 @@ h1{color:#38bdf8}
   <a href="cp.html">competitive</a>
 </nav>
 
-<div class="hero">
+<section class="hero show">
   <img src="assets/profile.jpg">
   <h1>Bhavesh Pandey</h1>
-  <p>> Competitive Programmer | C++ | AI/ML</p>
-</div>
+  <div class="typing"><span id="typed"></span></div>
+</section>
 
+<script src="script.js"></script>
 </body>
 </html>
