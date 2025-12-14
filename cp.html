@@ -1,60 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Competitive Programming</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhavesh | Competitive Programming</title>
+    <link rel="stylesheet" href="style.css"> <!-- Keep your existing CSS -->
+    <style>
+        /* Extra styles if needed */
+        .cp-container { max-width: 900px; margin: 40px auto; padding: 20px; text-align: center; }
+        .profiles { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin: 40px 0; }
+        .profile-card { background: #f0f0f0; padding: 20px; border-radius: 10px; width: 250px; }
+        .badge { height: 100px; }
+        table { width: 80%; margin: 40px auto; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        th { background: #333; color: white; }
+        .sanskrit-quote { font-size: 1.4em; font-weight: bold; margin: 20px 0; color: #d35400; }
+        .quote-meaning { font-style: italic; margin-top: 10px; }
+    </style>
 </head>
-
 <body>
+    <!-- Add your navbar here if not included -->
 
-  <div class="float-orb"></div>
+    <div class="cp-container">
+        <h1>Competitive Programming</h1>
+        <p>Passionate about solving complex problems and participating in coding contests. Here's my journey!</p>
 
-  <audio id="bgm" loop>
-    <source src="stars.mp3" type="audio/mpeg">
-  </audio>
+        <h2>Platform Profiles</h2>
+        <div class="profiles">
+            <div class="profile-card">
+                <h3>Codeforces</h3>
+                <p>Handle: <strong>bhaveshcodes69</strong></p>
+                <p>Max Rating: <strong>XXXX</strong> (Pupil/Specialist/etc.)</p>
+                <a href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">
+                    <img src="https://sta.codeforces.com/s/0/images/badges/pupil-2.svg" alt="Codeforces Badge" class="badge">
+                </a>
+                <p>Solved: 100+ problems</p>
+            </div>
+           
+            <div class="profile-card">
+                <h3>CodeChef</h3>
+                <p>Handle: <strong>bhaveshhpandey</strong></p>
+                <p>Rating: <strong>1200</strong> (⭐)</p>
+                <a href="https://www.codechef.com/users/bhaveshhpandey" target="_blank">View Profile →</a>
+            </div>
 
-  <div id="musicBtn" class="music-btn">▶ music</div>
+            <!-- Add more platforms like LeetCode, AtCoder if you have them -->
+        </div>
 
-  <div id="page-transition"></div>
-  <canvas id="bg-particles"></canvas>
-  <div class="cursor-glow"></div>
+       
 
-  <nav class="nav">
-    <a href="index.html">home</a>
-    <a href="about.html">about</a>
-    <a href="skills.html">skills</a>
-    <a href="cp.html">competitive</a>
-  </nav>
+        <p>I believe - Brute force should be the last option.</p>
+        <div class="sanskrit-quote">साम दानं भेदः दण्डः</div>
+        <p class="quote-meaning">(Sāma Dānaṃ Bhedaḥ Daṇḍaḥ — From ancient wisdom: Persuasion first, compromise second, division third, force only as the last resort.)</p>
 
-  <!-- CODEFORCES -->
-  <section class="show">
-    <h2>// codeforces</h2>
+     
+    </div>
 
-   <a href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">
-  <div class="card clickable glass">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Codeforces_logo.svg"
-         style="width:200px">
-    <span class="rating-text">bhaveshcodes69</span>
-  </div>
-</a>
-
-  </section>
-
-  <!-- CODECHEF -->
-  <section>
-    <h2>// codechef</h2>
-
-    <a href="https://www.codechef.com/users/bhaveshhpandey" target="_blank">
-  <div class="card clickable glass">
-    <img src="https://upload.wikimedia.org/wikipedia/en/7/7b/Codechef_logo.svg"
-         style="width:200px">
-    <span class="rating-text">bhaveshhpandey</span>
-  </div>
-</a>
-
-  </section>
-
-  <script src="script.js"></script>
+    <!-- Add your footer here -->
 </body>
 </html>
