@@ -1,25 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Skills</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Skills</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="float-orb"></div>
 
+<div class="float-orb"></div>
 
-  <audio id="bgm" loop>
- <source src="stars.mp3" type="audio/mpeg">
+<audio id="bgm" loop preload="auto">
+  <source src="stars.mp3" type="audio/mpeg">
 </audio>
-
 <div id="musicBtn" class="music-btn">▶ music</div>
 
-  <canvas id="bg-particles"></canvas>
-
-
-  <div id="page-transition"></div>
-
+<div id="page-transition"></div>
+<canvas id="bg-particles"></canvas>
 <div class="cursor-glow"></div>
 
 <nav class="nav">
@@ -29,14 +26,30 @@
   <a href="cp.html">competitive</a>
 </nav>
 
-<section class="show">
-<h2>// languages</h2>
-<div class="grid">
-  <div class="card lang cpp">⚔️ C++ — Primary CP Language</div>
-  <div class="card lang py">🐍 Python — Scripting / ML</div>
-  <div class="card lang java">☕ Java — OOP & DSA</div>
-  <div class="card lang js">🌐 JavaScript — Web Basics</div>
-</div>
+<section>
+  <h2 class="dyn-title" data-text="// skills"></h2>
+
+  <div class="skills-grid">
+    <div class="card glass skill-card clickable">
+      ⚔️ <b>C++</b>
+      <p>Primary Competitive Programming language</p>
+    </div>
+
+    <div class="card glass skill-card clickable">
+      🐍 <b>Python</b>
+      <p>Scripting • AI / ML basics</p>
+    </div>
+
+    <div class="card glass skill-card clickable">
+      ☕ <b>Java</b>
+      <p>OOP • DSA fundamentals</p>
+    </div>
+
+    <div class="card glass skill-card clickable">
+      🌐 <b>JavaScript</b>
+      <p>Web interactions & animations</p>
+    </div>
+  </div>
 </section>
 
 <script src="script.js"></script>
