@@ -75,6 +75,30 @@ document.querySelectorAll(".clickable").forEach(card => {
     setTimeout(() => ripple.remove(), 600);
   });
 });
+// GLASS CURSOR FOLLOW (SAFE)
+document.querySelectorAll(".glass").forEach(card => {
+  card.addEventListener("mousemove", e => {
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty("--x", `${e.clientX - rect.left}px`);
+    card.style.setProperty("--y", `${e.clientY - rect.top}px`);
+  });
+});
+
+// RIPPLE
+document.querySelectorAll(".clickable").forEach(card => {
+  card.addEventListener("click", e => {
+    const ripple = document.createElement("span");
+    ripple.className = "ripple";
+
+    const rect = card.getBoundingClientRect();
+    ripple.style.left = `${e.clientX - rect.left}px`;
+    ripple.style.top  = `${e.clientY - rect.top}px`;
+
+    card.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+  });
+});
+
 
 // PAGE TRANSITION
 const transition = document.getElementById("page-transition");
