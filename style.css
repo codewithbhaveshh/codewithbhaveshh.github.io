@@ -230,16 +230,57 @@ footer{
   transform:scale(1.08);
   box-shadow:0 0 25px rgba(56,189,248,.6);
 }
-.boat{
+/* OM-STYLE FLOATING ORB */
+.float-orb{
   position:fixed;
-  left:40px;
-  bottom:80px;
-  font-size:28px;
-  animation:boatFloat 6s ease-in-out infinite;
-  z-index:10;
-  opacity:.85;
+  top:30%;
+  left:-120px;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle,
+      rgba(120,200,255,.9),
+      rgba(0,120,255,.4),
+      rgba(0,0,0,0)
+    );
+  filter:blur(1px);
+  opacity:.75;
   pointer-events:none;
+  z-index:4;
+
+  animation:
+    drift 26s linear infinite,
+    flutter 5s ease-in-out infinite;
 }
+
+/* horizontal cinematic travel */
+@keyframes drift{
+  0%{
+    left:-120px;
+    transform:translateY(0);
+  }
+  25%{
+    transform:translateY(-40px);
+  }
+  50%{
+    transform:translateY(20px);
+  }
+  75%{
+    transform:translateY(-30px);
+  }
+  100%{
+    left:110%;
+    transform:translateY(0);
+  }
+}
+
+/* subtle flutter */
+@keyframes flutter{
+  0%,100%{ opacity:.6; }
+  50%{ opacity:1; }
+}
+
 
 @keyframes boatFloat{
   0%{transform:translateY(0) rotate(0deg)}
