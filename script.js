@@ -224,6 +224,52 @@ if (transition) {
     transition.classList.remove("active");
   });
 }
+
+// SHOOTING STARS
+const starsContainer = document.getElementById("shooting-stars");
+if (starsContainer) {
+  function createMeteor() {
+    const meteor = document.createElement("div");
+    meteor.classList.add("meteor");
+
+    const startX = Math.random() * window.innerWidth * 0.6 - window.innerWidth * 0.2;
+    const startY = Math.random() * window.innerHeight * 0.4;
+    const angle = Math.random() * 70 + 10;
+    const length = Math.random() * 500 + 300;
+    const duration = Math.random() * 3 + 2;
+
+    meteor.style.left = startX + "px";
+    meteor.style.top = startY + "px";
+    meteor.style.width = length + "px";
+    meteor.style.transform = `rotate(${angle}deg)`;
+    meteor.style.animationDuration = duration + "s";
+
+    starsContainer.appendChild(meteor);
+
+    setTimeout(() => meteor.remove(), duration * 1000 + 1000);
+  }
+
+  setInterval(createMeteor, 3000);
+  for (let i = 0; i < 5; i++) setTimeout(createMeteor, i * 1000);
+}
+
+// PROFILE PHOTO PARALLAX TILT
+const heroImg = document.querySelector(".hero-img");
+if (heroImg) {
+  document.addEventListener("mousemove", e => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 25;
+    const y = (e.clientY / window.innerHeight - 0.5) * 25;
+    heroImg.style.transform = `rotateY(${x}deg) rotateX(${y}deg) translateZ(30px)`;
+  });
+  document.addEventListener("mouseleave", () => {
+    heroImg.style.transform = "none";
+  });
+}
+
+// Force hero visibility on load
+window.addEventListener("load", () => {
+  document.querySelectorAll(".hero").forEach(el => el.classList.add("show"));
+});
 // DYNAMIC FAVORITE TOPICS
 const topics = [
   "Data Structures",
