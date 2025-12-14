@@ -155,6 +155,7 @@ section.show{
   opacity:1;
   pointer-events:auto;
 }
+
 /* FLOAT ORB */
 .float-orb{
   position:fixed;
@@ -184,19 +185,33 @@ section.show{
   margin-bottom:22px;
 }
 
-/* DYNAMIC TITLE */
-.dyn-title::after {
-  content: attr(data-text);
-  animation: typing 3s steps(24) forwards;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid var(--blue);
-  padding-right: 6px;
+/* DYNAMIC TITLE – FIXED */
+.dyn-title{
+  font-size:1.6rem;
+  color:#7dd3fc;
+  margin-bottom:30px;
+  position:relative;
 }
 
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+.dyn-title::after{
+  content: attr(data-text);
+  display:inline-block;
+  white-space:nowrap;
+  overflow:hidden;
+  border-right:2px solid var(--blue);
+  padding-right:6px;
+  width:0;
+  animation: typing 3.2s steps(40,end) forwards,
+             blink .8s infinite;
+}
+
+@keyframes typing{
+  from{ width:0; }
+  to{ width:40ch; }
+}
+
+@keyframes blink{
+  50%{ border-color:transparent; }
 }
 
 /* WORD STAGGER */
@@ -224,9 +239,6 @@ section.show{
   to { text-shadow: 0 0 18px var(--blue); }
 }
 
-
-
-
 /* MUSIC */
 .music-btn{
   position:fixed;
@@ -239,67 +251,61 @@ section.show{
   color:#93c5fd;
   cursor:pointer;
 }
-.stats{
-  width:100%;
-  height:auto;
-  display:block;
-  border-radius:14px;
-}
 
-.card.clickable{
-  cursor:pointer;
-}
-
-a{
-  text-decoration:none;
-}
-/* ============================= */
 /* CP PLATFORM VISIBILITY FIX 🔥 */
-/* ============================= */
-
 .card {
   color: #e5e7eb;
 }
-
 .card h3 {
   color: #7dd3fc;
 }
-
 .card p {
   color: #cbd5f5;
 }
-
-/* Ensure content stays ABOVE glass overlay */
 .card > * {
   position: relative;
   z-index: 2;
 }
-
-/* Fix glass overlay covering content */
 .glass::before {
   z-index: 1;
   pointer-events: none;
 }
-
-/* Fix platform images visibility */
 .stats {
   z-index: 2;
   position: relative;
   opacity: 1;
   filter: none;
 }
-
-/* Rating badge visibility */
 .rating-text {
   z-index: 3;
   background: rgba(2, 6, 23, 0.6);
   padding: 4px 8px;
   border-radius: 8px;
 }
-
-/* Platform cards hover clarity */
 .card:hover {
   background: rgba(15, 23, 42, 0.85);
 }
 
+/* SKILLS GRID */
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:28px;
+  width:100%;
+  max-width:1000px;
+  margin-top:40px;
+}
 
+.skill-card{
+  font-size:1.05rem;
+  line-height:1.6;
+  text-align:left;
+}
+
+/* ABOUT CARD */
+.about-card{
+  max-width:720px;
+  font-size:1.05rem;
+  line-height:1.8;
+  text-align:left;
+}
