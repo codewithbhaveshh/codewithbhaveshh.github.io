@@ -2,56 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Skills</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills · Bhavesh Pandey</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="float-orb"></div>
+  <!-- ambient background -->
+  <div class="float-orb"></div>
+  <canvas id="bg-particles"></canvas>
+  <div class="cursor-glow"></div>
 
-<audio id="bgm" loop preload="auto">
-  <source src="stars.mp3" type="audio/mpeg">
-</audio>
-<div id="musicBtn" class="music-btn">▶ music</div>
+  <!-- music -->
+  <audio id="bgm" loop preload="auto">
+    <source src="stars.mp3" type="audio/mpeg">
+  </audio>
+  <div id="musicBtn" class="music-btn">▶ music</div>
 
-<div id="page-transition"></div>
-<canvas id="bg-particles"></canvas>
-<div class="cursor-glow"></div>
+  <!-- transition -->
+  <div id="page-transition"></div>
 
-<nav class="nav">
-  <a href="index.html">home</a>
-  <a href="about.html">about</a>
-  <a href="skills.html">skills</a>
-  <a href="cp.html">competitive</a>
-</nav>
+  <!-- nav -->
+  <nav class="nav">
+    <a href="index.html">home</a>
+    <a href="about.html">about</a>
+    <a href="skills.html">skills</a>
+    <a href="cp.html">competitive</a>
+  </nav>
 
-<section>
-  <h2 class="dyn-title" data-text="// skills"></h2>
+  <!-- SKILLS -->
+  <section class="skills show">
 
-  <div class="skills-grid">
-    <div class="card glass skill-card clickable">
-      ⚔️ <b>C++</b>
-      <p>Primary Competitive Programming language</p>
+    <h2 class="skills-title">// skills</h2>
+
+    <p class="skills-intro">
+      Things I use, explore, and slowly get better at.
+    </p>
+
+    <div class="skills-grid">
+
+      <div class="card glass skill-card">
+        <span class="skill-name">C++</span>
+        <p>
+          Mostly used for problem solving and learning how things work
+          under the hood.
+        </p>
+      </div>
+
+      <div class="card glass skill-card">
+        <span class="skill-name">Python</span>
+        <p>
+          For scripting, experimenting, and understanding ideas in AI / ML.
+        </p>
+      </div>
+
+      <div class="card glass skill-card">
+        <span class="skill-name">Java</span>
+        <p>
+          Helps me think in terms of structure, objects, and design.
+        </p>
+      </div>
+
+      <div class="card glass skill-card">
+        <span class="skill-name">JavaScript</span>
+        <p>
+          Used to build interactions, animations, and small ideas on the web.
+        </p>
+      </div>
+
     </div>
 
-    <div class="card glass skill-card clickable">
-      🐍 <b>Python</b>
-      <p>Scripting • AI / ML basics</p>
-    </div>
+  </section>
 
-    <div class="card glass skill-card clickable">
-      ☕ <b>Java</b>
-      <p>OOP • DSA fundamentals</p>
-    </div>
-
-    <div class="card glass skill-card clickable">
-      🌐 <b>JavaScript</b>
-      <p>Web interactions & animations</p>
-    </div>
-  </div>
-</section>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
