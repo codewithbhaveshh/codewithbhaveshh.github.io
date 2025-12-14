@@ -1,87 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhavesh | Competitive Programming</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <style>
-        section { min-height: 100vh; }
-        .profile-card { transition: .35s; }
-        table { background: rgba(255,255,255,.05); }
-        .badge-img { filter: drop-shadow(0 0 20px var(--blue)); }
-        .sanskrit-quote { font-size: 1.8em; font-weight: bold; margin: 30px 0; color: #ff9900; text-shadow: 0 0 20px #ff9900; }
-        .quote-meaning { font-style: italic; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bhavesh | Competitive Programming</title>
+
+  <!-- Your main CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .cp-container {
+      max-width: 1000px;
+      margin: 80px auto;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .profiles {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin: 50px 0;
+    }
+
+    .profile-card {
+      width: 260px;
+      padding: 22px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      transition: transform .35s ease, box-shadow .35s ease;
+      cursor: pointer;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.45);
+    }
+
+    .profile-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .profile-card a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .badge {
+      height: 90px;
+      margin: 14px 0;
+    }
+
+    table {
+      width: 85%;
+      margin: 50px auto;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    th, td {
+      padding: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    th {
+      background: rgba(0,0,0,0.5);
+    }
+
+    ul {
+      display: inline-block;
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    .sanskrit-quote {
+      margin-top: 50px;
+      font-size: 1.4rem;
+      opacity: 0.9;
+    }
+
+    .quote-meaning {
+      opacity: 0.7;
+      font-size: 0.95rem;
+      margin-top: 6px;
+    }
+  </style>
 </head>
+
 <body>
-    <canvas id="bg-particles"></canvas>
-    <div class="cursor-glow"></div>
-    <div class="float-orb"></div>
 
-    <audio id="bgm" loop preload="auto">
-        <source src="stars.mp3" type="audio/mpeg">
-    </audio>
-    <div id="musicBtn" class="music-btn">▶ music</div>
+  <!-- Background effects (already in your project) -->
+  <canvas id="bg-particles"></canvas>
+  <div class="cursor-glow"></div>
+  <div class="float-orb"></div>
 
-    <nav class="nav">
-        <a href="index.html">home</a>
-        <a href="about.html">about</a>
-        <a href="skills.html">skills</a>
-        <a href="cp.html">competitive</a>
-    </nav>
+  <div class="cp-container">
+    <h1>Competitive Programming</h1>
+    <p>
+      First-year student grinding contests, improving daily, and chasing clean logic.
+    </p>
 
-    <section>
-        <div class="cp-container">
-            <h1>Competitive Programming</h1>
-            <p>Passionate about solving complex problems and participating in coding contests. Here's my journey!</p>
+    <h2>Platform Profiles</h2>
 
-            <h2>Platform Profiles</h2>
-            <div class="profiles">
-                <div class="profile-card card glass clickable">
-                    <h3>Codeforces</h3>
-                    <p>Handle: <strong>bhaveshcodes69</strong></p>
-                    <p>Rating: <strong>381</strong> (Newbie)</p>
-                    <img src="https://codeforces.com/widgets/rating/381.svg" alt="Codeforces Rating Badge" class="badge-img">
-                    <p>Solved: <strong>62</strong> problems</p>
-                    <a href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">View Profile →</a>
-                </div>
+    <div class="profiles">
 
-                <div class="profile-card card glass clickable">
-                    <h3>CodeChef</h3>
-                    <p>Handle: <strong>bhaveshhpandey</strong></p>
-                    <p>Rating: <strong>1★</strong> (Rookie League)</p>
-                    <p>Solved: <strong>4</strong> problems</p>
-                    <a href="https://www.codechef.com/users/bhaveshhpandey" target="_blank">View Profile →</a>
-                </div>
-            </div>
+      <!-- Codeforces -->
+      <div class="profile-card">
+        <a href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">
+          <h3>Codeforces</h3>
+          <p>Handle: <strong>bhaveshcodes69</strong></p>
+          <p>Current Rating: <strong>~600</strong></p>
+          <img
+            src="https://sta.codeforces.com/s/0/images/badges/pupil-2.svg"
+            alt="Codeforces Badge"
+            class="badge"
+          />
+          <p>Grinding Div-3 & Div-2</p>
+        </a>
+      </div>
 
-            <h2>Recent/Favorite Contest Achievements</h2>
-            <p>(Update with your real contests as you participate!)</p>
-            <table>
-                <tr><th>Contest</th><th>Platform</th><th>Rank/Notes</th><th>Date</th></tr>
-                <tr><td>Starters 216</td><td>CodeChef</td><td>Participated (Your first!)</td><td>Recent</td></tr>
-                <tr><td>Upcoming Codeforces Round</td><td>Codeforces</td><td>Aiming for Pupil!</td><td>Soon</td></tr>
-            </table>
+      <!-- CodeChef -->
+      <div class="profile-card">
+        <a href="https://www.codechef.com/users/bhaveshhpandey" target="_blank">
+          <h3>CodeChef</h3>
+          <p>Handle: <strong>bhaveshhpandey</strong></p>
+          <p>Rating: <strong>~1200</strong></p>
+          <p>Regular Starters & Longs</p>
+        </a>
+      </div>
 
-            <h2>Favorite Topics</h2>
-            <ul style="display: inline-block; text-align: left;">
-                <li>Data Structures & Algorithms</li>
-                <li>Graph Theory</li>
-                <li>Dynamic Programming</li>
-                <li>Number Theory</li>
-                <li>Binary Search & Greedy</li>
-            </ul>
+      <!-- LeetCode -->
+      <div class="profile-card">
+        <a href="https://leetcode.com/" target="_blank">
+          <h3>LeetCode</h3>
+          <p>Focused on DSA & Interviews</p>
+          <p>Consistency > Count</p>
+          <img
+            src="https://assets.leetcode.com/static_assets/others/LeetCode_Logo_1.png"
+            alt="LeetCode"
+            class="badge"
+          />
+        </a>
+      </div>
 
-            <p>I believe - Brute force should be the last option.</p>
-            <div class="sanskrit-quote">साम दानं भेदः दण्डः</div>
-            <p class="quote-meaning">(Sāma Dānaṃ Bhedaḥ Daṇḍaḥ — From ancient wisdom: Persuasion first, compromise second, division third, force only as the last resort.)</p>
+    </div>
 
-            <p>Always grinding! 🚀 Feel free to challenge me on any platform.</p>
-        </div>
-    </section>
+    <h2>Recent Contests</h2>
 
-    <div id="page-transition"></div>
+    <table>
+      <tr>
+        <th>Contest</th>
+        <th>Platform</th>
+        <th>Rank</th>
+        <th>Date</th>
+      </tr>
+      <tr>
+        <td>CF Round 1070 (Div-2)</td>
+        <td>Codeforces</td>
+        <td>14k+</td>
+        <td>Dec 2025</td>
+      </tr>
+      <tr>
+        <td>Starters</td>
+        <td>CodeChef</td>
+        <td>—</td>
+        <td>Ongoing</td>
+      </tr>
+    </table>
+
+    <h2>Favorite Topics</h2>
+    <ul>
+      <li>Data Structures</li>
+      <li>Graphs & Trees</li>
+      <li>Dynamic Programming</li>
+      <li>Greedy + Binary Search</li>
+      <li>Number Theory</li>
+    </ul>
+
+    <p style="margin-top:20px;">Brute force is the last option.</p>
+
+    <div class="sanskrit-quote">साम दानं भेदः दण्डः</div>
+    <div class="quote-meaning">
+      Persuasion → Compromise → Division → Force (in that order).
+    </div>
+  </div>
+
 </body>
 </html>
