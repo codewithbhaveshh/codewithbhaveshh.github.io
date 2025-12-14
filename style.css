@@ -290,3 +290,29 @@ section.show {
   line-height: 1.8;
   text-align: left;
 }
+/* SHOOTING STARS */
+.meteor {
+  position: fixed;
+  width: 2px;
+  height: 80px;
+  background: linear-gradient(45deg, #38bdf8, transparent);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -2;
+  border-radius: 50%;
+}
+
+/* DYNAMIC SHLOKA */
+.shloka {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #ffcc00;
+  text-shadow: 0 0 20px #ffcc00, 0 0 40px #38bdf8;
+  margin-top: 30px;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+  text-align: center;
+  max-width: 80%;
+}
