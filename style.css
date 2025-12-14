@@ -316,3 +316,29 @@ section.show {
   text-align: center;
   max-width: 80%;
 }
+/* SHLOKA STYLING */
+.shloka {
+  margin-top: 28px;
+  max-width: 900px;
+  text-align: center;
+
+  font-size: 1.35rem;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+
+  color: #fde68a; /* soft spiritual gold */
+  text-shadow:
+    0 0 12px rgba(255, 200, 80, 0.4),
+    0 0 30px rgba(255, 200, 80, 0.2);
+
+  opacity: 0;
+  animation: shlokaFadeIn 2s ease forwards;
+  animation-delay: 1.5s;
+}
+
+@keyframes shlokaFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
