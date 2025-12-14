@@ -64,6 +64,23 @@ if(bg){
     requestAnimationFrame(animate);
   })();
 }
+// BGM FIX
+const bgm=document.getElementById("bgm");
+const musicBtn=document.getElementById("musicBtn");
+
+if(bgm && musicBtn){
+  bgm.volume=0.18;
+  musicBtn.onclick=()=>{
+    if(bgm.paused){
+      bgm.play();
+      musicBtn.textContent="⏸ music";
+    }else{
+      bgm.pause();
+      musicBtn.textContent="▶ music";
+    }
+  };
+}
+
 
 // PAGE TRANSITION
 const transition=document.getElementById("page-transition");
