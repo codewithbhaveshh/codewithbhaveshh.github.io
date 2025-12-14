@@ -132,6 +132,71 @@ footer{
   padding:30px;
   color:#94a3b8;
 }
+/* GLASS EFFECT */
+.glass {
+  position: relative;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* CURSOR GLOW BORDER */
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: radial-gradient(
+    300px circle at var(--x) var(--y),
+    rgba(0,255,255,0.6),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.glass:hover::before {
+  opacity: 1;
+}
+
+/* TILT + HOVER */
+.card.clickable {
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card.clickable:hover {
+  box-shadow: 0 0 30px rgba(0,255,255,0.35);
+}
+
+/* RIPPLE */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 600ms linear;
+  background: rgba(0, 255, 255, 0.4);
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* RATING TEXT */
+.rating-text {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-size: 14px;
+  color: #00ffff;
+  opacity: 0.8;
+  font-family: monospace;
+}
+
 /* CINEMATIC HOME */
 .hero.cinematic{
   min-height:100vh;
