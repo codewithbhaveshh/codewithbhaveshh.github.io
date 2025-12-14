@@ -2,65 +2,71 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>About</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About · Bhavesh Pandey</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="float-orb"></div>
+  <!-- ambient background -->
+  <div class="float-orb"></div>
+  <canvas id="bg-particles"></canvas>
+  <div class="cursor-glow"></div>
 
-<audio id="bgm" loop preload="auto">
-  <source src="stars.mp3" type="audio/mpeg">
-</audio>
-<div id="musicBtn" class="music-btn">▶ music</div>
+  <!-- music -->
+  <audio id="bgm" loop preload="auto">
+    <source src="stars.mp3" type="audio/mpeg">
+  </audio>
+  <div id="musicBtn" class="music-btn">▶ music</div>
 
-<div id="page-transition"></div>
-<canvas id="bg-particles"></canvas>
-<div class="cursor-glow"></div>
+  <!-- page transition -->
+  <div id="page-transition"></div>
 
-<nav class="nav">
-  <a href="index.html">home</a>
-  <a href="about.html">about</a>
-  <a href="skills.html">skills</a>
-  <a href="cp.html">competitive</a>
-</nav>
+  <!-- navigation -->
+  <nav class="nav">
+    <a href="index.html">home</a>
+    <a href="about.html">about</a>
+    <a href="skills.html">skills</a>
+    <a href="cp.html">competitive</a>
+  </nav>
 
-<section class="about cinematic show">
+  <!-- ABOUT SECTION -->
+  <section class="about show">
 
-  <div class="about-container glass">
+    <div class="about-container glass">
 
-    <h2 class="about-title">About</h2>
+      <h2 class="about-title">About</h2>
 
-    <p class="about-line">
-      I’m a first-year computer science student who enjoys understanding
-      how things work beneath the surface.
-    </p>
+      <p class="about-line">
+        I’m a first-year computer science student who enjoys understanding
+        how things work beneath the surface.
+      </p>
 
-    <p class="about-line">
-      I like building strong fundamentals, thinking deeply about problems,
-      and learning through consistency rather than shortcuts.
-    </p>
+      <p class="about-line">
+        I like building strong fundamentals, thinking deeply about problems,
+        and learning through consistency rather than shortcuts.
+      </p>
 
-    <p class="about-line">
-      Outside of code, I’m curious about systems, patterns, and ideas that
-      reward patience and discipline.
-    </p>
+      <p class="about-line">
+        Outside of code, I’m curious about systems, patterns, and ideas that
+        reward patience and discipline.
+      </p>
 
-    <p class="about-quote">
-      “Slow learning compounds faster.”
-    </p>
+      <p class="about-quote">
+        “Slow learning compounds faster.”
+      </p>
 
-    <div class="about-divider"></div>
+      <div class="about-divider"></div>
 
-    <div class="about-foot">
-      Currently learning · Exploring · Improving daily
+      <div class="about-foot">
+        Currently learning · Exploring · Improving daily
+      </div>
+
     </div>
 
-  </div>
+  </section>
 
-</section>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
