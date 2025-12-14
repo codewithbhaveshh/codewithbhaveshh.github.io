@@ -1,30 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap');
-
 :root{
   --blue:#38bdf8;
   --bg:#020617;
 }
-
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
-
 body{
   font-family:'JetBrains Mono', monospace;
   background:var(--bg);
   color:#e5e7eb;
   overflow-x:hidden;
 }
-
 /* PARTICLES */
 #bg-particles{
   position:fixed;
   inset:0;
   z-index:-2;
 }
-
 /* NAV */
 .nav{
   position:sticky;
@@ -37,13 +32,11 @@ body{
   backdrop-filter:blur(20px);
   z-index:1000;
 }
-
 .nav a{
   color:#94a3b8;
   text-decoration:none;
 }
 .nav a:hover{color:var(--blue);}
-
 /* CURSOR GLOW */
 .cursor-glow{
   position:fixed;
@@ -56,7 +49,6 @@ body{
   pointer-events:none;
   z-index:-1;
 }
-
 /* SECTIONS */
 section{
   min-height:80vh;
@@ -69,12 +61,10 @@ section{
   transform:translateY(40px);
   transition:1s ease;
 }
-
 section.show{
   opacity:1;
   transform:none;
 }
-
 /* CARD */
 .card{
   width:420px;
@@ -87,18 +77,15 @@ section.show{
   overflow:hidden;
   transition:.35s;
 }
-
 .card:hover{
   transform:translateY(-10px) scale(1.04);
   box-shadow:0 0 40px rgba(56,189,248,.55);
 }
-
 .stats{
   width:100%;
   border-radius:14px;
   display:block;
 }
-
 /* GLASS */
 .glass::before{
   content:"";
@@ -113,9 +100,7 @@ section.show{
   transition:.3s;
 }
 .glass:hover::before{opacity:1;}
-
 .card.clickable{cursor:pointer;}
-
 .rating-text{
   position:absolute;
   top:12px;
@@ -124,7 +109,6 @@ section.show{
   color:#67e8f9;
   opacity:.8;
 }
-
 /* RIPPLE */
 .ripple{
   position:absolute;
@@ -133,14 +117,12 @@ section.show{
   transform:scale(0);
   animation:ripple .6s linear;
 }
-
 @keyframes ripple{
   to{
     transform:scale(4);
     opacity:0;
   }
 }
-
 /* PAGE TRANSITION */
 #page-transition{
   position:fixed;
@@ -155,7 +137,6 @@ section.show{
   opacity:1;
   pointer-events:auto;
 }
-
 /* FLOAT ORB */
 .float-orb{
   position:fixed;
@@ -169,12 +150,10 @@ section.show{
   animation:orbFloat 12s ease-in-out infinite alternate;
   z-index:-3;
 }
-
 @keyframes orbFloat{
   from{ transform:translateY(0); }
   to{ transform:translateY(120px); }
 }
-
 .hero-img{
   width:180px;
   height:180px;
@@ -184,7 +163,6 @@ section.show{
   box-shadow:0 0 40px rgba(56,189,248,.45);
   margin-bottom:22px;
 }
-
 /* DYNAMIC TITLE – FIXED */
 .dyn-title{
   font-size:1.6rem;
@@ -192,7 +170,6 @@ section.show{
   margin-bottom:30px;
   position:relative;
 }
-
 .dyn-title::after{
   content: attr(data-text);
   display:inline-block;
@@ -204,16 +181,13 @@ section.show{
   animation: typing 3.2s steps(40,end) forwards,
              blink .8s infinite;
 }
-
 @keyframes typing{
   from{ width:0; }
   to{ width:40ch; }
 }
-
 @keyframes blink{
   50%{ border-color:transparent; }
 }
-
 /* WORD STAGGER */
 .word {
   opacity: 0;
@@ -221,24 +195,20 @@ section.show{
   display: inline-block;
   animation: wordUp .6s forwards;
 }
-
 @keyframes wordUp {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 /* GLOW PULSE */
 .glow {
   animation: glowPulse 2.5s infinite alternate;
 }
-
 @keyframes glowPulse {
   from { text-shadow: 0 0 6px var(--blue); }
   to { text-shadow: 0 0 18px var(--blue); }
 }
-
 /* MUSIC */
 .music-btn{
   position:fixed;
@@ -251,7 +221,6 @@ section.show{
   color:#93c5fd;
   cursor:pointer;
 }
-
 /* CP PLATFORM VISIBILITY FIX 🔥 */
 .card {
   color: #e5e7eb;
@@ -285,7 +254,6 @@ section.show{
 .card:hover {
   background: rgba(15, 23, 42, 0.85);
 }
-
 /* SKILLS GRID */
 .skills-grid{
   display:grid;
@@ -295,13 +263,11 @@ section.show{
   max-width:1000px;
   margin-top:40px;
 }
-
 .skill-card{
   font-size:1.05rem;
   line-height:1.6;
   text-align:left;
 }
-
 /* ABOUT CARD */
 .about-card{
   max-width:720px;
