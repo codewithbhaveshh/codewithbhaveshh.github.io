@@ -40,6 +40,8 @@ body {
 .nav a {
   color: #94a3b8;
   text-decoration: none;
+  text-transform: capitalize;
+  font-weight: 500;
 }
 .nav a:hover {
   color: var(--blue);
