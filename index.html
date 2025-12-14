@@ -2,293 +2,48 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bhavesh Pandey | Developer</title>
-
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
+<title>Bhavesh Pandey</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
 <style>
-:root{
-  --blue:#38bdf8;
-  --green:#4ade80;
-  --muted:#94a3b8;
-  --pink:#f472b6;
-  --yellow:#facc15;
-  --purple:#a78bfa;
-}
-
-*{margin:0;padding:0;box-sizing:border-box}
 body{
-  font-family:"JetBrains Mono", monospace;
+  margin:0;
+  font-family:JetBrains Mono, monospace;
   background:#020617;
   color:#e5e7eb;
-  overflow-x:hidden;
-}
-
-#particles,.card-canvas{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  z-index:-1;
-}
-
-.cursor-glow{
-  position:fixed;
-  width:140px;height:140px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(56,189,248,.35), transparent 60%);
-  filter:blur(40px);
-  transform:translate(-50%,-50%);
-  pointer-events:none;
-  z-index:-1;
-}
-
-.glass{
-  max-width:1100px;
-  margin:40px auto;
-  padding:40px 24px;
-  border-radius:28px;
-  background:linear-gradient(180deg,rgba(255,255,255,.2),rgba(255,255,255,.05));
-  backdrop-filter:blur(25px);
-  border:1px solid rgba(255,255,255,.1);
-  box-shadow:0 0 90px rgba(56,189,248,.25);
-}
-
-section{
-  padding:80px 10px;
   text-align:center;
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s ease;
 }
-section.show{opacity:1;transform:translateY(0)}
-
+.nav{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  padding:20px;
+}
+.nav a{color:#94a3b8;text-decoration:none}
+.nav a:hover{color:#38bdf8}
+.hero{margin-top:80px}
 .hero img{
-  width:180px;height:180px;
+  width:180px;
   border-radius:50%;
-  border:2px solid var(--blue);
-  box-shadow:0 0 60px var(--blue);
+  box-shadow:0 0 40px #38bdf8;
 }
-
-h1{
-  margin-top:20px;
-  font-size:2.8rem;
-  color:var(--blue);
-  text-shadow:0 0 18px rgba(56,189,248,.9);
-}
-h1::after{content:"_";animation:blink 1s infinite}
-@keyframes blink{50%{opacity:0}}
-
-.typing{margin-top:12px;color:var(--green)}
-.typing::before{content:"> "}
-
-.btn{
-  display:inline-block;
-  padding:14px 26px;
-  margin:12px;
-  border-radius:16px;
-  border:1px solid rgba(56,189,248,.35);
-  background:#020617;
-  color:#e5e7eb;
-  text-decoration:none;
-  transition:.3s;
-}
-.btn:hover{
-  transform:translateY(-6px) scale(1.05);
-  color:var(--blue);
-  box-shadow:0 0 25px rgba(56,189,248,.7);
-}
-
-.grid{
-  display:grid;
-  gap:20px;
-}
-@media(min-width:700px){
-  .grid{grid-template-columns:repeat(2,1fr)}
-}
-
-.card{
-  padding:22px;
-  border-radius:16px;
-  background:#111827;
-  border:1px solid rgba(56,189,248,.3);
-  position:relative;
-  overflow:hidden;
-  animation:float 4s ease-in-out infinite;
-}
-.card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 0 25px rgba(56,189,248,.7);
-}
-
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-6px)}
-}
-
-.card.python{border-left:4px solid var(--green)}
-.card.ai{border-left:4px solid var(--pink)}
-.card.ml{border-left:4px solid var(--purple)}
-.card.cp{border-left:4px solid var(--yellow)}
-.card.stats{border-left:4px solid var(--blue)}
-
-.sound-toggle{
-  position:fixed;
-  bottom:24px;right:24px;
-  padding:14px 22px;
-  border-radius:999px;
-  background:#020617;
-  border:1px solid rgba(147,197,253,.4);
-  color:#93c5fd;
-  cursor:pointer;
-  z-index:999;
-}
-
-footer{
-  text-align:center;
-  padding:30px;
-  color:var(--muted);
-}
+h1{color:#38bdf8}
 </style>
 </head>
 
 <body>
 
-<canvas id="particles"></canvas>
-<div class="cursor-glow" id="glow"></div>
+<nav class="nav">
+  <a href="index.html">home</a>
+  <a href="about.html">about</a>
+  <a href="skills.html">skills</a>
+  <a href="cp.html">competitive</a>
+</nav>
 
-<audio id="bgm" loop>
-  <source src="stars.mp3" type="audio/mpeg">
-</audio>
-<div class="sound-toggle" id="soundBtn">▶ ENABLE BGM</div>
-
-<div class="glass">
-
-<!-- HERO -->
-<section class="hero show">
-  <img src="profile.jpg">
+<div class="hero">
+  <img src="assets/profile.jpg">
   <h1>Bhavesh Pandey</h1>
-  <div class="typing"><span id="typed"></span></div>
-
-  <a class="btn" href="https://github.com/codewithbhaveshh" target="_blank">GitHub</a>
-  <a class="btn" href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">Codeforces</a>
-  <a class="btn" href="https://www.codechef.com/users/bhaveshhpandey" target="_blank">CodeChef</a>
-</section>
-
-<!-- ABOUT -->
-<section>
-<h2>// about_me</h2>
-<div class="card">
-I’m a first-year CSE student at IIIT Jabalpur.<br><br>
-Focused on <b>Competitive Programming</b> and exploring <b>AI / ML</b>.<br>
-Music 🎧 = Peace.
+  <p>> Competitive Programmer | C++ | AI/ML</p>
 </div>
-</section>
-
-<!-- SKILLS -->
-<section>
-<h2>// skills</h2>
-<div class="grid">
-  <div class="card python">🐍 Python, NumPy, Pandas</div>
-  <div class="card ai">🤖 AI & OpenCV</div>
-  <div class="card ml">🧠 ML: Scikit-Learn, TensorFlow</div>
-  <div class="card cp">⚔️ C++ & Java (Competitive Programming)</div>
-</div>
-</section>
-
-<!-- CP STATS -->
-<section>
-<h2>// competitive_stats</h2>
-<div class="grid">
-
-  <div class="card stats">
-    <h3>Codeforces Solved Graph</h3>
-    <img src="https://codeforces-readme-stats.vercel.app/api/profile?username=bhaveshcodes69" 
-         style="width:100%;border-radius:12px;">
-  </div>
-
-  <div class="card stats">
-    <h3>CodeChef Rating</h3>
-    <img src="https://cp-stats.vercel.app/api/codechef/bhaveshhpandey" 
-         style="width:100%;border-radius:12px;">
-  </div>
-
-</div>
-</section>
-
-<!-- EDUCATION -->
-<section>
-<h2>// education</h2>
-<div class="card">
-🎓 B.Tech CSE<br>
-IIIT Jabalpur<br>
-2025 – 2029
-</div>
-</section>
-
-</div>
-
-<footer>© Bhavesh Pandey</footer>
-
-<script>
-// BGM
-const bgm=document.getElementById("bgm");
-const btn=document.getElementById("soundBtn");
-let unlocked=false;
-document.body.addEventListener("click",()=>{
-  if(!unlocked){
-    unlocked=true;
-    bgm.volume=0.2;
-    bgm.play();
-    btn.textContent="⏸ PAUSE BGM";
-  }
-});
-btn.onclick=()=>{bgm.paused?bgm.play():bgm.pause()};
-
-// Typing
-const roles=["Competitive Programmer","Codeforces Enthusiast","AI / ML Learner","C++ Developer"];
-let i=0,j=0,d=false;
-const t=document.getElementById("typed");
-(function type(){
-  if(!d&&j<=roles[i].length)t.textContent=roles[i].slice(0,j++);
-  else if(d&&j>=0)t.textContent=roles[i].slice(0,j--);
-  if(j===roles[i].length+1)d=true;
-  if(j===0&&d){d=false;i=(i+1)%roles.length}
-  setTimeout(type,d?50:90);
-})();
-
-// Background particles
-const c=document.getElementById("particles"),x=c.getContext("2d");
-let w,h,p=[];
-function resize(){w=c.width=innerWidth;h=c.height=innerHeight}
-resize();addEventListener("resize",resize);
-for(let i=0;i<90;i++)
-p.push({x:Math.random()*w,y:Math.random()*h,r:2,dx:(Math.random()-.5),dy:(Math.random()-.5)});
-(function anim(){
-  x.clearRect(0,0,w,h);
-  x.fillStyle="rgba(56,189,248,.6)";
-  p.forEach(a=>{
-    a.x+=a.dx;a.y+=a.dy;
-    if(a.x<0||a.x>w)a.dx*=-1;
-    if(a.y<0||a.y>h)a.dy*=-1;
-    x.beginPath();x.arc(a.x,a.y,a.r,0,Math.PI*2);x.fill();
-  });
-  requestAnimationFrame(anim);
-})();
-
-// Cursor glow
-const g=document.getElementById("glow");
-addEventListener("mousemove",e=>{
-  g.style.left=e.clientX+"px";
-  g.style.top=e.clientY+"px";
-});
-
-// Scroll animation
-const obs=new IntersectionObserver(e=>{
-  e.forEach(x=>x.isIntersecting&&x.target.classList.add("show"))
-},{threshold:.2});
-document.querySelectorAll("section").forEach(s=>obs.observe(s));
-</script>
 
 </body>
 </html>
