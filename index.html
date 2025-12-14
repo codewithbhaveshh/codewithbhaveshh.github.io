@@ -5,21 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bhavesh Pandey</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
     <style>
-        /* Shooting Stars */
-        #shooting-stars { position: fixed; inset: 0; pointer-events: none; z-index: -1; }
-        .meteor { position: absolute; background: linear-gradient(to right, transparent, #38bdf8); height: 2px; animation: shoot linear forwards; opacity: 0; }
-        @keyframes shoot { to { transform: translate(300vw, 300vh); opacity: 0; } }
+        /* Shooting Stars Layer */
+        #shooting-stars {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .meteor {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #38bdf8);
+            opacity: 0;
+            animation: shoot linear forwards;
+        }
+        @keyframes shoot {
+            0% { opacity: 0; transform: translate(0, 0); }
+            10% { opacity: 1; }
+            100% { opacity: 0; transform: translate(300vw, 300vh); }
+        }
 
-        /* Extra Orbs */
-        .extra-orb1 { position: fixed; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(56,189,248,.12), transparent 70%); top: 40%; left: -10%; filter: blur(100px); animation: orbFloat 20s ease-in-out infinite alternate; z-index: -3; }
-        .extra-orb2 { position: fixed; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(56,189,248,.18), transparent 70%); bottom: 20%; right: -5%; filter: blur(80px); animation: orbFloat 15s ease-in-out infinite alternate-reverse; z-index: -3; }
+        /* Extra Orbs for Depth */
+        .extra-orb1 {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(56,189,248,.12), transparent 70%);
+            top: 40%;
+            left: -10%;
+            filter: blur(100px);
+            animation: orbFloat 20s ease-in-out infinite alternate;
+            z-index: -3;
+        }
+        .extra-orb2 {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(56,189,248,.18), transparent 70%);
+            bottom: 20%;
+            right: -5%;
+            filter: blur(80px);
+            animation: orbFloat 15s ease-in-out infinite alternate-reverse;
+            z-index: -3;
+        }
 
-        /* Force Typing Visibility */
-        #typed { opacity: 1 !important; visibility: visible !important; color: #e5e7eb !important; }
-        .terminal-line { opacity: 1 !important; }
-        .hero-name { opacity: 1 !important; }
+        /* Force Hero Text Visibility */
+        .hero-name, .terminal-line, #typed {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
     </style>
 </head>
 <body>
@@ -34,6 +71,7 @@
         <source src="stars.mp3" type="audio/mpeg">
     </audio>
     <div id="musicBtn" class="music-btn">▶ music</div>
+
     <div id="page-transition"></div>
 
     <nav class="nav">
@@ -43,7 +81,7 @@
         <a href="cp.html">competitive</a>
     </nav>
 
-    <section class="hero cinematic show"> <!-- .show ensures reveal -->
+    <section class="hero cinematic show">
         <div class="spotlight"></div>
         <img src="profile.jpeg" alt="Bhavesh Pandey" class="hero-img">
         <h1 class="hero-name">Bhavesh Pandey</h1>
@@ -52,5 +90,7 @@
             <span id="typed"></span>
         </div>
     </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
