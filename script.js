@@ -307,3 +307,38 @@ if (heroImg) {
     heroImg.style.transform = "rotateY(0) rotateX(0) translateZ(0)";
   });
 }
+// Force hero reveal on load (fixes typing text visibility on home)
+window.addEventListener("load", () => {
+  document.querySelectorAll(".hero").forEach(section => {
+    section.classList.add("show");
+  });
+});
+
+// Shooting Stars (same as before)
+const starsContainer = document.getElementById("shooting-stars");
+if (starsContainer) {
+  function createMeteor() {
+    const meteor = document.createElement("div");
+    meteor.classList.add("meteor");
+    
+    const startX = Math.random() * window.innerWidth * 0.5;
+    const startY = Math.random() * window.innerHeight * 0.4;
+    const angle = Math.random() * 80 + 10;
+    const length = Math.random() * 400 + 300;
+    const duration = Math.random() * 2 + 2;
+    
+    meteor.style.left = startX + "px";
+    meteor.style.top = startY + "px";
+    meteor.style.width = length + "px";
+    meteor.style.transform = `rotate(${angle}deg)`;
+    meteor.style.animationDuration = duration + "s";
+    meteor.style.opacity = "1";
+    
+    starsContainer.appendChild(meteor);
+    
+    setTimeout(() => meteor.remove(), duration * 1000 + 1000);
+  }
+  
+  setInterval(createMeteor, 4000);
+  for (let i = 0; i < 4; i++) setTimeout(createMeteor, i * 1500);
+}
