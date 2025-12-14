@@ -266,3 +266,44 @@ if (shlokaContainer && shlokaMeaning) {
     shlokaMeaning.style.opacity = "0.7";
   }, 800 + topics.length * 200); // Appears after all topics animate
 }
+// SHOOTING STARS (Glowing meteors with trails)
+const starsContainer = document.getElementById("shooting-stars");
+if (starsContainer) {
+  function createMeteor() {
+    const meteor = document.createElement("div");
+    meteor.classList.add("meteor");
+    
+    const startX = Math.random() * window.innerWidth * 0.5;
+    const startY = Math.random() * window.innerHeight * 0.4;
+    const angle = Math.random() * 80 + 10; // Varied diagonal
+    const length = Math.random() * 400 + 300;
+    const duration = Math.random() * 2 + 2;
+    
+    meteor.style.left = startX + "px";
+    meteor.style.top = startY + "px";
+    meteor.style.width = length + "px";
+    meteor.style.transform = `rotate(${angle}deg)`;
+    meteor.style.animationDuration = duration + "s";
+    meteor.style.opacity = "1";
+    
+    starsContainer.appendChild(meteor);
+    
+    setTimeout(() => meteor.remove(), duration * 1000 + 1000);
+  }
+  
+  setInterval(createMeteor, 4000); // New meteor every 4s
+  for (let i = 0; i < 4; i++) setTimeout(createMeteor, i * 1500); // Initial burst
+}
+
+// PROFILE PHOTO PARALLAX TILT (Subtle on mouse move)
+const heroImg = document.querySelector(".hero-img");
+if (heroImg) {
+  document.addEventListener("mousemove", e => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+    heroImg.style.transform = `rotateY(${x}deg) rotateX(${y}deg) translateZ(50px)`;
+  });
+  document.addEventListener("mouseleave", () => {
+    heroImg.style.transform = "rotateY(0) rotateX(0) translateZ(0)";
+  });
+}
