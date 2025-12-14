@@ -118,12 +118,15 @@ document.querySelectorAll(".clickable").forEach(card => {
 });
 
 // HERO TYPING EFFECT (Home page only)
-const lines = [
-  "Competitive Programming",
-  "Codeforces • CodeChef • LeetCode",
-  "Logic > Brute Force",
-  "Grinding contests daily"
-];
+const typed = document.getElementById("typed");
+if (typed) {
+  const lines = [
+    "Competitive Programmer",
+    "C++ | Data Structures & Algorithms",
+    "Learning AI / ML",
+    "Building strong fundamentals"
+  ];
+
 
   let lineIndex = 0, charIndex = 0, isDeleting = false;
 
