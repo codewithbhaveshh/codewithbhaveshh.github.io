@@ -60,6 +60,35 @@ if (bg) {
   animate();
 }
 
+// WORD STAGGER DELAY
+document.querySelectorAll(".dyn-sub").forEach(block => {
+  block.querySelectorAll(".word").forEach((word, i) => {
+    word.style.animationDelay = `${i * 0.12}s`;
+  });
+});
+
+// NUMBER COUNTERS
+const counters = document.querySelectorAll(".counter");
+const speed = 30;
+
+counters.forEach(counter => {
+  const update = () => {
+    const target = +counter.dataset.target;
+    const current = +counter.innerText;
+    const inc = Math.ceil(target / speed);
+
+    if (current < target) {
+      counter.innerText = current + inc;
+      setTimeout(update, 40);
+    } else {
+      counter.innerText = target;
+      counter.classList.add("glow");
+    }
+  };
+  update();
+});
+
+
 // GLASS EFFECT - Cursor follow spotlight (only once!)
 document.querySelectorAll(".glass").forEach(card => {
   card.addEventListener("mousemove", e => {
