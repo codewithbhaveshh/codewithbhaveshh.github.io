@@ -98,6 +98,34 @@ document.querySelectorAll(".clickable").forEach(card => {
     setTimeout(() => ripple.remove(), 600);
   });
 });
+// HERO TYPING (HOME ONLY)
+const typed = document.getElementById("typed");
+
+if (typed) {
+  const lines = [
+    "Competitive Programmer",
+    "C++ | Data Structures & Algorithms",
+    "Learning AI / ML",
+    "Building strong fundamentals"
+  ];
+
+  let i = 0, j = 0, del = false;
+
+  (function type() {
+    typed.textContent = lines[i].slice(0, j);
+
+    if (!del) j++;
+    else j--;
+
+    if (j === lines[i].length + 1) del = true;
+    if (j === 0 && del) {
+      del = false;
+      i = (i + 1) % lines.length;
+    }
+
+    setTimeout(type, del ? 45 : 85);
+  })();
+}
 
 
 // PAGE TRANSITION
