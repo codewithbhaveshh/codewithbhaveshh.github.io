@@ -224,3 +224,45 @@ if (transition) {
     transition.classList.remove("active");
   });
 }
+// DYNAMIC FAVORITE TOPICS
+const topics = [
+  "Data Structures",
+  "Graphs & Trees",
+  "Dynamic Programming",
+  "Greedy & Binary Search",
+  "Number Theory"
+];
+
+const topicsList = document.getElementById("topics-list");
+if (topicsList) {
+  topics.forEach((topic, i) => {
+    const li = document.createElement("div");
+    li.textContent = topic;
+    li.style.opacity = "0";
+    li.style.transform = "translateY(20px)";
+    li.style.transition = "opacity .8s ease, transform .8s ease";
+    li.style.margin = "12px 0";
+    li.style.fontSize = "1.2rem";
+    li.style.textShadow = "0 0 10px var(--blue)";
+    topicsList.appendChild(li);
+
+    // Staggered reveal on load
+    setTimeout(() => {
+      li.style.opacity = "1";
+      li.style.transform = "translateY(0)";
+    }, 300 + i * 200);
+  });
+}
+
+// SHLOKA REVEAL (appears after topics)
+const shlokaContainer = document.getElementById("shloka-container");
+const shlokaMeaning = document.getElementById("shloka-meaning");
+if (shlokaContainer && shlokaMeaning) {
+  setTimeout(() => {
+    shlokaContainer.textContent = "साम दानं भेदः दण्डः";
+    shlokaContainer.style.opacity = "1";
+
+    shlokaMeaning.textContent = "Persuasion → Compromise → Division → Force";
+    shlokaMeaning.style.opacity = "0.7";
+  }, 800 + topics.length * 200); // Appears after all topics animate
+}
