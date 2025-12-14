@@ -23,12 +23,14 @@ body{
   top:0;
   display:flex;
   justify-content:center;
-  gap:30px;
+  gap:28px;
   padding:16px;
-  background:rgba(2,6,23,.6);
+  background:rgba(2,6,23,.75);
   backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(56,189,248,.15);
   z-index:1000;
 }
+
 .nav a{
   color:#94a3b8;
   text-decoration:none;
