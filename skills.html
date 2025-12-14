@@ -1,24 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Skills | Bhavesh</title>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
-<style>
-  <nav class="nav">
-  <a href="index.html">home</a>
-  <a href="about.html">about</a>
-  <a href="skills.html">skills</a>
-  <a href="cp.html">competitive</a>
-</nav>
-
-body{background:#020617;color:#e5e7eb;font-family:JetBrains Mono;text-align:center}
-.nav{display:flex;justify-content:center;gap:30px;padding:20px}
-.card{background:#111827;margin:20px;padding:20px;border-radius:14px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;width:70%;margin:auto}
-</style>
+<title>Skills</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+<div class="cursor-glow"></div>
+
 <nav class="nav">
   <a href="index.html">home</a>
   <a href="about.html">about</a>
@@ -26,13 +15,16 @@ body{background:#020617;color:#e5e7eb;font-family:JetBrains Mono;text-align:cent
   <a href="cp.html">competitive</a>
 </nav>
 
+<section class="show">
 <h2>// languages</h2>
 <div class="grid">
-  <div class="card">⚔️ C++ (Primary)</div>
-  <div class="card">🐍 Python</div>
-  <div class="card">☕ Java</div>
-  <div class="card">🌐 JavaScript</div>
+  <div class="card lang cpp">⚔️ C++ — Primary CP Language</div>
+  <div class="card lang py">🐍 Python — Scripting / ML</div>
+  <div class="card lang java">☕ Java — OOP & DSA</div>
+  <div class="card lang js">🌐 JavaScript — Web Basics</div>
 </div>
+</section>
 
+<script src="script.js"></script>
 </body>
 </html>
