@@ -5,6 +5,7 @@
   --bg: #020617;
 }
 
+/* GLOBAL RESET */
 * {
   margin: 0;
   padding: 0;
@@ -18,14 +19,14 @@ body {
   overflow-x: hidden;
 }
 
-/* PARTICLES */
+/* PARTICLES BACKGROUND */
 #bg-particles {
   position: fixed;
   inset: 0;
   z-index: -2;
 }
 
-/* NAV */
+/* NAVBAR */
 .nav {
   position: sticky;
   top: 0;
@@ -60,6 +61,24 @@ body {
   z-index: -1;
 }
 
+/* FLOATING ORB */
+.float-orb {
+  position: fixed;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.25), transparent 70%);
+  top: 20%;
+  left: 10%;
+  filter: blur(60px);
+  animation: orbFloat 12s ease-in-out infinite alternate;
+  z-index: -3;
+}
+@keyframes orbFloat {
+  from { transform: translateY(0); }
+  to { transform: translateY(120px); }
+}
+
 /* SECTIONS */
 section {
   min-height: 80vh;
@@ -74,7 +93,7 @@ section {
 }
 section.show {
   opacity: 1;
-  transform: none;
+  transform: translateY(0);
 }
 
 /* CARD */
@@ -114,7 +133,7 @@ section.show {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(300px circle at var(--x) var(--y), rgba(0, 255, 255, 0.6), transparent 45%);
+  background: radial-gradient(300px circle at var(--x, 50%) var(--y, 50%), rgba(0, 255, 255, 0.6), transparent 45%);
   opacity: 0;
   transition: 0.3s;
   z-index: 1;
@@ -124,7 +143,7 @@ section.show {
   opacity: 1;
 }
 
-/* STATS & RATINGS */
+/* STATS IMAGES */
 .stats {
   width: 100%;
   border-radius: 14px;
@@ -147,7 +166,7 @@ section.show {
   z-index: 3;
 }
 
-/* RIPPLE */
+/* RIPPLE EFFECT */
 .ripple {
   position: absolute;
   border-radius: 50%;
@@ -175,24 +194,6 @@ section.show {
 #page-transition.active {
   opacity: 1;
   pointer-events: auto;
-}
-
-/* FLOAT ORB */
-.float-orb {
-  position: fixed;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.25), transparent 70%);
-  top: 20%;
-  left: 10%;
-  filter: blur(60px);
-  animation: orbFloat 12s ease-in-out infinite alternate;
-  z-index: -3;
-}
-@keyframes orbFloat {
-  from { transform: translateY(0); }
-  to { transform: translateY(120px); }
 }
 
 /* HERO IMAGE */
