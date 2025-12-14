@@ -155,6 +155,25 @@ section.show{
   opacity:1;
   pointer-events:auto;
 }
+/* FLOAT ORB */
+.float-orb{
+  position:fixed;
+  width:260px;
+  height:260px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(56,189,248,.25), transparent 70%);
+  top:20%;
+  left:10%;
+  filter:blur(60px);
+  animation:orbFloat 12s ease-in-out infinite alternate;
+  z-index:-3;
+}
+
+@keyframes orbFloat{
+  from{ transform:translateY(0); }
+  to{ transform:translateY(120px); }
+}
+
 
 /* MUSIC */
 .music-btn{
