@@ -1,44 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bhavesh Pandey</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bhavesh Pandey</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-<div class="float-orb"></div>
-<audio id="bgm" loop>
-  <source src="stars.mp3" type="audio/mpeg">
-</audio>
-<div id="musicBtn" class="music-btn">▶ music</div>
+  <!-- FLOATING GLOW -->
+  <div class="float-orb"></div>
 
-<canvas id="bg-particles"></canvas>
-<div class="cursor-glow"></div>
-<div id="page-transition"></div>
+  <!-- MUSIC -->
+  <audio id="bgm" loop preload="auto">
+    <source src="stars.mp3" type="audio/mpeg" />
+  </audio>
+  <div id="musicBtn" class="music-btn">▶ music</div>
 
-<nav class="nav">
-  <a href="index.html">home</a>
-  <a href="about.html">about</a>
-  <a href="skills.html">skills</a>
-  <a href="cp.html">competitive</a>
-</nav>
+  <!-- EFFECT LAYERS -->
+  <canvas id="bg-particles"></canvas>
+  <div class="cursor-glow"></div>
+  <div id="page-transition"></div>
 
-<section class="hero cinematic show">
-  <div class="spotlight"></div>
-  <img src="profile.jpeg" class="hero-img">
-  <h1 class="hero-name glow">Bhavesh Pandey</h1>
-  <div class="terminal-line">
-    <span class="prompt">></span>
-    <span id="typed"></span>
-  </div>
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <a href="index.html">home</a>
+    <a href="about.html">about</a>
+    <a href="skills.html">skills</a>
+    <a href="cp.html">competitive</a>
+  </nav>
 
-  <!-- Dynamic Shloka -->
-  <div class="shloka" id="shloka-text"></div>
+  <!-- HERO -->
+  <section class="hero cinematic show">
+    <div class="spotlight"></div>
 
-</section>
+    <!-- FIX 1: alt attribute (HTML validity) -->
+    <img src="profile.jpeg" class="hero-img" alt="Bhavesh Pandey" />
 
-<script src="script.js"></script>
+    <h1 class="hero-name glow">Bhavesh Pandey</h1>
+
+    <div class="terminal-line">
+      <span class="prompt">&gt;</span>
+      <span id="typed"></span>
+    </div>
+
+    <!-- SHLOKA -->
+    <div class="shloka" id="shloka-text"></div>
+  </section>
+
+  <!-- FIX 2: script ALWAYS at end -->
+  <script src="script.js"></script>
+
 </body>
 </html>
