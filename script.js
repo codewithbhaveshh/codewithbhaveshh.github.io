@@ -14,23 +14,32 @@ const obs=new IntersectionObserver(entries=>{
 document.querySelectorAll("section").forEach(s=>obs.observe(s));
 
 // TYPING (ONLY ON HOME)
+// CINEMATIC TYPING (HOME)
 const typed=document.getElementById("typed");
 if(typed){
-  const roles=[
+  const lines=[
     "Competitive Programmer",
-    "C++ Problem Solver",
-    "Codeforces Regular",
-    "AI / ML Explorer"
+    "C++ | Data Structures & Algorithms",
+    "Learning AI / ML",
+    "Building strong fundamentals"
   ];
   let i=0,j=0,del=false;
+
   (function type(){
-    if(!del && j<=roles[i].length) typed.textContent=roles[i].slice(0,j++);
-    else if(del && j>=0) typed.textContent=roles[i].slice(0,j--);
-    if(j===roles[i].length+1) del=true;
-    if(j===0 && del){del=false;i=(i+1)%roles.length;}
-    setTimeout(type,del?50:90);
+    if(!del && j<=lines[i].length){
+      typed.textContent=lines[i].slice(0,j++);
+    }else if(del && j>=0){
+      typed.textContent=lines[i].slice(0,j--);
+    }
+    if(j===lines[i].length+1) del=true;
+    if(j===0 && del){
+      del=false;
+      i=(i+1)%lines.length;
+    }
+    setTimeout(type, del ? 45 : 85);
   })();
 }
+
 
 // BACKGROUND PARTICLES
 const bg=document.getElementById("bg-particles");
@@ -80,6 +89,15 @@ if(bgm && musicBtn){
     }
   };
 }
+
+// PARALLAX HERO
+const hero=document.querySelector(".hero.cinematic");
+window.addEventListener("scroll",()=>{
+  if(hero){
+    hero.style.transform=`translateY(${window.scrollY*0.15}px)`;
+  }
+});
+
 
 
 // PAGE TRANSITION
