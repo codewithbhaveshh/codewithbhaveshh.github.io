@@ -4,78 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bhavesh | Competitive Programming</title>
-    <link rel="stylesheet" href="style.css"> <!-- Your main CSS -->
-   <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <style>
-        .cp-container { max-width: 900px; margin: 40px auto; padding: 20px; text-align: center; color: white; }
-        .profiles { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin: 40px 0; }
-        .profile-card { background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; width: 280px; backdrop-filter: blur(5px); }
-        .badge-img { height: 120px; margin: 10px 0; }
-        table { width: 80%; margin: 40px auto; border-collapse: collapse; }
-        th, td { border: 1px solid #444; padding: 12px; text-align: center; }
-        th { background: #222; }
-        .sanskrit-quote { font-size: 1.8em; font-weight: bold; margin: 30px 0; color: #ff9900; }
-        .quote-meaning { font-style: italic; margin-top: 10px; }
+        section { min-height: 100vh; } /* Ensures scroll reveal works */
+        .profile-card { transition: .35s; } /* Extra smooth hover */
+        table { background: rgba(255,255,255,.05); }
+        .badge-img { filter: drop-shadow(0 0 20px var(--blue)); }
+        .sanskrit-quote { text-shadow: 0 0 20px #ff9900; }
     </style>
 </head>
 <body>
-    
-    <!-- ADD YOUR NAVBAR HERE (copy from index.html or about.html) -->
-    <!-- Example navbar if you don't have one copied yet: -->
-   <nav class="nav">
-  <a href="index.html">home</a>
-  <a href="about.html">about</a>
-  <a href="skills.html">skills</a>
-  <a href="cp.html">competitive</a>
-</nav>
+    <canvas id="bg-particles"></canvas>
+    <div class="cursor-glow"></div>
+    <div class="float-orb"></div>
 
-    <div class="cp-container">
+    <nav class="nav">
+        <a href="index.html">home</a>
+        <a href="about.html">about</a>
+        <a href="skills.html">skills</a>
+        <a href="cp.html">competitive</a>
+    </nav>
+
+    <section class="cp-container">
         <h1>Competitive Programming</h1>
         <p>Passionate about solving complex problems and participating in coding contests. Here's my journey!</p>
 
         <h2>Platform Profiles</h2>
         <div class="profiles">
-            <div class="profile-card">
+            <div class="profile-card card glass clickable">
                 <h3>Codeforces</h3>
                 <p>Handle: <strong>bhaveshcodes69</strong></p>
                 <p>Rating: <strong>381</strong> (Newbie)</p>
-                <!-- Dynamic badge that auto-updates! -->
                 <img src="https://codeforces.com/widgets/rating/381.svg" alt="Codeforces Rating Badge" class="badge-img">
                 <p>Solved: <strong>62</strong> problems</p>
-                <a href="https://codeforces.com/profile/bhaveshcodes69" target="_blank" style="color: #00ff00;">View Profile →</a>
+                <a href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">View Profile →</a>
             </div>
 
-            <div class="profile-card">
+            <div class="profile-card card glass clickable">
                 <h3>CodeChef</h3>
                 <p>Handle: <strong>bhaveshhpandey</strong></p>
                 <p>Rating: <strong>1★</strong> (Rookie League)</p>
                 <p>Solved: <strong>4</strong> problems</p>
-                <a href="https://www.codechef.com/users/bhaveshhpandey" target="_blank" style="color: #00ff00;">View Profile →</a>
+                <a href="https://www.codechef.com/users/bhaveshhpandey" target="_blank">View Profile →</a>
             </div>
         </div>
 
         <h2>Recent/Favorite Contest Achievements</h2>
         <p>(Update with your real contests as you participate!)</p>
         <table>
-            <tr>
-                <th>Contest</th>
-                <th>Platform</th>
-                <th>Rank/Notes</th>
-                <th>Date</th>
-            </tr>
-            <tr>
-                <td>Starters 216</td>
-                <td>CodeChef</td>
-                <td>Participated (Your first!)</td>
-                <td>Recent</td>
-            </tr>
-            <!-- Add more as you grind -->
-            <tr>
-                <td>Upcoming Codeforces Round</td>
-                <td>Codeforces</td>
-                <td>Aiming for Pupil!</td>
-                <td>Soon</td>
-            </tr>
+            <tr><th>Contest</th><th>Platform</th><th>Rank/Notes</th><th>Date</th></tr>
+            <tr><td>Starters 216</td><td>CodeChef</td><td>Participated (Your first!)</td><td>Recent</td></tr>
+            <tr><td>Upcoming Codeforces Round</td><td>Codeforces</td><td>Aiming for Pupil!</td><td>Soon</td></tr>
         </table>
 
         <h2>Favorite Topics</h2>
@@ -92,8 +72,8 @@
         <p class="quote-meaning">(Sāma Dānaṃ Bhedaḥ Daṇḍaḥ — From ancient wisdom: Persuasion first, compromise second, division third, force only as the last resort.)</p>
 
         <p>Always grinding! 🚀 Feel free to challenge me on any platform.</p>
-    </div>
+    </section>
 
-    <!-- Your footer if any -->
+    <div id="page-transition"></div>
 </body>
 </html>
