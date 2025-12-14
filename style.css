@@ -304,41 +304,31 @@ section.show {
   border-radius: 50%;
 }
 
-/* DYNAMIC SHLOKA */
+/* ================= SHLOKA (FINAL) ================= */
 .shloka {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #ffcc00;
-  text-shadow: 0 0 20px #ffcc00, 0 0 40px #38bdf8;
-  margin-top: 30px;
-  opacity: 0;
-  transition: opacity 1.5s ease;
-  text-align: center;
-  max-width: 80%;
-}
-/* SHLOKA STYLING */
-.shloka {
-  margin-top: 28px;
+  margin-top: 32px;
+  padding: 0 16px;
   max-width: 900px;
+
+  font-size: 1.4rem;
+  line-height: 1.85;
+  letter-spacing: 0.6px;
   text-align: center;
 
-  font-size: 1.35rem;
-  line-height: 1.8;
-  letter-spacing: 0.5px;
-
-  color: #fde68a; /* soft spiritual gold */
+  color: #fde68a; /* divine gold */
   text-shadow:
-    0 0 12px rgba(255, 200, 80, 0.4),
-    0 0 30px rgba(255, 200, 80, 0.2);
+    0 0 14px rgba(255, 200, 80, 0.45),
+    0 0 36px rgba(56, 189, 248, 0.25);
 
   opacity: 0;
-  animation: shlokaFadeIn 2s ease forwards;
-  animation-delay: 1.5s;
+  transform: translateY(10px);
+  animation: shlokaReveal 2.2s ease forwards;
+  animation-delay: 1.8s;
 }
 
-@keyframes shlokaFadeIn {
+@keyframes shlokaReveal {
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
-
