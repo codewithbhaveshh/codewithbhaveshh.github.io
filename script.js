@@ -97,6 +97,39 @@ window.addEventListener("scroll",()=>{
     hero.style.transform=`translateY(${window.scrollY*0.15}px)`;
   }
 });
+// CURSOR GLOW FOLLOW
+document.querySelectorAll(".glass").forEach(card => {
+  card.addEventListener("mousemove", e => {
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty("--x", `${e.clientX - rect.left}px`);
+    card.style.setProperty("--y", `${e.clientY - rect.top}px`);
+  });
+});
+
+// RIPPLE EFFECT
+document.querySelectorAll(".clickable").forEach(card => {
+  card.addEventListener("click", e => {
+    const ripple = document.createElement("span");
+    ripple.className = "ripple";
+
+    const rect = card.getBoundingClientRect();
+    ripple.style.left = `${e.clientX - rect.left}px`;
+    ripple.style.top = `${e.clientY - rect.top}px`;
+
+    card.appendChild(ripple);
+
+    setTimeout(() => ripple.remove(), 600);
+  });
+});
+
+const cfRating = document.getElementById("cf-rating");
+const ccRating = document.getElementById("cc-rating");
+
+if (cfRating) cfRating.innerText = "CF Profile";
+if (ccRating) ccRating.innerText = "CodeChef Profile";
+
+
+
 
 
 
