@@ -333,55 +333,74 @@ section.show {
   }
 }
 
-/* ================= ABOUT (MINIMAL, OM-STYLE) ================= */
+/* ================= ABOUT PAGE (FINAL) ================= */
 
 .about {
   min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 60px 20px;
 }
 
+/* container */
 .about-container {
   max-width: 720px;
-  padding: 42px 36px;
+  padding: 44px 38px;
   border-radius: 22px;
 
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.045);
   border: 1px solid rgba(56, 189, 248, 0.25);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(22px);
 
   box-shadow:
     0 0 30px rgba(56, 189, 248, 0.12);
+
+  animation: aboutFade 1.4s ease forwards;
 }
 
+/* title */
 .about-title {
   font-size: 2rem;
   margin-bottom: 28px;
   color: #7dd3fc;
 }
 
+/* paragraphs */
 .about-line {
   font-size: 1.05rem;
   line-height: 1.9;
   color: #cbd5f5;
   margin-bottom: 18px;
+
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
 }
 
+.about-line:nth-of-type(1) { animation-delay: 0.2s; }
+.about-line:nth-of-type(2) { animation-delay: 0.4s; }
+.about-line:nth-of-type(3) { animation-delay: 0.6s; }
+
+/* quote */
 .about-quote {
-  margin-top: 28px;
+  margin-top: 30px;
   font-size: 1.1rem;
   text-align: center;
   color: #fde68a;
 
   text-shadow:
     0 0 14px rgba(255, 200, 80, 0.35);
+
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 0.9s;
 }
 
+/* divider */
 .about-divider {
   height: 1px;
   width: 100%;
-  margin: 34px 0;
+  margin: 36px 0;
 
   background: linear-gradient(
     90deg,
@@ -389,13 +408,44 @@ section.show {
     rgba(56, 189, 248, 0.6),
     transparent
   );
+
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 1.1s;
 }
 
+/* footer line */
 .about-foot {
   text-align: center;
   font-size: 0.85rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #94a3b8;
+
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 1.3s;
 }
 
+/* animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aboutFade {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
