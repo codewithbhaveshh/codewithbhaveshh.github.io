@@ -184,6 +184,47 @@ section.show{
   margin-bottom:22px;
 }
 
+/* DYNAMIC TITLE */
+.dyn-title::after {
+  content: attr(data-text);
+  animation: typing 3s steps(24) forwards;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid var(--blue);
+  padding-right: 6px;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* WORD STAGGER */
+.word {
+  opacity: 0;
+  transform: translateY(20px);
+  display: inline-block;
+  animation: wordUp .6s forwards;
+}
+
+@keyframes wordUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* GLOW PULSE */
+.glow {
+  animation: glowPulse 2.5s infinite alternate;
+}
+
+@keyframes glowPulse {
+  from { text-shadow: 0 0 6px var(--blue); }
+  to { text-shadow: 0 0 18px var(--blue); }
+}
+
+
 
 
 /* MUSIC */
