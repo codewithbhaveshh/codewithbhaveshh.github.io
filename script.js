@@ -31,3 +31,15 @@ if(typed){
     setTimeout(type,del?50:90);
   })();
 }
+// PAGE TRANSITION
+const transition=document.getElementById("page-transition");
+document.querySelectorAll("a").forEach(link=>{
+  link.addEventListener("click",e=>{
+    if(link.target==="_blank") return;
+    e.preventDefault();
+    transition.classList.add("active");
+    setTimeout(()=>window.location.href=link.href,400);
+  });
+});
+window.addEventListener("pageshow",()=>transition.classList.remove("active"));
+
