@@ -147,4 +147,22 @@ footer{
   opacity:1;
   pointer-events:auto;
 }
+.music-btn{
+  position:fixed;
+  bottom:22px;
+  right:22px;
+  padding:12px 18px;
+  border-radius:999px;
+  background:rgba(2,6,23,.8);
+  border:1px solid rgba(56,189,248,.4);
+  color:#93c5fd;
+  cursor:pointer;
+  z-index:999;
+  backdrop-filter:blur(10px);
+  transition:.3s;
+}
+.music-btn:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 25px rgba(56,189,248,.6);
+}
 
