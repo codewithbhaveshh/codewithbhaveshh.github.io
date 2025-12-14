@@ -449,3 +449,46 @@ section.show {
     transform: translateY(0) scale(1);
   }
 }
+
+/* ================= SKILLS PAGE ================= */
+
+.skills {
+  min-height: 90vh;
+  padding: 70px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skills-title {
+  font-size: 1.8rem;
+  color: #7dd3fc;
+  margin-bottom: 10px;
+}
+
+.skills-intro {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.skill-card {
+  text-align: left;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.skill-name {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+  color: #e5e7eb;
+}
+
+/* subtle hover — not flashy */
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 28px rgba(56, 189, 248, 0.35);
+}
+
