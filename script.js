@@ -126,6 +126,40 @@ if (typed) {
     setTimeout(type, del ? 45 : 85);
   })();
 }
+// MUSIC TOGGLE
+const bgm = document.getElementById("bgm");
+const musicBtn = document.getElementById("musicBtn");
+
+if (bgm && musicBtn) {
+  let isPlaying = false;
+
+  musicBtn.addEventListener("click", () => {
+    if (isPlaying) {
+      bgm.pause();
+      musicBtn.textContent = "▶ music";
+      musicBtn.style.opacity = "0.6";
+    } else {
+      bgm.play().catch(error => {
+        console.log("Playback failed (browser blocked?):", error);
+        alert("Browser blocked playback. Try clicking the button again after interacting with the page.");
+      });
+      musicBtn.textContent = "⏸ music";
+      musicBtn.style.opacity = "1";
+    }
+    isPlaying = !isPlaying;
+  });
+
+  // Optional: Try to autoplay after first user interaction anywhere on page
+  document.body.addEventListener("click", () => {
+    if (!isPlaying) {
+      bgm.play().then(() => {
+        isPlaying = true;
+        musicBtn.textContent = "⏸ music";
+        musicBtn.style.opacity = "1";
+      }).catch(() => {}); // Silently fail if still blocked
+    }
+  }, { once: true }); // Only try once
+}
 
 
 // PAGE TRANSITION
