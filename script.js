@@ -160,3 +160,56 @@ if(shlokaContainer && shlokaMeaning){
     shlokaMeaning.style.opacity="0.7";
   },800+topics.length*200);
 }
+// -------------------- SHOOTING STARS --------------------
+function createMeteor() {
+  const meteor = document.createElement("div");
+  meteor.className = "meteor";
+
+  const startX = Math.random() * window.innerWidth;
+  const startY = Math.random() * window.innerHeight * 0.5;
+  const length = Math.random() * 150 + 100;
+  const duration = Math.random() * 2 + 1;
+
+  meteor.style.left = startX + "px";
+  meteor.style.top = startY + "px";
+  meteor.style.height = length + "px";
+  meteor.style.opacity = "1";
+  meteor.style.transform = `rotate(${Math.random() * 45 + 20}deg)`;
+
+  document.body.appendChild(meteor);
+
+  meteor.animate(
+    [
+      { transform: `translateY(0) translateX(0) rotate(20deg)`, opacity: 1 },
+      { transform: `translateY(${window.innerHeight}px) translateX(${length}px) rotate(20deg)`, opacity: 0 }
+    ],
+    { duration: duration * 1000, easing: "linear" }
+  );
+
+  setTimeout(() => meteor.remove(), duration * 1000);
+}
+setInterval(createMeteor, 3000);
+for (let i = 0; i < 5; i++) setTimeout(createMeteor, i * 1000);
+
+// -------------------- DYNAMIC SHLOKA --------------------
+const shloka = "कृष्णाय वासुदेवाय हरये परमात्मने प्राणतः कालेशनद्विन्दय नमो नमः";
+const shlokaText = document.getElementById("shloka-text");
+
+if (shlokaText) {
+  let index = 0;
+  function typeShloka() {
+    if (index <= shloka.length) {
+      shlokaText.textContent = shloka.slice(0, index) + (index % 2 === 0 ? "|" : "");
+      shlokaText.style.opacity = 1;
+      index++;
+      setTimeout(typeShloka, 120);
+    } else {
+      setTimeout(() => {
+        index = 0;
+        typeShloka();
+      }, 3000); // loop after pause
+    }
+  }
+  typeShloka();
+}
+
