@@ -228,6 +228,28 @@ document.addEventListener("DOMContentLoaded", () => {
   for (let i = 0; i < 4; i++) setTimeout(createMeteor, i * 800);
   setInterval(createMeteor, 3000);
 
+  // -------------------- DYNAMIC SHLOKA (SAFE UTF-8) --------------------
+const shlokaText = document.getElementById("shloka-text");
+
+if (shlokaText) {
+  const shloka =
+    "ॐ कृष्णाय वासुदेवाय हरये परमात्मने। प्रणतः क्लेशनाशाय गोविंदाय नमो नमः॥";
+
+  let i = 0;
+
+  function typeShloka() {
+    if (i <= shloka.length) {
+      shlokaText.textContent = shloka.slice(0, i);
+      i++;
+      setTimeout(typeShloka, 90);
+    }
+  }
+
+  // Start after hero typing finishes
+  setTimeout(typeShloka, 1800);
+}
+
+
   /* ================= SHLOKA TYPING ================= */
   const shlokaEl = document.getElementById("shloka-text");
   if (!shlokaEl) return;
