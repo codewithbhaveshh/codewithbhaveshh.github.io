@@ -191,25 +191,68 @@ function createMeteor() {
 setInterval(createMeteor, 3000);
 for (let i = 0; i < 5; i++) setTimeout(createMeteor, i * 1000);
 
-// -------------------- DYNAMIC SHLOKA --------------------
-const shloka = "कृष्णाय वासुदेवाय हरये परमात्मने प्राणतः कालेशनद्विन्दय नमो नमः";
-const shlokaText = document.getElementById("shloka-text");
+document.addEventListener("DOMContentLoaded", () => {
 
-if (shlokaText) {
+  /* ================= SHOOTING STARS ================= */
+  function createMeteor() {
+    const meteor = document.createElement("div");
+    meteor.className = "meteor";
+
+    const startX = Math.random() * window.innerWidth;
+    const startY = Math.random() * window.innerHeight * 0.4;
+    const length = Math.random() * 120 + 80;
+    const duration = Math.random() * 1200 + 1200;
+
+    meteor.style.left = startX + "px";
+    meteor.style.top = startY + "px";
+    meteor.style.height = length + "px";
+
+    document.body.appendChild(meteor);
+
+    let start = null;
+    function animate(t) {
+      if (!start) start = t;
+      const p = (t - start) / duration;
+
+      meteor.style.transform =
+        `translate(${p * length}px, ${p * window.innerHeight}px) rotate(30deg)`;
+      meteor.style.opacity = String(1 - p);
+
+      if (p < 1) requestAnimationFrame(animate);
+      else meteor.remove();
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  for (let i = 0; i < 4; i++) setTimeout(createMeteor, i * 800);
+  setInterval(createMeteor, 3000);
+
+  /* ================= SHLOKA TYPING ================= */
+  const shlokaEl = document.getElementById("shloka-text");
+  if (!shlokaEl) return;
+
+  const shloka =
+    "ॐ कृष्णाय वासुदेवाय हरये परमात्मने। प्रणतः क्लेशनाशाय गोविंदाय नमो नमः॥";
+
   let index = 0;
+
   function typeShloka() {
+    shlokaEl.textContent =
+      shloka.slice(0, index) + (index % 2 === 0 ? "▌" : "");
+    index++;
+
     if (index <= shloka.length) {
-      shlokaText.textContent = shloka.slice(0, index) + (index % 2 === 0 ? "|" : "");
-      shlokaText.style.opacity = 1;
-      index++;
-      setTimeout(typeShloka, 120);
+      setTimeout(typeShloka, 110);
     } else {
       setTimeout(() => {
         index = 0;
         typeShloka();
-      }, 3000); // loop after pause
+      }, 3500);
     }
   }
+
   typeShloka();
-}
+});
+
 
