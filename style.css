@@ -332,3 +332,70 @@ section.show {
     transform: translateY(0);
   }
 }
+
+/* ================= ABOUT (MINIMAL, OM-STYLE) ================= */
+
+.about {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-container {
+  max-width: 720px;
+  padding: 42px 36px;
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 0 30px rgba(56, 189, 248, 0.12);
+}
+
+.about-title {
+  font-size: 2rem;
+  margin-bottom: 28px;
+  color: #7dd3fc;
+}
+
+.about-line {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: #cbd5f5;
+  margin-bottom: 18px;
+}
+
+.about-quote {
+  margin-top: 28px;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #fde68a;
+
+  text-shadow:
+    0 0 14px rgba(255, 200, 80, 0.35);
+}
+
+.about-divider {
+  height: 1px;
+  width: 100%;
+  margin: 34px 0;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(56, 189, 248, 0.6),
+    transparent
+  );
+}
+
+.about-foot {
+  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
