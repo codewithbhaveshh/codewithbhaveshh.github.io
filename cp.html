@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bhavesh | Competitive Programming</title>
-
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- EFFECT LAYERS -->
+  <!-- EFFECTS -->
   <canvas id="bg-particles"></canvas>
   <div class="cursor-glow"></div>
   <div class="float-orb"></div>
@@ -25,96 +23,54 @@
   </nav>
 
   <!-- MUSIC -->
-  <audio id="bgm" loop>
+  <audio id="bgm" loop preload="auto">
     <source src="stars.mp3" type="audio/mpeg">
   </audio>
-  <button id="musicBtn" class="music-btn">▶ music</button>
+  <div id="musicBtn" class="music-btn">▶ music</div>
 
   <!-- HEADER -->
   <section class="show">
-   <h1 class="glow">
-  <span id="typed"></span>
-</h1>
+    <h1 class="glow">
+      <span id="typed"></span>
+    </h1>
 
     <p style="opacity:.7; margin-top:12px;">
       First-year student grinding contests & building strong logic.
     </p>
   </section>
 
- <!-- PLATFORMS -->
-<section>
-  <h2>Platforms</h2>
-  <div style="display:flex; gap:30px; flex-wrap:wrap; justify-content:center; margin-top:40px;">
-    <!-- CODEFORCES -->
-    <div class="card glass clickable">
-      <span class="rating-text">381</span>
-      <h3>Codeforces</h3>
-      <p>bhaveshcodes69</p>
-      <a href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">
-        <img src="codeforces.webp" alt="Codeforces Logo" class="stats">
-      </a>
-      <p style="opacity:.7;">Newbie → Pupil grind</p>
-    </div>
-    <!-- CODECHEF -->
-    <div class="card glass clickable">
-      <span class="rating-text">1★</span>
-      <h3>CodeChef</h3>
-      <p>bhaveshhpandey</p>
-      <a href="https://www.codechef.com/users/bhaveshhpandey" target="_blank">
-        <img src="codechef.jpg" alt="CodeChef Logo" class="stats">
-      </a>
-      <p style="opacity:.7;">Starters & Longs</p>
-    </div>
-    <!-- LEETCODE (add your handle if you have one!) -->
-    <div class="card glass clickable">
-      <h3>LeetCode</h3>
-      <p>DSA & Interview Prep</p>
-      <a href="https://leetcode.com/your-handle-here/" target="_blank"> <!-- Update with your real handle -->
-        <img src="leetcode.png" alt="LeetCode Logo" class="stats">
-      </a>
-      <p style="opacity:.7;">Consistency &gt; Count</p>
-    </div>
-  </div>
-</section>
-  <!-- CONTESTS -->
+  <!-- PLATFORMS -->
   <section>
-    <h2>Recent Contests</h2>
-
-    <div class="card glass" style="width:620px; max-width:95%; margin-top:30px;">
-      <table style="width:100%; border-collapse:collapse;">
-        <tr style="opacity:.7;">
-          <th align="left">Contest</th>
-          <th>Platform</th>
-          <th>Rank</th>
-          <th>Date</th>
-        </tr>
-        <tr>
-          <td>CF Round 1070 (Div-2)</td>
-          <td align="center">Codeforces</td>
-          <td align="center">14k+</td>
-          <td align="center">Dec 2025</td>
-        </tr>
-        <tr>
-          <td>Starters</td>
-          <td align="center">CodeChef</td>
-          <td align="center">—</td>
-          <td align="center">Ongoing</td>
-        </tr>
-      </table>
+    <h2>Platforms</h2>
+    <div style="display:flex; gap:30px; flex-wrap:wrap; justify-content:center; margin-top:40px;">
+      <div class="card glass clickable">
+        <span class="rating-text">381</span>
+        <h3>Codeforces</h3>
+        <p>bhaveshcodes69</p>
+        <a href="https://codeforces.com/profile/bhaveshcodes69" target="_blank">
+          <img src="codeforces.webp" alt="Codeforces Logo" class="stats">
+        </a>
+        <p style="opacity:.7;">Newbie → Pupil grind</p>
+      </div>
+      <div class="card glass clickable">
+        <span class="rating-text">1★</span>
+        <h3>CodeChef</h3>
+        <p>bhaveshhpandey</p>
+        <a href="https://www.codechef.com/users/bhaveshhpandey" target="_blank">
+          <img src="codechef.jpg" alt="CodeChef Logo" class="stats">
+        </a>
+        <p style="opacity:.7;">Starters & Longs</p>
+      </div>
+      <div class="card glass clickable">
+        <h3>LeetCode</h3>
+        <p>DSA & Interview Prep</p>
+        <a href="https://leetcode.com/your-handle-here/" target="_blank">
+          <img src="leetcode.png" alt="LeetCode Logo" class="stats">
+        </a>
+        <p style="opacity:.7;">Consistency &gt; Count</p>
+      </div>
     </div>
   </section>
-
-  <!-- TOPICS -->
-<section>
-  <h2>Favorite Topics</h2>
-  <div id="topics-list" style="margin-top:40px; max-width:600px;"></div>
-
-  <p style="margin-top:40px; opacity:.8;">
-    Brute force is the last option.
-  </p>
-  <div id="shloka-container" style="margin-top:36px; font-size:1.5rem; font-weight:bold; color:#ff9900; text-shadow:0 0 20px #ff9900; opacity:0; transition:opacity 1.5s ease;"></div>
-  <p id="shloka-meaning" style="opacity:0; transition:opacity 2s ease .5s;"></p>
-</section>
 
   <script src="script.js"></script>
 </body>
