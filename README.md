@@ -23,7 +23,7 @@ Visit the live version here: [https://iam-bhavesh.github.io/](https://iam-bhaves
 - GitHub Pages for hosting
 
 ## 📖 About This Project
-This is a simple, responsive personal portfolio built from scratch to highlight my journey as a developer. It includes sections for my skills, projects, and contact info.
+This is a straightforward, responsive personal portfolio that I created from the ground up to showcase my development career. It has sections for my projects, abilities, and contact details.
 
 Feel free to fork or star if you like it! Suggestions are welcome via issues.
 
