@@ -160,74 +160,8 @@ if(shlokaContainer && shlokaMeaning){
     shlokaMeaning.style.opacity="0.7";
   },800+topics.length*200);
 }
-// -------------------- SHOOTING STARS --------------------
-function createMeteor() {
-  const meteor = document.createElement("div");
-  meteor.className = "meteor";
 
-  const startX = Math.random() * window.innerWidth;
-  const startY = Math.random() * window.innerHeight * 0.5;
-  const length = Math.random() * 150 + 100;
-  const duration = Math.random() * 2 + 1;
-
-  meteor.style.left = startX + "px";
-  meteor.style.top = startY + "px";
-  meteor.style.height = length + "px";
-  meteor.style.opacity = "1";
-  meteor.style.transform = `rotate(${Math.random() * 45 + 20}deg)`;
-
-  document.body.appendChild(meteor);
-
-  meteor.animate(
-    [
-      { transform: `translateY(0) translateX(0) rotate(20deg)`, opacity: 1 },
-      { transform: `translateY(${window.innerHeight}px) translateX(${length}px) rotate(20deg)`, opacity: 0 }
-    ],
-    { duration: duration * 1000, easing: "linear" }
-  );
-
-  setTimeout(() => meteor.remove(), duration * 1000);
-}
-setInterval(createMeteor, 3000);
-for (let i = 0; i < 5; i++) setTimeout(createMeteor, i * 1000);
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  /* ================= SHOOTING STARS ================= */
-  function createMeteor() {
-    const meteor = document.createElement("div");
-    meteor.className = "meteor";
-
-    const startX = Math.random() * window.innerWidth;
-    const startY = Math.random() * window.innerHeight * 0.4;
-    const length = Math.random() * 120 + 80;
-    const duration = Math.random() * 1200 + 1200;
-
-    meteor.style.left = startX + "px";
-    meteor.style.top = startY + "px";
-    meteor.style.height = length + "px";
-
-    document.body.appendChild(meteor);
-
-    let start = null;
-    function animate(t) {
-      if (!start) start = t;
-      const p = (t - start) / duration;
-
-      meteor.style.transform =
-        `translate(${p * length}px, ${p * window.innerHeight}px) rotate(30deg)`;
-      meteor.style.opacity = String(1 - p);
-
-      if (p < 1) requestAnimationFrame(animate);
-      else meteor.remove();
-    }
-
-    requestAnimationFrame(animate);
-  }
-
-  for (let i = 0; i < 4; i++) setTimeout(createMeteor, i * 800);
-  setInterval(createMeteor, 3000);
-
+ 
   // -------------------- DYNAMIC SHLOKA (SAFE UTF-8) --------------------
 const shlokaText = document.getElementById("shloka-text");
 
@@ -248,6 +182,17 @@ if (shlokaText) {
   // Start after hero typing finishes
   setTimeout(typeShloka, 1800);
 }
+async function loadCF() {
+  try {
+    const res = await fetch("https://codeforces.com/api/user.info?handles=bhaveshcodes69");
+    const data = await res.json();
+    document.getElementById("cf-rating").textContent =
+      data.result[0].rating || "Unrated";
+  } catch {
+    document.getElementById("cf-rating").textContent = "Error";
+  }
+}
+loadCF();
 
 
   /* ================= SHLOKA TYPING ================= */
