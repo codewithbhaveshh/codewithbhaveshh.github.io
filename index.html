@@ -1,30 +1,56 @@
-<!DOCTYPE html>
+index <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bhavesh Portfolio</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bhavesh Pandey</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<div id="sunflower-bg"></div>
+  <!-- FLOATING GLOW -->
+  <div class="float-orb"></div>
 
-<header class="navbar glass">
-  <h2 class="logo">Bhavesh</h2>
-  <nav>
-    <a href="index.html" class="active">Home</a>
-    <a href="about.html">About</a>
-    <a href="cp.html">CP</a>
+  <!-- MUSIC -->
+  <audio id="bgm" loop preload="auto">
+    <source src="stars.mp3" type="audio/mpeg" />
+  </audio>
+  <div id="musicBtn" class="music-btn">▶ music</div>
+
+  <!-- EFFECT LAYERS -->
+  <canvas id="bg-particles"></canvas>
+  <div class="cursor-glow"></div>
+  <div id="page-transition"></div>
+
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <a href="index.html">home</a>
+    <a href="about.html">about</a>
+    <a href="skills.html">skills</a>
+    <a href="cp.html">competitive</a>
   </nav>
-</header>
 
-<section class="hero">
-  <h1>Hey, I'm <span class="highlight">Bhavesh</span></h1>
-  <p>Competitive Programmer & Developer</p>
-</section>
+  <!-- HERO -->
+  <section class="hero cinematic show">
+    <div class="spotlight"></div>
 
-<script src="script.js"></script>
+    <!-- FIX 1: alt attribute (HTML validity) -->
+    <img src="profile.jpeg" class="hero-img" alt="Bhavesh Pandey" />
+
+    <h1 class="hero-name glow">Bhavesh Pandey</h1>
+
+    <div class="terminal-line">
+      <span class="prompt">&gt;</span>
+      <span id="typed"></span>
+    </div>
+
+    <!-- SHLOKA -->
+    <div class="shloka" id="shloka-text"></div>
+  </section>
+
+  <!-- FIX 2: script ALWAYS at end -->
+  <script src="script.js"></script>
+
 </body>
 </html>
