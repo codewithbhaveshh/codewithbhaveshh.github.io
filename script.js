@@ -1,4 +1,4 @@
-script js // CURSOR GLOW
+/* ================= CURSOR ================= */
 const glow = document.querySelector(".cursor-glow");
 if (glow) {
   window.addEventListener("mousemove", e => {
@@ -7,284 +7,143 @@ if (glow) {
   });
 }
 
-// SECTION REVEAL
+/* ================= SECTION REVEAL ================= */
 const obs = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add("show");
-  });
-}, { threshold: 0.2 });
-document.querySelectorAll("section").forEach(sec => obs.observe(sec));
+  entries.forEach(e => e.isIntersecting && e.target.classList.add("show"));
+}, { threshold: .2 });
 
-// PARTICLES
+document.querySelectorAll("section").forEach(s => obs.observe(s));
+
+/* ================= PARTICLES ================= */
 const bg = document.getElementById("bg-particles");
 if (bg) {
   const ctx = bg.getContext("2d");
-  function resize() { bg.width = innerWidth; bg.height = innerHeight; }
-  resize(); window.addEventListener("resize", resize);
+  function resize(){ bg.width=innerWidth; bg.height=innerHeight; }
+  resize(); addEventListener("resize",resize);
+
   const dots = Array.from({length:90},()=>({
     x:Math.random()*bg.width,
     y:Math.random()*bg.height,
     r:Math.random()*2+1,
-    dx:(Math.random()-0.5)*0.4,
-    dy:(Math.random()-0.5)*0.4
+    dx:(Math.random()-.5)*.4,
+    dy:(Math.random()-.5)*.4
   }));
-  function animate() {
+
+  function animate(){
     ctx.clearRect(0,0,bg.width,bg.height);
-    ctx.fillStyle = "rgba(56,189,248,.55)";
-    dots.forEach(dot=>{
-      dot.x+=dot.dx; dot.y+=dot.dy;
-      if(dot.x<0||dot.x>bg.width) dot.dx*=-1;
-      if(dot.y<0||dot.y>bg.height) dot.dy*=-1;
-      ctx.beginPath(); ctx.arc(dot.x,dot.y,dot.r,0,2*Math.PI); ctx.fill();
+    ctx.fillStyle="rgba(56,189,248,.55)";
+    dots.forEach(d=>{
+      d.x+=d.dx; d.y+=d.dy;
+      if(d.x<0||d.x>bg.width) d.dx*=-1;
+      if(d.y<0||d.y>bg.height) d.dy*=-1;
+      ctx.beginPath();
+      ctx.arc(d.x,d.y,d.r,0,2*Math.PI);
+      ctx.fill();
     });
     requestAnimationFrame(animate);
   }
   animate();
 }
 
-// WORD STAGGER
-document.querySelectorAll(".dyn-sub").forEach(block=>{
-  block.querySelectorAll(".word").forEach((word,i)=>{
-    word.style.animationDelay = `${i*0.12}s`;
-  });
-});
-
-// GLASS EFFECT FOLLOW
-document.querySelectorAll(".glass").forEach(card=>{
-  card.addEventListener("mousemove",e=>{
-    const rect = card.getBoundingClientRect();
-    card.style.setProperty("--x",`${e.clientX-rect.left}px`);
-    card.style.setProperty("--y",`${e.clientY-rect.top}px`);
-  });
-  card.addEventListener("mouseleave",()=>{
-    card.style.setProperty("--x","50%");
-    card.style.setProperty("--y","50%");
-  });
-});
-
-// RIPPLE CLICK
-document.querySelectorAll(".clickable").forEach(card=>{
-  card.addEventListener("click", e=>{
-    const ripple = document.createElement("span");
-    ripple.className = "ripple";
-    const rect = card.getBoundingClientRect();
-    ripple.style.left = `${e.clientX-rect.left}px`;
-    ripple.style.top = `${e.clientY-rect.top}px`;
-    card.appendChild(ripple);
-    setTimeout(()=>ripple.remove(),600);
-  });
-});
-
-// HERO TYPING
+/* ================= HERO TYPING ================= */
 const typed = document.getElementById("typed");
-if(typed){
-  const lines=[
+if (typed){
+  const lines = [
     "Competitive Programmer",
-    "C++ | Data Structures & Algorithms",
+    "C++ | DSA",
     "Learning AI / ML",
     "Building strong fundamentals"
   ];
-  let li=0,ci=0,del=false;
+  let i=0,j=0,del=false;
+
   function type(){
-    const current = lines[li];
-    typed.textContent = current.slice(0,ci);
-    if(!del){ ci++; if(ci>current.length){ del=true; setTimeout(type,1500); return;} }
-    else { ci--; if(ci===0){ del=false; li=(li+1)%lines.length;} }
-    setTimeout(type, del?45:85);
+    typed.textContent = lines[i].slice(0,j);
+
+    if(!del){
+      if(j++ === lines[i].length){ del=true; return setTimeout(type,1200);}
+    } else {
+      if(--j===0){ del=false; i=(i+1)%lines.length;}
+    }
+    setTimeout(type, del?40:80);
   }
   type();
 }
 
-// MUSIC
-const bgm = document.getElementById("bgm");
-const musicBtn = document.getElementById("musicBtn");
+/* ================= MUSIC ================= */
+const bgm=document.getElementById("bgm");
+const musicBtn=document.getElementById("musicBtn");
 if(bgm && musicBtn){
-  let isPlaying=false;
-  function updateBtn(){
-    if(bgm.paused){ musicBtn.textContent="▶ music"; musicBtn.style.opacity="0.6"; }
-    else { musicBtn.textContent="⏸ music"; musicBtn.style.opacity="1"; }
-    isPlaying = !bgm.paused;
-  }
-  musicBtn.addEventListener("click", ()=>{
-    if(bgm.paused) bgm.play().catch(()=>{});
-    else bgm.pause();
-    updateBtn();
-  });
-  document.addEventListener("visibilitychange", ()=>{
-    if(!document.hidden && isPlaying && bgm.paused) bgm.play().catch(()=>{});
-    updateBtn();
-  });
-  document.body.addEventListener("click", ()=>{
-    if(bgm.paused && !isPlaying) bgm.play().then(()=>{ isPlaying=true; updateBtn(); }).catch(()=>{});
-  },{once:true});
-  updateBtn();
+  function update(){ musicBtn.textContent = bgm.paused?"▶ music":"⏸ music"; }
+  musicBtn.onclick=()=>{ bgm.paused?bgm.play():bgm.pause(); update(); };
+  update();
 }
 
-// PAGE TRANSITION
-const transition = document.getElementById("page-transition");
+/* ================= PAGE TRANSITION ================= */
+const transition=document.getElementById("page-transition");
 if(transition){
-  document.querySelectorAll("a").forEach(link=>{
-    if(link.target==="_blank") return;
-    link.addEventListener("click",e=>{
+  document.querySelectorAll("a").forEach(a=>{
+    if(a.target==="_blank") return;
+    a.addEventListener("click",e=>{
       e.preventDefault();
       transition.classList.add("active");
-      setTimeout(()=>location.href=link.href,400);
+      setTimeout(()=>location.href=a.href,400);
     });
   });
-  window.addEventListener("pageshow",()=>transition.classList.remove("active"));
+  addEventListener("pageshow",()=>transition.classList.remove("active"));
 }
 
-// FAVORITE TOPICS
-const topics = ["Data Structures","Graphs & Trees","Dynamic Programming","Greedy & Binary Search","Number Theory"];
-const topicsList = document.getElementById("topics-list");
+/* ================= FAVORITE TOPICS ================= */
+const topicsList=document.getElementById("topics-list");
 if(topicsList){
-  topics.forEach((t,i)=>{
-    const div=document.createElement("div");
-    div.textContent=t;
-    div.style.opacity="0"; div.style.transform="translateY(20px)";
-    div.style.transition="opacity .8s ease, transform .8s ease";
-    div.style.margin="12px 0"; div.style.fontSize="1.2rem"; div.style.textShadow="0 0 10px var(--blue)";
-    topicsList.appendChild(div);
-    setTimeout(()=>{div.style.opacity="1"; div.style.transform="translateY(0)";}, 300+i*200);
+  ["Data Structures","Graphs","DP","Greedy","Number Theory"]
+  .forEach((t,i)=>{
+    const d=document.createElement("div");
+    d.textContent=t;
+    d.style.transition=".8s"; d.style.opacity="0"; d.style.transform="translateY(20px)";
+    topicsList.appendChild(d);
+    setTimeout(()=>{d.style.opacity="1"; d.style.transform="translateY(0)"},300+i*200);
   });
 }
 
-// SHLOKA
-const shlokaContainer = document.getElementById("shloka-container");
-const shlokaMeaning = document.getElementById("shloka-meaning");
-if(shlokaContainer && shlokaMeaning){
+/* ================= SHOOTING STAR ================= */
+function meteor(){
+  const m=document.createElement("div");
+  m.className="meteor";
+  const len=Math.random()*120+80;
+  m.style.left=Math.random()*innerWidth+"px";
+  m.style.top=Math.random()*innerHeight*.4+"px";
+  m.style.height=len+"px";
+  document.body.appendChild(m);
+
+  m.animate([
+    {transform:"translate(0,0) rotate(30deg)",opacity:1},
+    {transform:`translate(${len}px,${innerHeight}px) rotate(30deg)`,opacity:0}
+  ],{duration:1600,easing:"linear"});
+
+  setTimeout(()=>m.remove(),1600);
+}
+setInterval(meteor,3000);
+for(let i=0;i<4;i++) setTimeout(meteor,i*800);
+
+/* ================= SHLOKA ================= */
+const sh=document.getElementById("shloka-text");
+if(sh){
+  const s="If you're nothing without the suit, then you shouldn't have it";
+  let k=0;
+  function type(){
+    sh.textContent=s.slice(0,k);
+    if(k++<=s.length) setTimeout(type,90);
+  }
+  setTimeout(type,1800);
+}
+
+const sc=document.getElementById("shloka-container");
+const sm=document.getElementById("shloka-meaning");
+if(sc && sm){
   setTimeout(()=>{
-    shlokaContainer.textContent="साम दानं भेदः दण्डः";
-    shlokaContainer.style.opacity="1";
-    shlokaMeaning.textContent="Persuasion → Compromise → Division → Force";
-    shlokaMeaning.style.opacity="0.7";
-  },800+topics.length*200);
+    sc.textContent="साम दानं भेदः दण्डः";
+    sc.style.opacity="1";
+    sm.textContent="Persuasion → Compromise → Division → Force";
+    sm.style.opacity=".8";
+  },800);
 }
-// -------------------- SHOOTING STARS --------------------
-function createMeteor() {
-  const meteor = document.createElement("div");
-  meteor.className = "meteor";
-
-  const startX = Math.random() * window.innerWidth;
-  const startY = Math.random() * window.innerHeight * 0.5;
-  const length = Math.random() * 150 + 100;
-  const duration = Math.random() * 2 + 1;
-
-  meteor.style.left = startX + "px";
-  meteor.style.top = startY + "px";
-  meteor.style.height = length + "px";
-  meteor.style.opacity = "1";
-  meteor.style.transform = `rotate(${Math.random() * 45 + 20}deg)`;
-
-  document.body.appendChild(meteor);
-
-  meteor.animate(
-    [
-      { transform: `translateY(0) translateX(0) rotate(20deg)`, opacity: 1 },
-      { transform: `translateY(${window.innerHeight}px) translateX(${length}px) rotate(20deg)`, opacity: 0 }
-    ],
-    { duration: duration * 1000, easing: "linear" }
-  );
-
-  setTimeout(() => meteor.remove(), duration * 1000);
-}
-setInterval(createMeteor, 3000);
-for (let i = 0; i < 5; i++) setTimeout(createMeteor, i * 1000);
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  /* ================= SHOOTING STARS ================= */
-  function createMeteor() {
-    const meteor = document.createElement("div");
-    meteor.className = "meteor";
-
-    const startX = Math.random() * window.innerWidth;
-    const startY = Math.random() * window.innerHeight * 0.4;
-    const length = Math.random() * 120 + 80;
-    const duration = Math.random() * 1200 + 1200;
-
-    meteor.style.left = startX + "px";
-    meteor.style.top = startY + "px";
-    meteor.style.height = length + "px";
-
-    document.body.appendChild(meteor);
-
-    let start = null;
-    function animate(t) {
-      if (!start) start = t;
-      const p = (t - start) / duration;
-
-      meteor.style.transform =
-        `translate(${p * length}px, ${p * window.innerHeight}px) rotate(30deg)`;
-      meteor.style.opacity = String(1 - p);
-
-      if (p < 1) requestAnimationFrame(animate);
-      else meteor.remove();
-    }
-
-    requestAnimationFrame(animate);
-  }
-
-  for (let i = 0; i < 4; i++) setTimeout(createMeteor, i * 800);
-  setInterval(createMeteor, 3000);
-
-  // -------------------- DYNAMIC SHLOKA (SAFE UTF-8) --------------------
-const shlokaText = document.getElementById("shloka-text");
-
-if (shlokaText) {
-  const shloka =
-    "𝖨𝖿 𝗒𝗈𝗎'𝗋𝖾 𝗇𝗈𝗍𝗁𝗂𝗇𝗀 𝗐𝗂𝗍𝗁𝗈𝗎𝗍 𝗍𝗁𝖾 𝗌𝗎𝗂𝗍, 𝗍𝗁𝖾𝗇 𝗒𝗈𝗎 𝗌𝗁𝗈𝗎𝗅𝖽𝗇'𝗍 𝗁𝖺𝗏𝖾 𝗂𝗍";
-
-  let i = 0;
-
-  function typeShloka() {
-    if (i <= shloka.length) {
-      shlokaText.textContent = shloka.slice(0, i);
-      i++;
-      setTimeout(typeShloka, 90);
-    }
-  }
-
-  // Start after hero typing finishes
-  setTimeout(typeShloka, 1800);
-}
-  async function loadCF() {
-  try {
-    const res = await fetch("https://codeforces.com/api/user.info?handles=bhaveshcodes69");
-    const data = await res.json();
-    document.getElementById("cf-rating").textContent =
-      data.result[0].rating || "Unrated";
-  } catch {
-    document.getElementById("cf-rating").textContent = "Error";
-  }
-}
-if (document.getElementById("cf-rating")) loadCF();
-
-
-
-  /* ================= SHLOKA TYPING ================= */
-  const shlokaEl = document.getElementById("shloka-text");
-  if (!shlokaEl) return;
-
-  const shloka =
-    "𝖨𝖿 𝗒𝗈𝗎'𝗋𝖾 𝗇𝗈𝗍𝗁𝗂𝗇𝗀 𝗐𝗂𝗍𝗁𝗈𝗎𝗍 𝗍𝗁𝖾 𝗌𝗎𝗂𝗍, 𝗍𝗁𝖾𝗇 𝗒𝗈𝗎 𝗌𝗁𝗈𝗎𝗅𝖽𝗇'𝗍 𝗁𝖺𝗏𝖾 𝗂𝗍";
-
-  let index = 0;
-
-  function typeShloka() {
-    shlokaEl.textContent =
-      shloka.slice(0, index) + (index % 2 === 0 ? "▌" : "");
-    index++;
-
-    if (index <= shloka.length) {
-      setTimeout(typeShloka, 110);
-    } else {
-      setTimeout(() => {
-        index = 0;
-        typeShloka();
-      }, 3500);
-    }
-  }
-
-  typeShloka();
-});
