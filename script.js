@@ -233,7 +233,7 @@ const shlokaText = document.getElementById("shloka-text");
 
 if (shlokaText) {
   const shloka =
-    "ॐ कृष्णाय वासुदेवाय हरये परमात्मने। प्रणतः क्लेशनाशाय गोविंदाय नमो नमः॥";
+    "𝘐𝘧 𝘺𝘰𝘶’𝘳𝘦 𝘯𝘰𝘵𝘩𝘪𝘯𝘨 𝘸𝘪𝘵𝘩𝘰𝘶𝘵 𝘵𝘩𝘦 𝘴𝘶𝘪𝘵, 𝘵𝘩𝘦𝘯 𝘺𝘰𝘶 𝘴𝘩𝘰𝘶𝘭𝘥𝘯’𝘵 𝘩𝘢𝘷𝘦 it";
 
   let i = 0;
 
@@ -255,7 +255,7 @@ if (shlokaText) {
   if (!shlokaEl) return;
 
   const shloka =
-    "𝘐𝘧 𝘺𝘰𝘶’𝘳𝘦 𝘯𝘰𝘵𝘩𝘪𝘯𝘨 𝘸𝘪𝘵𝘩𝘰𝘶𝘵 𝘵𝘩𝘦 𝘴𝘶𝘪𝘵, 𝘵𝘩𝘦𝘯 𝘺𝘰𝘶 𝘴𝘩𝘰𝘶𝘭𝘥𝘯’𝘵 𝘩𝘢𝘷𝘦 𝘪𝘵";
+    "𝘐𝘧 𝘺𝘰𝘶’𝘳𝘦 𝘯𝘰𝘵𝘩𝘪𝘯𝘨 𝘸𝘪𝘵𝘩𝘰𝘶𝘵 𝘵𝘩𝘦 𝘴𝘶𝘪𝘵, 𝘵𝘩𝘦𝘯 𝘺𝘰𝘶 𝘴𝘩𝘰𝘶𝘭𝘥𝘯’𝘵 𝘩𝘢𝘷𝘦 it";
 
   let index = 0;
 
