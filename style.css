@@ -485,6 +485,22 @@ section.show {
   margin-bottom: 6px;
   color: #e5e7eb;
 }
+#sunflower-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -5;
+  background: repeating-radial-gradient(circle at 20% 30%, #fbbf24, transparent 120px),
+              repeating-radial-gradient(circle at 80% 60%, #f59e0b, transparent 140px),
+              radial-gradient(circle, #fde68a 10%, #fbbf24 35%, #78350f 70%);
+  animation: moveBg 12s infinite alternate ease-in-out;
+  filter: blur(12px);
+}
+
+@keyframes moveBg {
+  from { transform: scale(1); }
+  to { transform: scale(1.2); }
+}
+
 
 /* subtle hover — not flashy */
 .skill-card:hover {
