@@ -3,45 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bhavesh Pandey</title>
+  <title>CodeWithBhavesh | Home</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 
 <body>
+<header>
+  <h1>Code With Bhavesh</h1>
 
-  <div class="float-orb"></div>
-
-  <audio id="bgm" loop preload="auto">
-    <source src="stars.mp3" type="audio/mpeg" />
-  </audio>
-  <div id="musicBtn" class="music-btn">▶ music</div>
-
-  <canvas id="bg-particles"></canvas>
-  <div class="cursor-glow"></div>
-  <div id="page-transition"></div>
-
-  <nav class="nav">
-    <a href="index.html">home</a>
-    <a href="about.html">about</a>
-    <a href="skills.html">skills</a>
-    <a href="cp.html">competitive</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="cp.html">Competitive Programming</a>
+    <a href="skills.html">Skills</a>
   </nav>
+</header>
 
-  <section class="hero cinematic show">
-    <div class="spotlight"></div>
+<main>
+  <h2>Welcome 👋</h2>
+  <p>This is my personal portfolio website 🚀</p>
 
-    <img src="profile.jpeg" class="hero-img" alt="Bhavesh Pandey" />
+  <button id="musicBtn">Play / Pause Music</button>
+</main>
 
-    <h1 class="hero-name glow">Bhavesh Pandey</h1>
+<audio id="bgMusic" src="stars.mp3"></audio>
 
-    <div class="terminal-line">
-      <span class="prompt">&gt;</span>
-      <span id="typed"></span>
-    </div>
-
-    <div class="shloka" id="shloka-text"></div>
-  </section>
-
-  <script src="script.js"></script>
 </body>
 </html>
