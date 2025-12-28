@@ -248,6 +248,18 @@ if (shlokaText) {
   // Start after hero typing finishes
   setTimeout(typeShloka, 1800);
 }
+  async function loadCF() {
+  try {
+    const res = await fetch("https://codeforces.com/api/user.info?handles=bhaveshcodes69");
+    const data = await res.json();
+    document.getElementById("cf-rating").textContent =
+      data.result[0].rating || "Unrated";
+  } catch {
+    document.getElementById("cf-rating").textContent = "Error";
+  }
+}
+if (document.getElementById("cf-rating")) loadCF();
+
 
 
   /* ================= SHLOKA TYPING ================= */
